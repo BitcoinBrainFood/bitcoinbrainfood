@@ -369,10 +369,15 @@
       overflow: hidden;
     }
 
-    .gift-image .gift-emoji {
-      font-size: 80px;
-      line-height: 1;
+    .gift-image img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 4px;
+      transition: transform 0.2s;
     }
+
+    .gift-card:hover .gift-image img { transform: scale(1.05); }
 
     .gift-category-badge {
       position: absolute;
@@ -658,63 +663,63 @@
         name: "\"Smells Like I Was Right About Bitcoin\" Candle",
         cat: "accessories",
         url: "https://www.amazon.com/Karply-Scented-Bitcoin-Cryptocurrency-Boyfriend/dp/B0F1B7TMRD/?tag=jalinn.v.-20",
-        emoji: "\uD83D\uDD6F\uFE0F",
+        img: "img/candle.jpg",
         desc: "A scented soy wax candle with a hilarious label for any Bitcoiner who loves to say \"I told you so.\" Approximately 50 hours of burn time."
       },
       {
         name: "Vintage Bitcoin Logo T-Shirt",
         cat: "wearables",
         url: "https://www.amazon.com/Vintage-Look-Bitcoin-Logo-T-Shirt/dp/B077V7C3PW/?tag=jalinn.v.-20",
-        emoji: "\uD83D\uDC55",
+        img: "img/tshirt.jpg",
         desc: "A classic-fit black cotton t-shirt featuring a vintage-style Bitcoin logo. Unisex design available in multiple sizes."
       },
       {
         name: "Bitcoin Embroidered Baseball Cap",
         cat: "wearables",
         url: "https://www.amazon.com/Tech-Design-Cryptocurrency-Embroidered-Adjustable/dp/B08X1L498T/?tag=jalinn.v.-20",
-        emoji: "\uD83E\uDDE2",
+        img: "img/cap.jpg",
         desc: "An embroidered cotton adjustable dad hat with the Bitcoin logo. One-size-fits-most with a comfortable adjustable back closure."
       },
       {
         name: "CryptoTicr Real-Time Bitcoin Price Display",
         cat: "accessories",
         url: "https://www.amazon.com/Real-Time-Crypto-Ticker-Price-Display/dp/B0D8CHFDDX/?tag=jalinn.v.-20",
-        emoji: "\uD83D\uDCCA",
+        img: "img/ticker.jpg",
         desc: "A compact Wi-Fi-enabled desk display showing real-time prices for the top 1,000 cryptos. No subscriptions required, with a two-year warranty."
       },
       {
         name: "Bitcoin Mining Garden Gnome",
         cat: "decor",
         url: "https://www.amazon.com/Natures-Mark-Bitcoin-Figurine-Decorative/dp/B09KWLNYJC/?tag=jalinn.v.-20",
-        emoji: "\u26CF\uFE0F",
+        img: "img/gnome.jpg",
         desc: "A hand-crafted and hand-painted 9.25\" poly-resin garden gnome depicted mining Bitcoin. Perfect for indoor or outdoor decor."
       },
       {
         name: "\"Thinking About Bitcoin\" Coffee Mug",
         cat: "accessories",
         url: "https://www.amazon.com/Q-PaddyShops-Thinking-Boyfriend-Cryptocurrency-MUG-NSYOXLMZAI-11oz/dp/B09G3J339T/?tag=jalinn.v.-20",
-        emoji: "\u2615",
+        img: "img/mug.jpg",
         desc: "An 11oz ceramic coffee mug printed on both sides with a \"Thinking About Bitcoin\" design. Microwave and dishwasher safe."
       },
       {
         name: "Bitcoin Astronaut Figurine Set (2 Pieces)",
         cat: "decor",
         url: "https://www.amazon.com/HumblePleb-Bitcoin-Astronaut-Figurine-Set/dp/B0FQ3P922L/?tag=jalinn.v.-20",
-        emoji: "\uD83D\uDE80",
+        img: "img/astronaut.jpg",
         desc: "A set of two 3D-printed crypto astronaut figurines with flexible posable legs and BTC face masks. Includes one small and one large piece."
       },
       {
         name: "Bitcoin Logo Crew Socks (2-Pack)",
         cat: "wearables",
         url: "https://www.amazon.com/Bitcoin-Socks-Cushioned-Compression-Perfect/dp/B0F3W2RKQN/?tag=jalinn.v.-20",
-        emoji: "\uD83E\uDDE6",
+        img: "img/socks.jpg",
         desc: "A 2-pack of cushioned crew socks featuring Bitcoin logo designs with arch compression. Available in cream and black."
       },
       {
         name: "Satoshi Nakamoto Handmade Sculpture",
         cat: "decor",
         url: "https://www.amazon.com/HumblePleb-Handmade-Satoshi-Nakamoto-Bitcoiners/dp/B0CNH4BMK1/?tag=jalinn.v.-20",
-        emoji: "\uD83C\uDFAD",
+        img: "img/satoshi.jpg",
         desc: "A handmade 4\" resin figurine with cold cast bronze finish depicting Satoshi Nakamoto. Features an engraved \"We are all Satoshi\" phrase."
       }
     ];
@@ -743,7 +748,7 @@
         card.innerHTML = `
           <div class="gift-image">
             <span class="gift-category-badge ${catInfo.badge}">${catInfo.label}</span>
-            <span class="gift-emoji">${g.emoji}</span>
+            <img src="${g.img}" alt="${g.name}" loading="lazy">
           </div>
           <div class="gift-info">
             <div class="gift-title">${g.name}</div>
