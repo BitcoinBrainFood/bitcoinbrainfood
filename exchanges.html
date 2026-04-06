@@ -146,43 +146,84 @@
     .chart-container iframe { width: 100% !important; height: 100% !important; }
     /* 768px media query merged into RESPONSIVE section below */
 
-    /* ===== HERO TABS ===== */
-    .hero-tabs {
+    /* ===== SIDEBAR NAV ===== */
+    .site-layout {
       display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 32px;
-      position: relative;
-      z-index: 1;
+      min-height: calc(100vh - 70px);
     }
 
-    .hero-tab {
-      padding: 10px 32px;
-      border-radius: 50px;
-      font-size: 15px;
-      font-weight: 700;
+    .sidebar {
+      width: 200px;
+      flex-shrink: 0;
+      background: var(--dark-card);
+      border-right: 1px solid var(--dark-border);
+      padding: 24px 0;
+      position: sticky;
+      top: 70px;
+      height: calc(100vh - 70px);
+      overflow-y: auto;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 0 12px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
       text-decoration: none;
       color: var(--text-muted);
-      border: 1px solid var(--dark-border);
-      background: var(--dark-card);
-      transition: all 0.2s;
+      transition: all 0.15s;
     }
 
-    .hero-tab:hover {
+    .sidebar-link:hover {
       color: var(--text);
-      border-color: #444;
+      background: rgba(255,255,255,0.04);
     }
 
-    .hero-tab.active {
-      background: var(--orange);
-      border-color: var(--orange);
-      color: #fff;
+    .sidebar-link.active {
+      color: var(--orange);
+      background: rgba(247, 147, 26, 0.1);
+    }
+
+    .sidebar-link svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .sidebar-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 20px 14px 8px;
+      opacity: 0.6;
+    }
+
+    .main-content {
+      flex: 1;
+      min-width: 0;
     }
 
     /* ===== HERO ===== */
     .hero {
       background: linear-gradient(180deg, #0D1117 0%, #111820 100%);
-      padding: 80px 24px 60px;
+      padding: 32px 24px 24px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -201,11 +242,11 @@
     }
 
     .hero h1 {
-      font-size: clamp(32px, 5vw, 52px);
+      font-size: clamp(24px, 3.5vw, 36px);
       font-weight: 900;
-      letter-spacing: -1.5px;
-      line-height: 1.1;
-      margin-bottom: 16px;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 10px;
     }
 
     .hero h1 span {
@@ -217,22 +258,22 @@
 
     .hero p {
       color: var(--text-muted);
-      font-size: 18px;
+      font-size: 15px;
       max-width: 600px;
-      margin: 0 auto 32px;
-      line-height: 1.7;
+      margin: 0 auto 20px;
+      line-height: 1.6;
     }
 
     .hero-stats {
       display: flex;
       justify-content: center;
-      gap: 48px;
+      gap: 40px;
       flex-wrap: wrap;
     }
 
     .hero-stat { text-align: center; }
-    .hero-stat .number { font-size: 32px; font-weight: 800; color: var(--orange); }
-    .hero-stat .label { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+    .hero-stat .number { font-size: 24px; font-weight: 800; color: var(--orange); }
+    .hero-stat .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 
     /* ===== CATEGORY TABS ===== */
     .category-bar {
@@ -249,9 +290,9 @@
     }
 
     .cat-tab {
-      padding: 10px 20px;
+      padding: 7px 14px;
       border-radius: 50px;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       border: 1px solid var(--dark-border);
@@ -277,7 +318,7 @@
       background: rgba(255,255,255,0.2);
       padding: 1px 8px;
       border-radius: 10px;
-      font-size: 12px;
+      font-size: 10px;
       margin-left: 6px;
     }
 
@@ -488,6 +529,12 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .mobile-nav {
+        display: flex !important;
+      }
       .bottom-section { grid-template-columns: 1fr; }
       .header-inner {
         flex-wrap: wrap;
@@ -499,20 +546,16 @@
         justify-content: space-between;
       }
       .header-tagline { display: none; }
-      .header-nav { gap: 4px; }
-      .nav-link { padding: 6px 12px; font-size: 13px; }
-      .hero { padding: 48px 16px 40px; }
-      .hero p { font-size: 16px; }
+      .hero { padding: 24px 16px 20px; }
+      .hero p { font-size: 14px; }
       .hero-stats { gap: 24px; }
-      .hero-stat .number { font-size: 26px; }
-      .hero-tabs { flex-wrap: wrap; justify-content: center; }
-      .hero-tab { padding: 8px 20px; font-size: 14px; }
+      .hero-stat .number { font-size: 22px; }
       .exchange-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 16px 16px 60px; }
       .filter-bar { padding: 16px 16px 8px; }
       .filter-bar h2 { font-size: 18px; }
       .category-bar { padding: 24px 16px 0; }
       .category-tabs { gap: 8px; }
-      .cat-tab { padding: 8px 14px; font-size: 13px; }
+      .cat-tab { padding: 6px 10px; font-size: 11px; }
       .search-box input { width: 100%; }
       .bottom-section { padding: 24px 16px 40px; }
       .chart-container { height: 300px; }
@@ -526,13 +569,11 @@
       .btc-ticker { padding: 5px 10px; font-size: 12px; }
       .social-icons a { width: 30px; height: 30px; }
       .social-icons a svg { width: 14px; height: 14px; }
-      .hero { padding: 32px 12px 32px; }
-      .hero h1 { font-size: 26px; letter-spacing: -1px; }
-      .hero p { font-size: 14px; margin-bottom: 24px; }
-      .hero-tabs { gap: 6px; }
-      .hero-tab { padding: 7px 16px; font-size: 13px; }
-      .hero-stat .number { font-size: 22px; }
-      .hero-stat .label { font-size: 11px; }
+      .hero { padding: 20px 12px 16px; }
+      .hero h1 { font-size: 22px; }
+      .hero p { font-size: 13px; margin-bottom: 16px; }
+      .hero-stat .number { font-size: 20px; }
+      .hero-stat .label { font-size: 10px; }
       .exchange-grid { grid-template-columns: 1fr; padding: 12px 12px 48px; }
       .filter-bar { padding: 12px 12px 8px; flex-direction: column; align-items: stretch; }
       .category-bar { padding: 16px 12px 0; }
@@ -540,6 +581,37 @@
       .news-panel, .chart-panel { padding: 16px; }
       .chart-container { height: 260px; }
       footer { padding: 24px 12px; }
+      .mobile-nav { gap: 4px; }
+      .mobile-nav a { padding: 6px 12px; font-size: 12px; }
+    }
+
+    /* Mobile nav (hidden on desktop) */
+    .mobile-nav {
+      display: none;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding: 12px 16px;
+      background: var(--dark-card);
+      border-bottom: 1px solid var(--dark-border);
+    }
+
+    .mobile-nav a {
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-muted);
+      border: 1px solid var(--dark-border);
+      background: var(--dark);
+      transition: all 0.2s;
+    }
+
+    .mobile-nav a.active {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
     }
   </style>
 </head>
@@ -567,15 +639,47 @@
     </div>
   </header>
 
+  <!-- MOBILE NAV (shown on small screens) -->
+  <nav class="mobile-nav">
+    <a href="index.html">Books</a>
+    <a href="wallets.html">Wallets</a>
+    <a href="exchanges.html" class="active">Exchanges</a>
+    <a href="podcasts.html">Podcasts</a>
+    <a href="gifts.html">Gifts</a>
+  </nav>
+
+  <div class="site-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-label">Navigate</div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Books
+      </a>
+      <a href="wallets.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12a2 2 0 100 4h4v-4h-4z"/></svg>
+        Wallets
+      </a>
+      <a href="exchanges.html" class="sidebar-link active">
+        <svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+        Exchanges
+      </a>
+      <a href="podcasts.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        Podcasts
+      </a>
+      <a href="gifts.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+        Gifts
+      </a>
+    </nav>
+  </aside>
+
+  <div class="main-content">
+
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-tabs">
-      <a href="index.html" class="hero-tab">Books</a>
-      <a href="wallets.html" class="hero-tab">Wallets</a>
-      <a href="exchanges.html" class="hero-tab active">Exchanges</a>
-      <a href="podcasts.html" class="hero-tab">Podcasts</a>
-      <a href="gifts.html" class="hero-tab">Gifts</a>
-    </div>
     <h1>The Best <span>Bitcoin Exchanges</span><br>And Services</h1>
     <p>Trusted platforms for buying, selling, and spending Bitcoin. From major exchanges to Bitcoin-native services &mdash; stack sats your way.</p>
     <div class="hero-stats">
@@ -672,12 +776,14 @@
     </div>
   </section>
 
+  </div><!-- /main-content -->
+  </div><!-- /site-layout -->
+
   <!-- FOOTER -->
   <footer>
     <p><span class="footer-brand">BitcoinBrainFood.com</span> &mdash; Your curated guide to the best Bitcoin exchanges and services. Always do your own research.</p>
     <div class="footer-socials">
       <a href="https://x.com/BTCBrainFood" target="_blank" rel="noopener" title="Follow us on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      <a href="#" target="_blank" rel="noopener" title="Follow us on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
     </div>
     <p class="affiliate-note">Some links may be affiliate links. Always do your own research before using any exchange or service.</p>
   </footer>

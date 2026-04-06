@@ -306,43 +306,84 @@
       height: 100% !important;
     }
 
-    /* ===== HERO TABS ===== */
-    .hero-tabs {
+    /* ===== SIDEBAR NAV ===== */
+    .site-layout {
       display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 32px;
-      position: relative;
-      z-index: 1;
+      min-height: calc(100vh - 70px);
     }
 
-    .hero-tab {
-      padding: 10px 32px;
-      border-radius: 50px;
-      font-size: 15px;
-      font-weight: 700;
+    .sidebar {
+      width: 200px;
+      flex-shrink: 0;
+      background: var(--dark-card);
+      border-right: 1px solid var(--dark-border);
+      padding: 24px 0;
+      position: sticky;
+      top: 70px;
+      height: calc(100vh - 70px);
+      overflow-y: auto;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 0 12px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
       text-decoration: none;
       color: var(--text-muted);
-      border: 1px solid var(--dark-border);
-      background: var(--dark-card);
-      transition: all 0.2s;
+      transition: all 0.15s;
     }
 
-    .hero-tab:hover {
+    .sidebar-link:hover {
       color: var(--text);
-      border-color: #444;
+      background: rgba(255,255,255,0.04);
     }
 
-    .hero-tab.active {
-      background: var(--orange);
-      border-color: var(--orange);
-      color: #fff;
+    .sidebar-link.active {
+      color: var(--orange);
+      background: rgba(247, 147, 26, 0.1);
+    }
+
+    .sidebar-link svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .sidebar-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 20px 14px 8px;
+      opacity: 0.6;
+    }
+
+    .main-content {
+      flex: 1;
+      min-width: 0;
     }
 
     /* ===== HERO ===== */
     .hero {
       background: linear-gradient(180deg, #0D1117 0%, #111820 100%);
-      padding: 80px 24px 60px;
+      padding: 32px 24px 24px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -361,11 +402,11 @@
     }
 
     .hero h1 {
-      font-size: clamp(32px, 5vw, 52px);
+      font-size: clamp(24px, 3.5vw, 36px);
       font-weight: 900;
-      letter-spacing: -1.5px;
-      line-height: 1.1;
-      margin-bottom: 16px;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 10px;
     }
 
     .hero h1 span {
@@ -377,22 +418,22 @@
 
     .hero p {
       color: var(--text-muted);
-      font-size: 18px;
+      font-size: 15px;
       max-width: 600px;
-      margin: 0 auto 32px;
-      line-height: 1.7;
+      margin: 0 auto 20px;
+      line-height: 1.6;
     }
 
     .hero-stats {
       display: flex;
       justify-content: center;
-      gap: 48px;
+      gap: 40px;
       flex-wrap: wrap;
     }
 
     .hero-stat { text-align: center; }
-    .hero-stat .number { font-size: 32px; font-weight: 800; color: var(--orange); }
-    .hero-stat .label { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+    .hero-stat .number { font-size: 24px; font-weight: 800; color: var(--orange); }
+    .hero-stat .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 
     /* ===== CATEGORY TABS ===== */
     .category-bar {
@@ -409,9 +450,9 @@
     }
 
     .cat-tab {
-      padding: 10px 20px;
+      padding: 7px 14px;
       border-radius: 50px;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       border: 1px solid var(--dark-border);
@@ -437,7 +478,7 @@
       background: rgba(255,255,255,0.2);
       padding: 1px 8px;
       border-radius: 10px;
-      font-size: 12px;
+      font-size: 10px;
       margin-left: 6px;
     }
 
@@ -645,6 +686,12 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .mobile-nav {
+        display: flex !important;
+      }
       .bottom-section { grid-template-columns: 1fr; }
       .header-inner {
         flex-wrap: wrap;
@@ -656,12 +703,10 @@
         justify-content: space-between;
       }
       .header-tagline { display: none; }
-      .hero { padding: 48px 16px 40px; }
-      .hero p { font-size: 16px; }
+      .hero { padding: 24px 16px 20px; }
+      .hero p { font-size: 14px; }
       .hero-stats { gap: 24px; }
-      .hero-stat .number { font-size: 26px; }
-      .hero-tabs { flex-wrap: wrap; justify-content: center; }
-      .hero-tab { padding: 8px 20px; font-size: 14px; }
+      .hero-stat .number { font-size: 22px; }
       .book-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; padding: 16px 16px 60px; }
       .filter-bar { padding: 16px 16px 8px; }
       .filter-bar h2 { font-size: 18px; }
@@ -681,13 +726,11 @@
       .btc-ticker { padding: 5px 10px; font-size: 12px; }
       .social-icons a { width: 30px; height: 30px; }
       .social-icons a svg { width: 14px; height: 14px; }
-      .hero { padding: 32px 12px 32px; }
-      .hero h1 { font-size: 26px; letter-spacing: -1px; }
-      .hero p { font-size: 14px; margin-bottom: 24px; }
-      .hero-tabs { gap: 6px; }
-      .hero-tab { padding: 7px 16px; font-size: 13px; }
-      .hero-stat .number { font-size: 22px; }
-      .hero-stat .label { font-size: 11px; }
+      .hero { padding: 20px 12px 16px; }
+      .hero h1 { font-size: 22px; }
+      .hero p { font-size: 13px; margin-bottom: 16px; }
+      .hero-stat .number { font-size: 20px; }
+      .hero-stat .label { font-size: 10px; }
       .book-grid { grid-template-columns: 1fr; padding: 12px 12px 48px; }
       .book-cover { height: 260px; }
       .filter-bar { padding: 12px 12px 8px; flex-direction: column; align-items: stretch; }
@@ -696,6 +739,37 @@
       .news-panel, .chart-panel { padding: 16px; }
       .chart-container { height: 260px; }
       footer { padding: 24px 12px; }
+      .mobile-nav { gap: 4px; }
+      .mobile-nav a { padding: 6px 12px; font-size: 12px; }
+    }
+
+    /* Mobile nav (hidden on desktop) */
+    .mobile-nav {
+      display: none;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding: 12px 16px;
+      background: var(--dark-card);
+      border-bottom: 1px solid var(--dark-border);
+    }
+
+    .mobile-nav a {
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-muted);
+      border: 1px solid var(--dark-border);
+      background: var(--dark);
+      transition: all 0.2s;
+    }
+
+    .mobile-nav a.active {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
     }
   </style>
 </head>
@@ -724,17 +798,50 @@
     </div>
   </header>
 
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav">
+    <a href="index.html" class="active">Books</a>
+    <a href="wallets.html">Wallets</a>
+    <a href="exchanges.html">Exchanges</a>
+    <a href="podcasts.html">Podcasts</a>
+    <a href="gifts.html">Gifts</a>
+  </nav>
+
+  <div class="site-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-label">Navigate</div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="sidebar-link active">
+        <svg viewBox="0 0 24 24"><path d="M6 6h4v4H6V6zm8 0h4v4h-4V6zM6 14h4v4H6v-4zm8 0h4v4h-4v-4z"/></svg>
+        Books
+      </a>
+      <a href="wallets.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><path d="M21 7H3a1 1 0 0 0-1 1v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a1 1 0 0 0-1-1zm-1 11H4V9h16v9zm-3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM4 7V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/></svg>
+        Wallets
+      </a>
+      <a href="exchanges.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><path d="M8 7l4-4 4 4M8 17l4 4 4-4M3 12h18"/></svg>
+        Exchanges
+      </a>
+      <a href="podcasts.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><path d="M12 1a5 5 0 0 0-5 5v4a5 5 0 0 0 10 0V6a5 5 0 0 0-5-5zm8 9a8 8 0 0 1-16 0M12 19v4m-4 0h8"/></svg>
+        Podcasts
+      </a>
+      <a href="gifts.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><path d="M20 12v10H4V12M2 7h20v5H2V7zm10 15V7m0 0H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zm0 0h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        Gifts
+      </a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-tabs">
-      <a href="index.html" class="hero-tab active">Books</a>
-      <a href="wallets.html" class="hero-tab">Wallets</a>
-      <a href="exchanges.html" class="hero-tab">Exchanges</a>
-      <a href="podcasts.html" class="hero-tab">Podcasts</a>
-      <a href="gifts.html" class="hero-tab">Gifts</a>
-    </div>
     <h1>The Best <span>Bitcoin Resources</span><br>All in One Place</h1>
-    <p>Hand-picked collection of the top 50 highest-rated Bitcoin books. From beginner guides to deep technical dives — fuel your Bitcoin journey.</p>
+    <p>Hand-picked collection of the top 50 highest-rated Bitcoin books. From beginner guides to deep technical dives.</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="number">50</div>
@@ -829,6 +936,9 @@
       </div>
     </div>
   </section>
+
+  </div><!-- /main-content -->
+  </div><!-- /site-layout -->
 
   <!-- FOOTER -->
   <footer>
