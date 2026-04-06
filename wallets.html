@@ -735,7 +735,7 @@
     <div class="news-panel">
       <div class="panel-header">
         <h3>Latest <span>Bitcoin News</span></h3>
-        <a href="https://bitcoinmagazine.com" target="_blank" rel="noopener" class="news-source">Bitcoin Magazine</a>
+        <span class="news-source" id="newsSource">Bitcoin Magazine</span>
       </div>
       <div class="news-list" id="newsList">
         <div class="news-loading" id="newsLoading">Loading headlines...</div>
@@ -1003,33 +1003,59 @@
     fetchBtcPrice();
     setInterval(fetchBtcPrice, 60000);
 
-    // ===== NEWS FEED =====
-    async function fetchNews() {
-      try {
-        const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://bitcoinmagazine.com/feed');
-        const data = await res.json();
-        const list = document.getElementById('newsList');
-        const loading = document.getElementById('newsLoading');
-        if (data.status === 'ok' && data.items.length > 0) {
-          loading.style.display = 'none';
-          data.items.slice(0, 6).forEach(item => {
-            const date = new Date(item.pubDate);
-            const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            const link = document.createElement('a');
-            link.className = 'news-item';
-            link.href = item.link;
-            link.target = '_blank';
-            link.rel = 'noopener';
-            link.innerHTML = `
-              <span class="news-date">${dateStr}</span>
-              <span class="news-title">${item.title}</span>
-            `;
-            list.appendChild(link);
-          });
-        } else { loading.textContent = 'Unable to load news.'; }
-      } catch (e) { document.getElementById('newsLoading').textContent = 'Unable to load news.'; }
+    // ===== NEWS FEED (multi-source with Bitcoin filter + fallback) =====
+    const newsSources = [
+      { name: 'Bitcoin Magazine', url: 'https://bitcoinmagazine.com/.rss/full/', site: 'https://bitcoinmagazine.com' },
+      { name: 'CoinDesk', url: 'https://www.coindesk.com/arc/outboundfeeds/rss/', site: 'https://www.coindesk.com' },
+      { name: 'Decrypt', url: 'https://decrypt.co/feed', site: 'https://decrypt.co' },
+      { name: 'The Block', url: 'https://www.theblock.co/rss.xml', site: 'https://www.theblock.co' }
+    ];
+
+    const btcKeywords = /bitcoin|btc|satoshi|lightning network|halving|mining|blockfi|microstrategy|saylor|el salvador|spot etf|hash rate|mempool/i;
+
+    function renderNews(items, source) {
+      const list = document.getElementById('newsList');
+      const loading = document.getElementById('newsLoading');
+      const sourceEl = document.getElementById('newsSource');
+      loading.style.display = 'none';
+      sourceEl.innerHTML = '<a href="' + source.site + '" target="_blank" rel="noopener">' + source.name + '</a>';
+      items.forEach(item => {
+        const date = new Date(item.pubDate);
+        const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const link = document.createElement('a');
+        link.className = 'news-item';
+        link.href = item.link;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.innerHTML = '<span class="news-date">' + dateStr + '</span><span class="news-title">' + item.title + '</span>';
+        list.appendChild(link);
+      });
     }
-    fetchNews();
+
+    async function fetchNews(index) {
+      if (index >= newsSources.length) {
+        document.getElementById('newsLoading').textContent = 'Unable to load news.';
+        return;
+      }
+      const source = newsSources[index];
+      try {
+        const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(source.url));
+        const data = await res.json();
+        if (data.status === 'ok' && data.items && data.items.length > 0) {
+          const btcItems = data.items.filter(i => btcKeywords.test(i.title));
+          if (btcItems.length >= 3) {
+            renderNews(btcItems.slice(0, 6), source);
+          } else {
+            fetchNews(index + 1);
+          }
+        } else {
+          fetchNews(index + 1);
+        }
+      } catch (e) {
+        fetchNews(index + 1);
+      }
+    }
+    fetchNews(0);
   </script>
 </body>
 </html>
