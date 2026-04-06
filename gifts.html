@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bitcoin Brain Food - The Best Bitcoin Wallets</title>
-  <meta name="description" content="Discover the best Bitcoin wallets for self-custody. Mobile wallets and hardware wallets handpicked for security and ease of use.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23F7931A'/><text x='32' y='43' text-anchor='middle' font-size='38' font-weight='bold' font-family='Arial' fill='white'>₿</text></svg>">
+  <title>Bitcoin Brain Food - The Best Bitcoin Gifts & Merch</title>
+  <meta name="description" content="Discover the best Bitcoin gifts and merchandise. From candles and mugs to figurines and crypto tickers — perfect presents for any Bitcoiner.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23F7931A'/><text x='32' y='43' text-anchor='middle' font-size='38' font-weight='bold' font-family='Arial' fill='white'>&#x20BF;</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -21,8 +21,9 @@
       --text: #E6EDF3;
       --text-muted: #8B949E;
       --gold-star: #F7931A;
-      --cat-mobile: #3FB950;
-      --cat-hardware: #58A6FF;
+      --cat-wearables: #3FB950;
+      --cat-decor: #A371F7;
+      --cat-accessories: #58A6FF;
     }
 
     body {
@@ -130,6 +131,7 @@
     .panel-header h3 span { color: var(--orange); }
     .news-source { font-size: 11px; color: var(--text-muted); text-decoration: none; border: 1px solid var(--dark-border); padding: 3px 10px; border-radius: 6px; transition: all 0.2s; }
     .news-source:hover { border-color: var(--orange); color: var(--orange); }
+    .news-source a { color: inherit; text-decoration: none; }
     .news-list { display: flex; flex-direction: column; gap: 0; }
     .news-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--dark-border); text-decoration: none; color: inherit; transition: all 0.15s; }
     .news-item:last-child { border-bottom: none; }
@@ -143,7 +145,6 @@
     .chart-container .tradingview-widget-container { width: 100%; height: 100%; }
     .chart-container .tradingview-widget-container__widget { width: 100%; height: 100%; }
     .chart-container iframe { width: 100% !important; height: 100% !important; }
-    /* 768px media query merged into RESPONSIVE section below */
 
     /* ===== HERO TABS ===== */
     .hero-tabs {
@@ -325,17 +326,17 @@
       opacity: 0.5;
     }
 
-    /* ===== WALLET GRID ===== */
-    .wallet-grid {
+    /* ===== GIFT GRID ===== */
+    .gift-grid {
       max-width: 1280px;
       margin: 0 auto;
       padding: 16px 24px 80px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 24px;
     }
 
-    .wallet-card {
+    .gift-card {
       background: var(--dark-card);
       border: 1px solid var(--dark-border);
       border-radius: 12px;
@@ -348,52 +349,32 @@
       cursor: pointer;
     }
 
-    .wallet-card:hover {
+    .gift-card:hover {
       transform: translateY(-4px);
       border-color: var(--orange);
       box-shadow: 0 8px 30px rgba(247, 147, 26, 0.1);
     }
 
-    .wallet-card:visited { color: inherit; }
+    .gift-card:visited { color: inherit; }
 
-    .wallet-icon-area {
+    .gift-image {
       width: 100%;
-      height: 200px;
+      height: 260px;
       background: #1C2128;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 24px;
       position: relative;
+      overflow: hidden;
     }
 
-    .wallet-icon-area .wallet-logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
-      object-fit: contain;
-      transition: transform 0.2s;
+    .gift-image .gift-emoji {
+      font-size: 80px;
+      line-height: 1;
     }
 
-    .wallet-card:hover .wallet-logo { transform: scale(1.05); }
-
-    .wallet-icon-fallback {
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, var(--orange), #FFB347);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      font-weight: 900;
-      color: #fff;
-      transition: transform 0.2s;
-    }
-
-    .wallet-card:hover .wallet-icon-fallback { transform: scale(1.05); }
-
-    .wallet-category-badge {
+    .gift-category-badge {
       position: absolute;
       top: 12px;
       right: 12px;
@@ -405,39 +386,21 @@
       letter-spacing: 0.5px;
     }
 
-    .badge-mobile { background: rgba(63,185,80,0.15); color: var(--cat-mobile); border: 1px solid rgba(63,185,80,0.3); }
-    .badge-hardware { background: rgba(88,166,255,0.15); color: var(--cat-hardware); border: 1px solid rgba(88,166,255,0.3); }
+    .badge-wearables { background: rgba(63,185,80,0.15); color: var(--cat-wearables); border: 1px solid rgba(63,185,80,0.3); }
+    .badge-decor { background: rgba(163,113,247,0.15); color: var(--cat-decor); border: 1px solid rgba(163,113,247,0.3); }
+    .badge-accessories { background: rgba(88,166,255,0.15); color: var(--cat-accessories); border: 1px solid rgba(88,166,255,0.3); }
 
-    .wallet-info {
+    .gift-info {
       padding: 20px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
-    .wallet-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
-    .wallet-type { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .gift-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .gift-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; flex: 1; }
 
-    .wallet-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-
-    .wallet-feature {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(255,255,255,0.05);
-      color: var(--text-muted);
-      border: 1px solid var(--dark-border);
-    }
-
-    .wallet-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; flex: 1; }
-
-    .wallet-bottom {
+    .gift-bottom {
       display: flex;
       flex-direction: column;
       align-items: stretch;
@@ -445,7 +408,7 @@
       margin-top: auto;
     }
 
-    .visit-btn {
+    .buy-btn {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -460,20 +423,8 @@
       transition: background 0.2s, transform 0.1s;
     }
 
-    .visit-btn:hover { background: var(--orange-dark); transform: scale(1.02); }
-    .visit-btn svg { width: 16px; height: 16px; }
-
-    .wallet-price-tag {
-      text-align: center;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .wallet-price-tag strong {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--text);
-    }
+    .buy-btn:hover { background: var(--orange-dark); transform: scale(1.02); }
+    .buy-btn svg { width: 16px; height: 16px; }
 
     /* ===== NO RESULTS ===== */
     .no-results {
@@ -509,15 +460,13 @@
         justify-content: space-between;
       }
       .header-tagline { display: none; }
-      .header-nav { gap: 4px; }
-      .nav-link { padding: 6px 12px; font-size: 13px; }
       .hero { padding: 48px 16px 40px; }
       .hero p { font-size: 16px; }
       .hero-stats { gap: 24px; }
       .hero-stat .number { font-size: 26px; }
       .hero-tabs { flex-wrap: wrap; justify-content: center; }
       .hero-tab { padding: 8px 20px; font-size: 14px; }
-      .wallet-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 16px 16px 60px; }
+      .gift-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 16px 16px 60px; }
       .filter-bar { padding: 16px 16px 8px; }
       .filter-bar h2 { font-size: 18px; }
       .category-bar { padding: 24px 16px 0; }
@@ -543,7 +492,7 @@
       .hero-tab { padding: 7px 16px; font-size: 13px; }
       .hero-stat .number { font-size: 22px; }
       .hero-stat .label { font-size: 11px; }
-      .wallet-grid { grid-template-columns: 1fr; padding: 12px 12px 48px; }
+      .gift-grid { grid-template-columns: 1fr; padding: 12px 12px 48px; }
       .filter-bar { padding: 12px 12px 8px; flex-direction: column; align-items: stretch; }
       .category-bar { padding: 16px 12px 0; }
       .bottom-section { padding: 16px 12px 32px; gap: 16px; }
@@ -566,7 +515,6 @@
         <div class="header-tagline">Feed Your Mind. Stack Your Knowledge.</div>
         <div class="social-icons">
           <a href="https://x.com/BTCBrainFood" target="_blank" rel="noopener" title="Follow us on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-
         </div>
         <div class="btc-ticker" id="btcTicker">
           <span class="btc-label">BTC</span>
@@ -581,25 +529,25 @@
   <section class="hero">
     <div class="hero-tabs">
       <a href="index.html" class="hero-tab">Books</a>
-      <a href="wallets.html" class="hero-tab active">Wallets</a>
+      <a href="wallets.html" class="hero-tab">Wallets</a>
       <a href="exchanges.html" class="hero-tab">Exchanges</a>
       <a href="podcasts.html" class="hero-tab">Podcasts</a>
-      <a href="gifts.html" class="hero-tab">Gifts</a>
+      <a href="gifts.html" class="hero-tab active">Gifts</a>
     </div>
-    <h1>The Best <span>Bitcoin Wallets</span><br>For Self-Custody</h1>
-    <p>Hand-picked selection of the most trusted Bitcoin wallets. From mobile apps to hardware cold storage &mdash; take control of your keys.</p>
+    <h1>The Best <span>Bitcoin Gifts</span><br>&amp; Merch</h1>
+    <p>Hand-picked Bitcoin merchandise and gift ideas for the Bitcoiner in your life. From funny mugs to collectible figurines.</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="number">9</div>
-        <div class="label">Trusted Wallets</div>
+        <div class="label">Gift Ideas</div>
       </div>
       <div class="hero-stat">
         <div class="number">3</div>
-        <div class="label">Mobile Wallets</div>
+        <div class="label">Categories</div>
       </div>
       <div class="hero-stat">
-        <div class="number">6</div>
-        <div class="label">Hardware Wallets</div>
+        <div class="number">100%</div>
+        <div class="label">Bitcoin Themed</div>
       </div>
     </div>
   </section>
@@ -607,23 +555,24 @@
   <!-- CATEGORY TABS -->
   <div class="category-bar">
     <ul class="category-tabs" id="categoryTabs">
-      <li class="cat-tab active" data-cat="all">All Wallets <span class="tab-count">9</span></li>
-      <li class="cat-tab" data-cat="mobile">Mobile Wallets <span class="tab-count" id="count-mobile">3</span></li>
-      <li class="cat-tab" data-cat="hardware">Hardware Wallets <span class="tab-count" id="count-hardware">6</span></li>
+      <li class="cat-tab active" data-cat="all">All Gifts <span class="tab-count">9</span></li>
+      <li class="cat-tab" data-cat="wearables">Wearables <span class="tab-count">3</span></li>
+      <li class="cat-tab" data-cat="decor">Decor &amp; Collectibles <span class="tab-count">4</span></li>
+      <li class="cat-tab" data-cat="accessories">Accessories <span class="tab-count">2</span></li>
     </ul>
   </div>
 
   <!-- FILTER BAR -->
   <div class="filter-bar">
-    <h2 id="sectionTitle">All Wallets</h2>
+    <h2 id="sectionTitle">All Gifts</h2>
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search wallets...">
+      <input type="text" id="searchInput" placeholder="Search gifts...">
     </div>
   </div>
 
-  <!-- WALLET GRID -->
-  <div class="wallet-grid" id="walletGrid">
-    <div class="no-results" id="noResults">No wallets match your search. Try a different keyword.</div>
+  <!-- GIFT GRID -->
+  <div class="gift-grid" id="giftGrid">
+    <div class="no-results" id="noResults">No gifts match your search. Try a different keyword.</div>
   </div>
 
   <!-- NEWS + CHART -->
@@ -631,7 +580,7 @@
     <div class="news-panel">
       <div class="panel-header">
         <h3>Latest <span>Bitcoin News</span></h3>
-        <a href="https://bitcoinmagazine.com" target="_blank" rel="noopener" class="news-source">Bitcoin Magazine</a>
+        <span class="news-source" id="newsSource"></span>
       </div>
       <div class="news-list" id="newsList">
         <div class="news-loading" id="newsLoading">Loading headlines...</div>
@@ -683,203 +632,152 @@
 
   <!-- FOOTER -->
   <footer>
-    <p><span class="footer-brand">BitcoinBrainFood.com</span> &mdash; Your curated guide to the best Bitcoin wallets. Not your keys, not your coins.</p>
+    <p><span class="footer-brand">BitcoinBrainFood.com</span> &mdash; Your curated guide to the best Bitcoin gifts and merch. The perfect present for any Bitcoiner.</p>
     <div class="footer-socials">
       <a href="https://x.com/BTCBrainFood" target="_blank" rel="noopener" title="Follow us on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      <a href="#" target="_blank" rel="noopener" title="Follow us on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
     </div>
-    <p class="affiliate-note">Always do your own research before choosing a wallet. Links are provided for convenience only.</p>
+    <p class="affiliate-note">As an Amazon Associate, we earn from qualifying purchases. Prices shown are approximate and may vary.</p>
   </footer>
 
   <script>
     const CAT_LABELS = {
-      mobile: { label: 'Mobile', badge: 'badge-mobile' },
-      hardware: { label: 'Hardware', badge: 'badge-hardware' },
+      wearables: { label: 'Wearables', badge: 'badge-wearables' },
+      decor: { label: 'Decor & Collectibles', badge: 'badge-decor' },
+      accessories: { label: 'Accessories', badge: 'badge-accessories' },
     };
 
     const CAT_TITLES = {
-      all: 'All Wallets',
-      mobile: 'Mobile Wallets',
-      hardware: 'Hardware Wallets',
+      all: 'All Gifts',
+      wearables: 'Wearables',
+      decor: 'Decor & Collectibles',
+      accessories: 'Accessories',
     };
 
-    const wallets = [
+    const gifts = [
       {
-        name: "BlueWallet",
-        cat: "mobile",
-        url: "https://bluewallet.io",
-        logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/bluewallet.png",
-        initial: "B",
-        price: "Free",
-        features: ["Lightning", "On-chain", "Open Source", "Watch-only"],
-        desc: "A powerful Bitcoin and Lightning wallet with an intuitive interface. Supports multisig, watch-only wallets, and full node connection."
+        name: "\"Smells Like I Was Right About Bitcoin\" Candle",
+        cat: "accessories",
+        url: "https://www.amazon.com/Karply-Scented-Bitcoin-Cryptocurrency-Boyfriend/dp/B0F1B7TMRD/?tag=jalinn.v.-20",
+        emoji: "\uD83D\uDD6F\uFE0F",
+        desc: "A scented soy wax candle with a hilarious label for any Bitcoiner who loves to say \"I told you so.\" Approximately 50 hours of burn time."
       },
       {
-        name: "Blockstream Green",
-        cat: "mobile",
-        url: "https://blockstream.com/green/",
-        logo: "https://raw.githubusercontent.com/Blockstream/green_qt/master/assets/icons/green.png",
-        initial: "G",
-        price: "Free",
-        features: ["Multisig", "Tor Support", "Hardware Wallet Companion", "Open Source"],
-        desc: "A secure Bitcoin wallet by Blockstream with multisig protection, Tor support, and seamless hardware wallet integration."
+        name: "Vintage Bitcoin Logo T-Shirt",
+        cat: "wearables",
+        url: "https://www.amazon.com/Vintage-Look-Bitcoin-Logo-T-Shirt/dp/B077V7C3PW/?tag=jalinn.v.-20",
+        emoji: "\uD83D\uDC55",
+        desc: "A classic-fit black cotton t-shirt featuring a vintage-style Bitcoin logo. Unisex design available in multiple sizes."
       },
       {
-        name: "Wallet of Satoshi",
-        cat: "mobile",
-        url: "https://www.walletofsatoshi.com",
-        logo: "https://www.walletofsatoshi.com/assets/images/wallet-logo.svg",
-        initial: "W",
-        price: "Free",
-        features: ["Lightning", "Beginner Friendly", "Instant Payments", "No Setup"],
-        desc: "The simplest way to send and receive Bitcoin over Lightning. Zero configuration needed &mdash; perfect for beginners and everyday payments."
+        name: "Bitcoin Embroidered Baseball Cap",
+        cat: "wearables",
+        url: "https://www.amazon.com/Tech-Design-Cryptocurrency-Embroidered-Adjustable/dp/B08X1L498T/?tag=jalinn.v.-20",
+        emoji: "\uD83E\uDDE2",
+        desc: "An embroidered cotton adjustable dad hat with the Bitcoin logo. One-size-fits-most with a comfortable adjustable back closure."
       },
       {
-        name: "Coldcard",
-        cat: "hardware",
-        url: "https://coldcard.com",
-        logo: "https://avatars.githubusercontent.com/u/34548271?v=4",
-        initial: "C",
-        price: "$157+",
-        features: ["Air-gapped", "Open Source", "PSBT", "Secure Element", "Bitcoin Only"],
-        desc: "The most trusted hardware wallet for serious Bitcoiners. Air-gapped signing, open-source firmware, and no altcoin distractions."
+        name: "CryptoTicr Real-Time Bitcoin Price Display",
+        cat: "accessories",
+        url: "https://www.amazon.com/Real-Time-Crypto-Ticker-Price-Display/dp/B0D8CHFDDX/?tag=jalinn.v.-20",
+        emoji: "\uD83D\uDCCA",
+        desc: "A compact Wi-Fi-enabled desk display showing real-time prices for the top 1,000 cryptos. No subscriptions required, with a two-year warranty."
       },
       {
-        name: "Trezor",
-        cat: "hardware",
-        url: "https://trezor.io",
-        logo: "https://raw.githubusercontent.com/trezor/trezor-suite/develop/suite-native/app/assets/production/appIcon.png",
-        initial: "T",
-        price: "$59+",
-        features: ["Open Source", "Shamir Backup", "Touchscreen", "Passphrase Support"],
-        desc: "The original hardware wallet. Fully open-source with Shamir backup support and an intuitive touchscreen interface on newer models."
+        name: "Bitcoin Mining Garden Gnome",
+        cat: "decor",
+        url: "https://www.amazon.com/Natures-Mark-Bitcoin-Figurine-Decorative/dp/B09KWLNYJC/?tag=jalinn.v.-20",
+        emoji: "\u26CF\uFE0F",
+        desc: "A hand-crafted and hand-painted 9.25\" poly-resin garden gnome depicted mining Bitcoin. Perfect for indoor or outdoor decor."
       },
       {
-        name: "Ledger",
-        cat: "hardware",
-        url: "https://www.ledger.com",
-        logo: "https://raw.githubusercontent.com/LedgerHQ/ledger-live/develop/apps/ledger-live-desktop/build/icons/icon@512x512.png",
-        initial: "L",
-        price: "$79+",
-        features: ["Secure Element", "Bluetooth", "Compact", "Wide Support"],
-        desc: "One of the most popular hardware wallets in the world. Compact design with a secure element chip and Bluetooth connectivity."
+        name: "\"Thinking About Bitcoin\" Coffee Mug",
+        cat: "accessories",
+        url: "https://www.amazon.com/Q-PaddyShops-Thinking-Boyfriend-Cryptocurrency-MUG-NSYOXLMZAI-11oz/dp/B09G3J339T/?tag=jalinn.v.-20",
+        emoji: "\u2615",
+        desc: "An 11oz ceramic coffee mug printed on both sides with a \"Thinking About Bitcoin\" design. Microwave and dishwasher safe."
       },
       {
-        name: "Keystone",
-        cat: "hardware",
-        url: "https://keyst.one",
-        logo: "https://avatars.githubusercontent.com/u/82647983?v=4",
-        initial: "K",
-        price: "$119+",
-        features: ["Air-gapped", "QR Code", "Open Source", "Touchscreen", "Fingerprint"],
-        desc: "Air-gapped hardware wallet using QR codes instead of USB. Large touchscreen, fingerprint sensor, and fully open-source firmware."
+        name: "Bitcoin Astronaut Figurine Set (2 Pieces)",
+        cat: "decor",
+        url: "https://www.amazon.com/HumblePleb-Bitcoin-Astronaut-Figurine-Set/dp/B0FQ3P922L/?tag=jalinn.v.-20",
+        emoji: "\uD83D\uDE80",
+        desc: "A set of two 3D-printed crypto astronaut figurines with flexible posable legs and BTC face masks. Includes one small and one large piece."
       },
       {
-        name: "Foundation Passport",
-        cat: "hardware",
-        url: "https://foundationdevices.com",
-        logo: "https://foundation.xyz/wp-content/uploads/2024/03/passport-social-preview.jpg",
-        initial: "F",
-        price: "$199+",
-        features: ["Air-gapped", "Open Source", "Bitcoin Only", "Camera Signing", "Premium Build"],
-        desc: "A premium, open-source Bitcoin hardware wallet with air-gapped operation. Beautiful industrial design and camera-based transaction signing."
+        name: "Bitcoin Logo Crew Socks (2-Pack)",
+        cat: "wearables",
+        url: "https://www.amazon.com/Bitcoin-Socks-Cushioned-Compression-Perfect/dp/B0F3W2RKQN/?tag=jalinn.v.-20",
+        emoji: "\uD83E\uDDE6",
+        desc: "A 2-pack of cushioned crew socks featuring Bitcoin logo designs with arch compression. Available in cream and black."
       },
       {
-        name: "BitBox02",
-        cat: "hardware",
-        url: "https://shiftcrypto.ch/bitbox02/",
-        logo: "https://bitbox.swiss/assets/favicons/favicon-196.png",
-        logoBg: true,
-        initial: "B",
-        price: "$149+",
-        features: ["Open Source", "Secure Element", "Bitcoin Only Edition", "USB-C", "Compact"],
-        desc: "Swiss-made hardware wallet with a Bitcoin-only edition. Minimalist design, dual-chip security architecture, and fully open-source."
-      },
+        name: "Satoshi Nakamoto Handmade Sculpture",
+        cat: "decor",
+        url: "https://www.amazon.com/HumblePleb-Handmade-Satoshi-Nakamoto-Bitcoiners/dp/B0CNH4BMK1/?tag=jalinn.v.-20",
+        emoji: "\uD83C\uDFAD",
+        desc: "A handmade 4\" resin figurine with cold cast bronze finish depicting Satoshi Nakamoto. Features an engraved \"We are all Satoshi\" phrase."
+      }
     ];
 
-    let activeCat = 'all';
+    let currentCat = 'all';
 
-    function renderWallets() {
-      const grid = document.getElementById('walletGrid');
+    function renderGifts() {
+      const grid = document.getElementById('giftGrid');
       const noResults = document.getElementById('noResults');
       const search = document.getElementById('searchInput').value.toLowerCase();
-      const title = document.getElementById('sectionTitle');
 
-      grid.querySelectorAll('.wallet-card').forEach(c => c.remove());
+      // Remove old cards
+      grid.querySelectorAll('.gift-card').forEach(c => c.remove());
+      let count = 0;
 
-      let filtered = wallets;
-
-      if (activeCat !== 'all') {
-        filtered = filtered.filter(w => w.cat === activeCat);
-      }
-
-      if (search) {
-        filtered = filtered.filter(w =>
-          w.name.toLowerCase().includes(search) ||
-          w.desc.toLowerCase().includes(search) ||
-          w.features.some(f => f.toLowerCase().includes(search))
-        );
-      }
-
-      title.textContent = search ? `Results for "${search}"` : CAT_TITLES[activeCat];
-
-      if (filtered.length === 0) {
-        noResults.style.display = 'block';
-        return;
-      }
-      noResults.style.display = 'none';
-
-      filtered.forEach(wallet => {
-        const catInfo = CAT_LABELS[wallet.cat];
+      gifts.forEach(g => {
+        if (currentCat !== 'all' && g.cat !== currentCat) return;
+        if (search && !g.name.toLowerCase().includes(search) && !g.desc.toLowerCase().includes(search)) return;
+        count++;
+        const catInfo = CAT_LABELS[g.cat];
         const card = document.createElement('a');
-        card.className = 'wallet-card';
-        card.href = wallet.url;
+        card.className = 'gift-card';
+        card.href = g.url;
         card.target = '_blank';
         card.rel = 'noopener';
         card.innerHTML = `
-          <div class="wallet-icon-area">
-            <span class="wallet-category-badge ${catInfo.badge}">${catInfo.label}</span>
-            <div class="wallet-icon-fallback" id="fallback-${wallet.name.replace(/\s/g,'')}">${wallet.initial}</div>
-            <img class="wallet-logo" src="${wallet.logo}" alt="${wallet.name}"
-              style="display:none; position:absolute;${wallet.logoBg ? ' background:#e8e8e8; padding:16px; border-radius:24px;' : ''}"
-              onload="this.style.display='block'; this.style.position='static'; document.getElementById('fallback-${wallet.name.replace(/\s/g,'')}').style.display='none';"
-              onerror="this.style.display='none';">
+          <div class="gift-image">
+            <span class="gift-category-badge ${catInfo.badge}">${catInfo.label}</span>
+            <span class="gift-emoji">${g.emoji}</span>
           </div>
-          <div class="wallet-info">
-            <div class="wallet-name">${wallet.name}</div>
-            <div class="wallet-type">${wallet.cat === 'mobile' ? 'Mobile Wallet' : 'Hardware Wallet'}</div>
-            <div class="wallet-features">
-              ${wallet.features.map(f => `<span class="wallet-feature">${f}</span>`).join('')}
-            </div>
-            <div class="wallet-desc">${wallet.desc}</div>
-            <div class="wallet-bottom">
-              <span class="visit-btn">
-                Visit Website
-                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+          <div class="gift-info">
+            <div class="gift-title">${g.name}</div>
+            <div class="gift-desc">${g.desc}</div>
+            <div class="gift-bottom">
+              <span class="buy-btn">
+                Buy on Amazon
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
               </span>
-              <div class="wallet-price-tag"><strong>${wallet.price}</strong></div>
             </div>
           </div>
         `;
-        grid.insertBefore(card, noResults);
+        grid.appendChild(card);
       });
+
+      noResults.style.display = count === 0 ? 'block' : 'none';
     }
 
     // Category tabs
-    document.getElementById('categoryTabs').addEventListener('click', (e) => {
+    document.getElementById('categoryTabs').addEventListener('click', function(e) {
       const tab = e.target.closest('.cat-tab');
       if (!tab) return;
       document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-      activeCat = tab.dataset.cat;
-      renderWallets();
+      currentCat = tab.dataset.cat;
+      document.getElementById('sectionTitle').textContent = CAT_TITLES[currentCat];
+      renderGifts();
     });
 
     // Search
-    document.getElementById('searchInput').addEventListener('input', renderWallets);
+    document.getElementById('searchInput').addEventListener('input', renderGifts);
 
     // Initial render
-    renderWallets();
+    renderGifts();
 
     // ===== BTC PRICE TICKER =====
     async function fetchBtcPrice() {
@@ -888,42 +786,68 @@
         const data = await res.json();
         const price = data.bitcoin.usd;
         const change = data.bitcoin.usd_24h_change;
-        document.getElementById('btcPrice').textContent = '$' + price.toLocaleString('en-US', { maximumFractionDigits: 0 });
+        document.getElementById('btcPrice').textContent = '$' + price.toLocaleString('en-US', {maximumFractionDigits: 0});
         const changeEl = document.getElementById('btcChange');
         changeEl.textContent = (change >= 0 ? '+' : '') + change.toFixed(1) + '%';
         changeEl.className = 'btc-change ' + (change >= 0 ? 'up' : 'down');
-      } catch (e) { document.getElementById('btcPrice').textContent = '--'; }
+      } catch (e) {}
     }
     fetchBtcPrice();
     setInterval(fetchBtcPrice, 60000);
 
-    // ===== NEWS FEED =====
-    async function fetchNews() {
-      try {
-        const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://bitcoinmagazine.com/feed');
-        const data = await res.json();
-        const list = document.getElementById('newsList');
-        const loading = document.getElementById('newsLoading');
-        if (data.status === 'ok' && data.items.length > 0) {
-          loading.style.display = 'none';
-          data.items.slice(0, 6).forEach(item => {
-            const date = new Date(item.pubDate);
-            const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            const link = document.createElement('a');
-            link.className = 'news-item';
-            link.href = item.link;
-            link.target = '_blank';
-            link.rel = 'noopener';
-            link.innerHTML = `
-              <span class="news-date">${dateStr}</span>
-              <span class="news-title">${item.title}</span>
-            `;
-            list.appendChild(link);
-          });
-        } else { loading.textContent = 'Unable to load news.'; }
-      } catch (e) { document.getElementById('newsLoading').textContent = 'Unable to load news.'; }
+    // ===== NEWS FEED (multi-source with Bitcoin filter + fallback) =====
+    const newsSources = [
+      { name: 'Bitcoin Magazine', url: 'https://bitcoinmagazine.com/.rss/full/', site: 'https://bitcoinmagazine.com' },
+      { name: 'CoinDesk', url: 'https://www.coindesk.com/arc/outboundfeeds/rss/', site: 'https://www.coindesk.com' },
+      { name: 'Decrypt', url: 'https://decrypt.co/feed', site: 'https://decrypt.co' },
+      { name: 'The Block', url: 'https://www.theblock.co/rss.xml', site: 'https://www.theblock.co' }
+    ];
+
+    const btcKeywords = /bitcoin|btc|satoshi|lightning network|halving|mining|blockfi|microstrategy|saylor|el salvador|spot etf|hash rate|mempool/i;
+
+    function renderNews(items, source) {
+      const list = document.getElementById('newsList');
+      const loading = document.getElementById('newsLoading');
+      const sourceEl = document.getElementById('newsSource');
+      loading.style.display = 'none';
+      sourceEl.innerHTML = '<a href="' + source.site + '" target="_blank" rel="noopener">' + source.name + '</a>';
+      items.forEach(function(item) {
+        var date = new Date(item.pubDate);
+        var dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        var link = document.createElement('a');
+        link.className = 'news-item';
+        link.href = item.link;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.innerHTML = '<span class="news-date">' + dateStr + '</span><span class="news-title">' + item.title + '</span>';
+        list.appendChild(link);
+      });
     }
-    fetchNews();
+
+    async function fetchNews(index) {
+      if (index >= newsSources.length) {
+        document.getElementById('newsLoading').textContent = 'Unable to load news.';
+        return;
+      }
+      var source = newsSources[index];
+      try {
+        var res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(source.url));
+        var data = await res.json();
+        if (data.status === 'ok' && data.items && data.items.length > 0) {
+          var btcItems = data.items.filter(function(i) { return btcKeywords.test(i.title); });
+          if (btcItems.length >= 3) {
+            renderNews(btcItems.slice(0, 6), source);
+          } else {
+            fetchNews(index + 1);
+          }
+        } else {
+          fetchNews(index + 1);
+        }
+      } catch (e) {
+        fetchNews(index + 1);
+      }
+    }
+    fetchNews(0);
   </script>
 </body>
 </html>
