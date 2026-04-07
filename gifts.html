@@ -24,6 +24,7 @@
       --cat-wearables: #3FB950;
       --cat-decor: #A371F7;
       --cat-accessories: #58A6FF;
+      --cat-mining: #F7931A;
     }
 
     body {
@@ -435,6 +436,7 @@
     .badge-wearables { background: rgba(63,185,80,0.15); color: var(--cat-wearables); border: 1px solid rgba(63,185,80,0.3); }
     .badge-decor { background: rgba(163,113,247,0.15); color: var(--cat-decor); border: 1px solid rgba(163,113,247,0.3); }
     .badge-accessories { background: rgba(88,166,255,0.15); color: var(--cat-accessories); border: 1px solid rgba(88,166,255,0.3); }
+    .badge-mining { background: rgba(247,147,26,0.15); color: var(--cat-mining); border: 1px solid rgba(247,147,26,0.3); }
 
     .gift-info {
       padding: 20px;
@@ -649,11 +651,11 @@
     <p>Hand-picked Bitcoin merchandise and gift ideas for the Bitcoiner in your life. From funny mugs to collectible figurines.</p>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="number">9</div>
+        <div class="number">19</div>
         <div class="label">Gift Ideas</div>
       </div>
       <div class="hero-stat">
-        <div class="number">3</div>
+        <div class="number">4</div>
         <div class="label">Categories</div>
       </div>
       <div class="hero-stat">
@@ -666,7 +668,8 @@
   <!-- CATEGORY TABS -->
   <div class="category-bar">
     <ul class="category-tabs" id="categoryTabs">
-      <li class="cat-tab active" data-cat="all">All Gifts <span class="tab-count">9</span></li>
+      <li class="cat-tab active" data-cat="all">All Gifts <span class="tab-count">19</span></li>
+      <li class="cat-tab" data-cat="mining">Mine at Home <span class="tab-count">10</span></li>
       <li class="cat-tab" data-cat="wearables">Wearables <span class="tab-count">3</span></li>
       <li class="cat-tab" data-cat="decor">Decor &amp; Collectibles <span class="tab-count">4</span></li>
       <li class="cat-tab" data-cat="accessories">Accessories <span class="tab-count">2</span></li>
@@ -750,7 +753,7 @@
     <div class="footer-socials">
       <a href="https://x.com/BTCBrainFood" target="_blank" rel="noopener" title="Follow us on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
     </div>
-    <p class="affiliate-note">As an Amazon Associate, we earn from qualifying purchases. Prices shown are approximate and may vary.</p>
+    <p class="affiliate-note">As an Amazon Associate and BitcoinMerch affiliate, we earn from qualifying purchases. Prices shown are approximate and may vary.</p>
   </footer>
 
   <script>
@@ -758,6 +761,7 @@
       wearables: { label: 'Wearables', badge: 'badge-wearables' },
       decor: { label: 'Decor & Collectibles', badge: 'badge-decor' },
       accessories: { label: 'Accessories', badge: 'badge-accessories' },
+      mining: { label: 'Mine at Home', badge: 'badge-mining' },
     };
 
     const CAT_TITLES = {
@@ -765,6 +769,7 @@
       wearables: 'Wearables',
       decor: 'Decor & Collectibles',
       accessories: 'Accessories',
+      mining: 'Mine at Home',
     };
 
     const gifts = [
@@ -830,6 +835,86 @@
         url: "https://www.amazon.com/HumblePleb-Handmade-Satoshi-Nakamoto-Bitcoiners/dp/B0CNH4BMK1/?tag=jalinn.v.-20",
         img: "img/satoshi.jpg",
         desc: "A handmade 4\" resin figurine with cold cast bronze finish depicting Satoshi Nakamoto. Features an engraved \"We are all Satoshi\" phrase."
+      },
+      {
+        name: "MARS LANDER 3 All-In-One Lottery Miner",
+        cat: "mining",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch%C2%AE-mars-lander-3-all-in-one-lottery-miner-full-node-pre-order?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/ML3_1.png?v=1769043233",
+        desc: "All-in-one Bitcoin solo lottery miner and full node with 1.2 TH/s, 2TB SSD, 8GB RAM, touchscreen and RGB lighting."
+      },
+      {
+        name: "Gold Nugget Lottery Miner",
+        cat: "mining",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/goldnugget-nerdminer?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/2_2abb0cd8-66d3-472b-9e90-415a7ce42ce0.png?v=1773444929",
+        desc: "Compact WiFi-enabled solo Bitcoin lottery miner with optimized 377 KH/s firmware and ultra-low power draw."
+      },
+      {
+        name: "Gold Digger Lottery Miner",
+        cat: "mining",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-gold-digger-lottery-nmminer-1000kh-s?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/3_bdc193f5-9094-46c4-9b5c-dfc343b072bd.png?v=1764973548",
+        desc: "Pocket-sized solo miner pushing over 1,000 KH/s with a built-in clock mode and four color options."
+      },
+      {
+        name: "USB Lottery Miner (NerdMiner 2)",
+        cat: "mining",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/nerdminer2?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/1_1da66bec-7d07-404b-a7ab-3dbbb7fde27f.png?v=1764973513",
+        desc: "Affordable USB-powered WiFi solo miner at 70 KH/s \u2014 perfect for newcomers exploring Bitcoin lottery mining."
+      },
+      {
+        name: "6x Gold Nugget Lottery Miner Combo",
+        cat: "mining",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-6x-gold-nugget-combo?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/Join_the_race_of_Solo_Mining.png?v=1773445149",
+        desc: "Six Gold Nugget miners with a USB-powered stand to multiply your solo mining lottery odds."
+      },
+      {
+        name: "7x USB Lottery Miner Combo",
+        cat: "mining",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-7x-nerdminer-2-usb-solo-bitcoin-miner-combo?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/Join_the_race_of_Solo_Mining_1.png?v=1765907629",
+        desc: "Seven USB miners with a dedicated 7-port hub for easy, scalable solo mining at home."
+      },
+      {
+        name: "10x USB Lottery Miner Combo",
+        cat: "mining",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-10x-nerdminer-2-usb-solo-bitcoin-miner-combo?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/AMS4502copy.jpg?v=1748559601",
+        desc: "Ten USB miners with a unified 10-port hub for compact, larger-scale home mining."
+      },
+      {
+        name: "DOGE DRILLER Lottery Miner (SCRYPT)",
+        cat: "mining",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch%C2%AE-doge-driller-lottery-miner-330mh-s-scrypt-ltc-doge?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/ChatGPTImageFeb3_2026_12_34_58PM.png?v=1770150907",
+        desc: "High-performance SCRYPT solo miner delivering ~330 MH/s at just ~105 watts for DOGE and LTC."
+      },
+      {
+        name: "DOGE Digger Lottery Miner (SCRYPT)",
+        cat: "mining",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-dogedigger-scrypt-lottery-miner-105mh-s-doge-ltc-hammer-miner-scrypt?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/dogedigger.png?v=1772133722",
+        desc: "First-of-its-kind SCRYPT home lottery miner pushing ~105 MH/s on just ~25 watts with WiFi setup."
+      },
+      {
+        name: "Disruptor USB Lottery Miner",
+        cat: "mining",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-disruptor-usb-solo-bitcoin-miner?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/AMS0892.jpg?v=1750192416",
+        desc: "Ultra-efficient 300 GH/s+ USB Bitcoin solo miner with WiFi, AxeOS Swarm Mode and RGB status lights."
       }
     ];
 
@@ -864,7 +949,7 @@
             <div class="gift-desc">${g.desc}</div>
             <div class="gift-bottom">
               <span class="buy-btn">
-                Buy on Amazon
+                ${g.source === 'bitcoinmerch' ? 'Buy on BitcoinMerch' : 'Buy on Amazon'}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
               </span>
             </div>
