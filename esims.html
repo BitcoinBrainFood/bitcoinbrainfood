@@ -328,18 +328,17 @@
       border-radius: 16px;
       flex-shrink: 0;
       overflow: hidden;
-      background: #fff;
+      background: var(--dark);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px;
     }
     .podcast-avatar img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      border-radius: 8px;
+      object-fit: cover;
     }
+    .podcast-avatar .avatar-fallback { font-size: 44px; line-height: 1; }
 
     .podcast-avatar .avatar-fallback {
       font-size: 32px;
@@ -718,26 +717,26 @@
   <script>
     const BITREFILL_URL = "https://www.bitrefill.com/invite/m47omcic";
     const podcasts = [
-      { name: "United States", host: "eSIM Data Plan", logo: "", flag: "🇺🇸", initial: "U", tags: ["eSIM", "Data"], desc: "Stay connected across all 50 states with reliable high-speed data. Perfect for travel or short-term stays." },
-      { name: "Japan", host: "eSIM Data Plan", logo: "", flag: "🇯🇵", initial: "J", tags: ["eSIM", "Data"], desc: "Fast LTE/5G coverage for Tokyo, Kyoto, Osaka and beyond. Skip the airport SIM counters entirely." },
-      { name: "United Kingdom", host: "eSIM Data Plan", logo: "", flag: "🇬🇧", initial: "U", tags: ["eSIM", "Data"], desc: "Data across England, Scotland, Wales, and Northern Ireland. Instant activation on arrival." },
-      { name: "Thailand", host: "eSIM Data Plan", logo: "", flag: "🇹🇭", initial: "T", tags: ["eSIM", "Data"], desc: "High-speed data for Bangkok, Phuket, Chiang Mai and the islands. A traveler favorite." },
-      { name: "Italy", host: "eSIM Data Plan", logo: "", flag: "🇮🇹", initial: "I", tags: ["eSIM", "Data"], desc: "Reliable data across Rome, Milan, Venice and the Amalfi Coast. Works in all EU countries too." },
-      { name: "France", host: "eSIM Data Plan", logo: "", flag: "🇫🇷", initial: "F", tags: ["eSIM", "Data"], desc: "High-speed data for Paris and all of France. Ideal for travelers exploring Europe." },
-      { name: "Spain", host: "eSIM Data Plan", logo: "", flag: "🇪🇸", initial: "S", tags: ["eSIM", "Data"], desc: "Stay online in Barcelona, Madrid, and the Spanish coast. Works across the EU." },
-      { name: "Germany", host: "eSIM Data Plan", logo: "", flag: "🇩🇪", initial: "G", tags: ["eSIM", "Data"], desc: "Fast, reliable data in Berlin, Munich, Frankfurt and beyond. Perfect for Europe trips." },
-      { name: "Mexico", host: "eSIM Data Plan", logo: "", flag: "🇲🇽", initial: "M", tags: ["eSIM", "Data"], desc: "Data for Cancun, Mexico City, Tulum, and beyond. Skip roaming fees entirely." },
-      { name: "Turkey", host: "eSIM Data Plan", logo: "", flag: "🇹🇷", initial: "T", tags: ["eSIM", "Data"], desc: "Stay connected in Istanbul, Cappadocia, Antalya and across Turkey with high-speed data." },
-      { name: "United Arab Emirates", host: "eSIM Data Plan", logo: "", flag: "🇦🇪", initial: "U", tags: ["eSIM", "Data"], desc: "Premium coverage in Dubai and Abu Dhabi. Ideal for business travelers and tourists." },
-      { name: "Singapore", host: "eSIM Data Plan", logo: "", flag: "🇸🇬", initial: "S", tags: ["eSIM", "Data"], desc: "Ultra-fast 5G across the entire city-state. Stay connected from Changi to Sentosa." },
-      { name: "Australia", host: "eSIM Data Plan", logo: "", flag: "🇦🇺", initial: "A", tags: ["eSIM", "Data"], desc: "Coverage across Sydney, Melbourne, and the Outback. Activate before you land." },
-      { name: "Canada", host: "eSIM Data Plan", logo: "", flag: "🇨🇦", initial: "C", tags: ["eSIM", "Data"], desc: "High-speed data from Vancouver to Toronto. Perfect for cross-country trips." },
-      { name: "Vietnam", host: "eSIM Data Plan", logo: "", flag: "🇻🇳", initial: "V", tags: ["eSIM", "Data"], desc: "Affordable, fast data for Hanoi, Ho Chi Minh City, and Da Nang. Great for backpackers." },
-      { name: "Indonesia", host: "eSIM Data Plan", logo: "", flag: "🇮🇩", initial: "I", tags: ["eSIM", "Data"], desc: "Stay online in Bali, Jakarta, and beyond. Reliable data for the whole archipelago." },
-      { name: "India", host: "eSIM Data Plan", logo: "", flag: "🇮🇳", initial: "I", tags: ["eSIM", "Data"], desc: "Data coverage across India with nationwide roaming. Perfect for travel or business." },
-      { name: "Brazil", host: "eSIM Data Plan", logo: "", flag: "🇧🇷", initial: "B", tags: ["eSIM", "Data"], desc: "Stay connected from Rio to São Paulo with fast LTE data across Brazil." },
-      { name: "Europe (Regional)", host: "eSIM Data Plan", logo: "", flag: "🇪🇺", initial: "E", tags: ["eSIM", "Data"], desc: "One eSIM covering 30+ European countries. Ideal for multi-country trips." },
-      { name: "Global", host: "eSIM Data Plan", logo: "", flag: "🇺🇳", initial: "G", tags: ["eSIM", "Data"], desc: "Global roaming eSIM covering 100+ countries. Perfect for frequent travelers and digital nomads." },
+      { name: "United States", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/us.png", flag: "🇺🇸", initial: "U", tags: ["eSIM", "Data"], desc: "Stay connected across all 50 states with reliable high-speed data. Perfect for travel or short-term stays." },
+      { name: "Japan", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/jp.png", flag: "🇯🇵", initial: "J", tags: ["eSIM", "Data"], desc: "Fast LTE/5G coverage for Tokyo, Kyoto, Osaka and beyond. Skip the airport SIM counters entirely." },
+      { name: "United Kingdom", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/gb.png", flag: "🇬🇧", initial: "U", tags: ["eSIM", "Data"], desc: "Data across England, Scotland, Wales, and Northern Ireland. Instant activation on arrival." },
+      { name: "Thailand", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/th.png", flag: "🇹🇭", initial: "T", tags: ["eSIM", "Data"], desc: "High-speed data for Bangkok, Phuket, Chiang Mai and the islands. A traveler favorite." },
+      { name: "Italy", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/it.png", flag: "🇮🇹", initial: "I", tags: ["eSIM", "Data"], desc: "Reliable data across Rome, Milan, Venice and the Amalfi Coast. Works in all EU countries too." },
+      { name: "France", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/fr.png", flag: "🇫🇷", initial: "F", tags: ["eSIM", "Data"], desc: "High-speed data for Paris and all of France. Ideal for travelers exploring Europe." },
+      { name: "Spain", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/es.png", flag: "🇪🇸", initial: "S", tags: ["eSIM", "Data"], desc: "Stay online in Barcelona, Madrid, and the Spanish coast. Works across the EU." },
+      { name: "Germany", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/de.png", flag: "🇩🇪", initial: "G", tags: ["eSIM", "Data"], desc: "Fast, reliable data in Berlin, Munich, Frankfurt and beyond. Perfect for Europe trips." },
+      { name: "Mexico", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/mx.png", flag: "🇲🇽", initial: "M", tags: ["eSIM", "Data"], desc: "Data for Cancun, Mexico City, Tulum, and beyond. Skip roaming fees entirely." },
+      { name: "Turkey", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/tr.png", flag: "🇹🇷", initial: "T", tags: ["eSIM", "Data"], desc: "Stay connected in Istanbul, Cappadocia, Antalya and across Turkey with high-speed data." },
+      { name: "United Arab Emirates", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/ae.png", flag: "🇦🇪", initial: "U", tags: ["eSIM", "Data"], desc: "Premium coverage in Dubai and Abu Dhabi. Ideal for business travelers and tourists." },
+      { name: "Singapore", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/sg.png", flag: "🇸🇬", initial: "S", tags: ["eSIM", "Data"], desc: "Ultra-fast 5G across the entire city-state. Stay connected from Changi to Sentosa." },
+      { name: "Australia", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/au.png", flag: "🇦🇺", initial: "A", tags: ["eSIM", "Data"], desc: "Coverage across Sydney, Melbourne, and the Outback. Activate before you land." },
+      { name: "Canada", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/ca.png", flag: "🇨🇦", initial: "C", tags: ["eSIM", "Data"], desc: "High-speed data from Vancouver to Toronto. Perfect for cross-country trips." },
+      { name: "Vietnam", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/vn.png", flag: "🇻🇳", initial: "V", tags: ["eSIM", "Data"], desc: "Affordable, fast data for Hanoi, Ho Chi Minh City, and Da Nang. Great for backpackers." },
+      { name: "Indonesia", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/id.png", flag: "🇮🇩", initial: "I", tags: ["eSIM", "Data"], desc: "Stay online in Bali, Jakarta, and beyond. Reliable data for the whole archipelago." },
+      { name: "India", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/in.png", flag: "🇮🇳", initial: "I", tags: ["eSIM", "Data"], desc: "Data coverage across India with nationwide roaming. Perfect for travel or business." },
+      { name: "Brazil", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/br.png", flag: "🇧🇷", initial: "B", tags: ["eSIM", "Data"], desc: "Stay connected from Rio to São Paulo with fast LTE data across Brazil." },
+      { name: "Europe (Regional)", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/eu.png", flag: "🇪🇺", initial: "E", tags: ["eSIM", "Data"], desc: "One eSIM covering 30+ European countries. Ideal for multi-country trips." },
+      { name: "Global", host: "eSIM Data Plan", logo: "https://flagcdn.com/w160/un.png", flag: "🇺🇳", initial: "G", tags: ["eSIM", "Data"], desc: "Global roaming eSIM covering 100+ countries. Perfect for frequent travelers and digital nomads." },
     ].map(p => ({ ...p, url: BITREFILL_URL }));
 
     function renderPodcasts() {
