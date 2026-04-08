@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bitcoin Brain Food - The Best Bitcoin Exchanges</title>
-  <meta name="description" content="Discover the best Bitcoin exchanges and services. Trusted platforms handpicked for buying, selling, and spending Bitcoin.">
+  <title>Bitcoin Brain Food - Bitcoin Gift Cards</title>
+  <meta name="description" content="Spend your Bitcoin on top gift cards and services through Bitrefill. Shop Amazon, Uber, Netflix, Steam and more with BTC or Lightning.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23F7931A'/><text x='32' y='43' text-anchor='middle' font-size='38' font-weight='bold' font-family='Arial' fill='white'>₿</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,9 +21,6 @@
       --text: #E6EDF3;
       --text-muted: #8B949E;
       --gold-star: #F7931A;
-      --cat-exchange: #58A6FF;
-      --cat-service: #A371F7;
-      --cat-card: #3FB950;
     }
 
     body {
@@ -121,30 +118,6 @@
     .footer-socials a svg { width: 18px; height: 18px; fill: currentColor; }
     .btc-change.up { color: #3FB950; }
     .btc-change.down { color: #F85149; }
-
-    /* ===== BOTTOM SECTION (News + Chart) ===== */
-    .bottom-section { max-width: 1280px; margin: 0 auto; padding: 40px 24px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .news-panel, .chart-panel { background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 12px; padding: 20px; overflow: hidden; }
-    .chart-panel { max-height: 440px; }
-    .panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-    .panel-header h3 { font-size: 16px; font-weight: 700; }
-    .panel-header h3 span { color: var(--orange); }
-    .news-source { font-size: 11px; color: var(--text-muted); text-decoration: none; border: 1px solid var(--dark-border); padding: 3px 10px; border-radius: 6px; transition: all 0.2s; }
-    .news-source:hover { border-color: var(--orange); color: var(--orange); }
-    .news-list { display: flex; flex-direction: column; gap: 0; }
-    .news-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--dark-border); text-decoration: none; color: inherit; transition: all 0.15s; }
-    .news-item:last-child { border-bottom: none; }
-    .news-item:hover { padding-left: 4px; }
-    .news-item:hover .news-title { color: var(--orange); }
-    .news-item:visited { color: inherit; }
-    .news-item .news-date { font-size: 11px; color: var(--text-muted); white-space: nowrap; padding-top: 2px; min-width: 50px; }
-    .news-item .news-title { font-size: 13px; font-weight: 600; line-height: 1.4; color: var(--text); transition: color 0.15s; }
-    .news-loading { text-align: center; padding: 40px; color: var(--text-muted); font-size: 14px; }
-    .chart-container { width: 100%; height: 360px; border-radius: 8px; overflow: hidden; position: relative; }
-    .chart-container .tradingview-widget-container { width: 100%; height: 100%; }
-    .chart-container .tradingview-widget-container__widget { width: 100%; height: 100%; }
-    .chart-container iframe { width: 100% !important; height: 100% !important; }
-    /* 768px media query merged into RESPONSIVE section below */
 
     /* ===== SIDEBAR NAV ===== */
     .site-layout {
@@ -275,62 +248,11 @@
     .hero-stat .number { font-size: 24px; font-weight: 800; color: var(--orange); }
     .hero-stat .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 
-    /* ===== CATEGORY TABS ===== */
-    .category-bar {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 32px 24px 0;
-    }
-
-    .category-tabs {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      list-style: none;
-    }
-
-    .cat-tab {
-      padding: 7px 14px;
-      border-radius: 50px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      border: 1px solid var(--dark-border);
-      background: var(--dark-card);
-      color: var(--text-muted);
-      transition: all 0.2s;
-      user-select: none;
-    }
-
-    .cat-tab:hover {
-      border-color: #444;
-      color: var(--text);
-    }
-
-    .cat-tab.active {
-      background: var(--orange);
-      border-color: var(--orange);
-      color: #fff;
-    }
-
-    .cat-tab .tab-count {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      padding: 1px 8px;
-      border-radius: 10px;
-      font-size: 10px;
-      margin-left: 6px;
-    }
-
-    .cat-tab:not(.active) .tab-count {
-      background: rgba(255,255,255,0.06);
-    }
-
     /* ===== FILTER BAR ===== */
     .filter-bar {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 20px 24px 16px;
+      padding: 32px 24px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -367,144 +289,130 @@
       opacity: 0.5;
     }
 
-    /* ===== EXCHANGE GRID ===== */
-    .exchange-grid {
+    /* ===== PODCAST GRID ===== */
+    .podcast-grid {
       max-width: 1280px;
       margin: 0 auto;
       padding: 16px 24px 80px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
     }
 
-    .exchange-card {
+    .podcast-card {
       background: var(--dark-card);
       border: 1px solid var(--dark-border);
       border-radius: 12px;
       overflow: hidden;
       transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
       text-decoration: none;
       color: inherit;
       cursor: pointer;
     }
 
-    .exchange-card:hover {
-      transform: translateY(-4px);
+    .podcast-card:hover {
+      transform: translateY(-3px);
       border-color: var(--orange);
       box-shadow: 0 8px 30px rgba(247, 147, 26, 0.1);
     }
 
-    .exchange-card:visited { color: inherit; }
+    .podcast-card:visited { color: inherit; }
 
-    .exchange-icon-area {
+    .podcast-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    .podcast-avatar img { object-fit: contain !important; }
+
+    .podcast-avatar img {
       width: 100%;
-      height: 200px;
-      background: #1C2128;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      position: relative;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
     }
 
-    .exchange-icon-area .exchange-logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
-      object-fit: contain;
-      transition: transform 0.2s;
-    }
-
-    .exchange-card:hover .exchange-logo { transform: scale(1.05); }
-
-    .exchange-icon-fallback {
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, var(--orange), #FFB347);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
+    .podcast-avatar .avatar-fallback {
+      font-size: 32px;
       font-weight: 900;
       color: #fff;
-      transition: transform 0.2s;
     }
 
-    .exchange-card:hover .exchange-icon-fallback { transform: scale(1.05); }
-
-    .exchange-category-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .badge-exchange { background: rgba(88,166,255,0.15); color: var(--cat-exchange); border: 1px solid rgba(88,166,255,0.3); }
-    .badge-service { background: rgba(163,113,247,0.15); color: var(--cat-service); border: 1px solid rgba(163,113,247,0.3); }
-    .badge-card { background: rgba(63,185,80,0.15); color: var(--cat-card); border: 1px solid rgba(63,185,80,0.3); }
-
-    .exchange-info {
-      padding: 20px;
+    .podcast-info {
       flex: 1;
-      display: flex;
-      flex-direction: column;
+      min-width: 0;
     }
 
-    .exchange-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
-    .exchange-type { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .podcast-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
 
-    .exchange-features {
+    .podcast-host {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .podcast-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .podcast-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 16px;
+      gap: 4px;
+      margin-top: 8px;
     }
 
-    .exchange-feature {
+    .podcast-tag {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(247,147,26,0.1);
+      color: var(--orange);
+      border: 1px solid rgba(247,147,26,0.2);
+    }
+
+    .yt-badge {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+      background: rgba(255,0,0,0.1);
+      border: 1px solid rgba(255,0,0,0.2);
+      color: #FF4444;
       font-size: 11px;
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 6px;
-      background: rgba(255,255,255,0.05);
-      color: var(--text-muted);
-      border: 1px solid var(--dark-border);
     }
 
-    .exchange-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; flex: 1; }
-
-    .exchange-bottom {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 10px;
-      margin-top: auto;
+    .yt-badge svg {
+      width: 14px;
+      height: 14px;
+      fill: #FF4444;
     }
-
-    .visit-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: var(--orange);
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: background 0.2s, transform 0.1s;
-    }
-
-    .visit-btn:hover { background: var(--orange-dark); transform: scale(1.02); }
-    .visit-btn svg { width: 16px; height: 16px; }
 
     /* ===== NO RESULTS ===== */
     .no-results {
@@ -515,6 +423,29 @@
       font-size: 18px;
       display: none;
     }
+
+    /* ===== BOTTOM SECTION (News + Chart) ===== */
+    .bottom-section { max-width: 1280px; margin: 0 auto; padding: 40px 24px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .news-panel, .chart-panel { background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 12px; padding: 20px; overflow: hidden; }
+    .chart-panel { max-height: 440px; }
+    .panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .panel-header h3 { font-size: 16px; font-weight: 700; }
+    .panel-header h3 span { color: var(--orange); }
+    .news-source { font-size: 11px; color: var(--text-muted); text-decoration: none; border: 1px solid var(--dark-border); padding: 3px 10px; border-radius: 6px; transition: all 0.2s; }
+    .news-source:hover { border-color: var(--orange); color: var(--orange); }
+    .news-list { display: flex; flex-direction: column; gap: 0; }
+    .news-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--dark-border); text-decoration: none; color: inherit; transition: all 0.15s; }
+    .news-item:last-child { border-bottom: none; }
+    .news-item:hover { padding-left: 4px; }
+    .news-item:hover .news-title { color: var(--orange); }
+    .news-item:visited { color: inherit; }
+    .news-item .news-date { font-size: 11px; color: var(--text-muted); white-space: nowrap; padding-top: 2px; min-width: 50px; }
+    .news-item .news-title { font-size: 13px; font-weight: 600; line-height: 1.4; color: var(--text); transition: color 0.15s; }
+    .news-loading { text-align: center; padding: 40px; color: var(--text-muted); font-size: 14px; }
+    .chart-container { width: 100%; height: 360px; border-radius: 8px; overflow: hidden; position: relative; }
+    .chart-container .tradingview-widget-container { width: 100%; height: 100%; }
+    .chart-container .tradingview-widget-container__widget { width: 100%; height: 100%; }
+    .chart-container iframe { width: 100% !important; height: 100% !important; }
 
     /* ===== FOOTER ===== */
     footer {
@@ -550,12 +481,9 @@
       .hero p { font-size: 14px; }
       .hero-stats { gap: 24px; }
       .hero-stat .number { font-size: 22px; }
-      .exchange-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 16px 16px 60px; }
-      .filter-bar { padding: 16px 16px 8px; }
+      .podcast-grid { grid-template-columns: 1fr; gap: 12px; padding: 16px 16px 60px; }
+      .filter-bar { padding: 24px 16px 8px; }
       .filter-bar h2 { font-size: 18px; }
-      .category-bar { padding: 24px 16px 0; }
-      .category-tabs { gap: 8px; }
-      .cat-tab { padding: 6px 10px; font-size: 11px; }
       .search-box input { width: 100%; }
       .bottom-section { padding: 24px 16px 40px; }
       .chart-container { height: 300px; }
@@ -574,9 +502,10 @@
       .hero p { font-size: 13px; margin-bottom: 16px; }
       .hero-stat .number { font-size: 20px; }
       .hero-stat .label { font-size: 10px; }
-      .exchange-grid { grid-template-columns: 1fr; padding: 12px 12px 48px; }
+      .podcast-grid { padding: 12px 12px 48px; }
+      .podcast-avatar { width: 64px; height: 64px; }
+      .podcast-avatar .avatar-fallback { font-size: 24px; }
       .filter-bar { padding: 12px 12px 8px; flex-direction: column; align-items: stretch; }
-      .category-bar { padding: 16px 12px 0; }
       .bottom-section { padding: 16px 12px 32px; gap: 16px; }
       .news-panel, .chart-panel { padding: 16px; }
       .chart-container { height: 260px; }
@@ -643,10 +572,10 @@
   <nav class="mobile-nav">
     <a href="index.html">Books</a>
     <a href="wallets.html">Wallets</a>
-    <a href="exchanges.html" class="active">Exchanges</a>
+    <a href="exchanges.html">Exchanges</a>
     <a href="podcasts.html">Podcasts</a>
     <a href="courses.html">Courses</a>
-    <a href="gift-cards.html">Gift Cards</a>
+    <a href="gift-cards.html" class="active">Gift Cards</a>
     <a href="gifts.html">Gifts</a>
   </nav>
 
@@ -663,7 +592,7 @@
         <svg viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12a2 2 0 100 4h4v-4h-4z"/></svg>
         Wallets
       </a>
-      <a href="exchanges.html" class="sidebar-link active">
+      <a href="exchanges.html" class="sidebar-link">
         <svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
         Exchanges
       </a>
@@ -675,7 +604,7 @@
         <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
         Courses
       </a>
-      <a href="gift-cards.html" class="sidebar-link">
+      <a href="gift-cards.html" class="sidebar-link active">
         <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
         Gift Cards
       </a>
@@ -690,45 +619,35 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1>The Best <span>Bitcoin Exchanges</span><br>And Services</h1>
-    <p>Trusted platforms for buying, selling, and spending Bitcoin. From major exchanges to Bitcoin-native services &mdash; stack sats your way.</p>
+    <h1>Spend Your <span>Bitcoin</span><br>on Gift Cards</h1>
+    <p>The 20 most popular gift cards and services on Bitrefill. Pay with Bitcoin or Lightning and spend it like regular money — no bank required.</p>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="number">10</div>
-        <div class="label">Trusted Platforms</div>
+        <div class="number">20</div>
+        <div class="label">Top Brands</div>
       </div>
       <div class="hero-stat">
-        <div class="number">7</div>
-        <div class="label">Exchanges</div>
+        <div class="number">4,500+</div>
+        <div class="label">Products on Bitrefill</div>
       </div>
       <div class="hero-stat">
-        <div class="number">3</div>
-        <div class="label">Services</div>
+        <div class="number">⚡ BTC</div>
+        <div class="label">Lightning Ready</div>
       </div>
     </div>
   </section>
 
-  <!-- CATEGORY TABS -->
-  <div class="category-bar">
-    <ul class="category-tabs" id="categoryTabs">
-      <li class="cat-tab active" data-cat="all">All Platforms <span class="tab-count">9</span></li>
-      <li class="cat-tab" data-cat="exchange">Exchanges <span class="tab-count" id="count-exchange">7</span></li>
-      <li class="cat-tab" data-cat="service">Services <span class="tab-count" id="count-service">2</span></li>
-      <li class="cat-tab" data-cat="card">Debit Card <span class="tab-count" id="count-card">1</span></li>
-    </ul>
-  </div>
-
   <!-- FILTER BAR -->
   <div class="filter-bar">
-    <h2 id="sectionTitle">All Platforms</h2>
+    <h2 id="sectionTitle">Top 20 Gift Cards</h2>
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search exchanges...">
+      <input type="text" id="searchInput" placeholder="Search gift cards...">
     </div>
   </div>
 
-  <!-- EXCHANGE GRID -->
-  <div class="exchange-grid" id="exchangeGrid">
-    <div class="no-results" id="noResults">No exchanges match your search. Try a different keyword.</div>
+  <!-- PODCAST GRID -->
+  <div class="podcast-grid" id="podcastGrid">
+    <div class="no-results" id="noResults">No gift cards match your search. Try a different keyword.</div>
   </div>
 
   <!-- NEWS + CHART -->
@@ -791,146 +710,58 @@
 
   <!-- FOOTER -->
   <footer>
-    <p><span class="footer-brand">BitcoinBrainFood.com</span> &mdash; Your curated guide to the best Bitcoin exchanges and services. Always do your own research.</p>
+    <p><span class="footer-brand">BitcoinBrainFood.com</span> &mdash; Spend your Bitcoin on real-world goods and services with the best gift cards on Bitrefill.</p>
     <div class="footer-socials">
       <a href="https://x.com/BTCBrainFood" target="_blank" rel="noopener" title="Follow us on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
     </div>
-    <p class="affiliate-note">Some links may be affiliate links. Always do your own research before using any exchange or service.</p>
+    <p class="affiliate-note">All links are Bitrefill affiliate links. We may earn a commission at no extra cost to you.</p>
   </footer>
 
   <script>
-    const CAT_LABELS = {
-      exchange: { label: 'Exchange', badge: 'badge-exchange' },
-      service: { label: 'Service', badge: 'badge-service' },
-      card: { label: 'Debit Card', badge: 'badge-card' },
-    };
+    const BITREFILL_URL = "https://www.bitrefill.com/invite/m47omcic";
+    const podcasts = [
+      { name: "Digital Prepaid Visa", host: "$20 - $500", logo: "https://logo.clearbit.com/visa.com", initial: "V", tags: ["Prepaid", "Anywhere"], desc: "A digital prepaid Visa you can use almost anywhere online. Turn your Bitcoin into flexible spending power." },
+      { name: "Airbnb", host: "$25 - $500", logo: "https://logo.clearbit.com/airbnb.com", initial: "A", tags: ["Travel", "Stays"], desc: "Book your next trip and pay with Bitcoin. Airbnb stays anywhere in the world." },
+      { name: "Lowe's", host: "$5 - $2000", logo: "https://logo.clearbit.com/lowes.com", initial: "L", tags: ["Retail", "Home"], desc: "Home improvement, tools, and appliances. Fund your next project with Bitcoin." },
+      { name: "The Home Depot", host: "$3 - $2000", logo: "https://logo.clearbit.com/homedepot.com", initial: "H", tags: ["Retail", "DIY"], desc: "Tools, materials, and home goods. Pay for your next renovation with Bitcoin." },
+      { name: "DoorDash", host: "$15 - $200", logo: "https://logo.clearbit.com/doordash.com", initial: "D", tags: ["Food", "Delivery"], desc: "Order food delivery from thousands of restaurants and pay with BTC." },
+      { name: "Gap", host: "$10 - $500", logo: "https://logo.clearbit.com/gap.com", initial: "G", tags: ["Fashion", "Apparel"], desc: "Clothing for the whole family. Pay for your next wardrobe refresh with Bitcoin." },
+      { name: "Virtual Prepaid Mastercard", host: "$20 - $500", logo: "https://logo.clearbit.com/mastercard.com", initial: "M", tags: ["Prepaid", "Anywhere"], desc: "A virtual prepaid Mastercard accepted at millions of merchants. Bitcoin → spendable card instantly." },
+      { name: "Hotels.com", host: "$10 - $500", logo: "https://logo.clearbit.com/hotels.com", initial: "H", tags: ["Travel", "Hotels"], desc: "Book hotels worldwide with Bitcoin. Perfect for the traveling Bitcoiner." },
+      { name: "Instacart", host: "$25 - $250", logo: "https://logo.clearbit.com/instacart.com", initial: "I", tags: ["Food", "Groceries"], desc: "Grocery delivery from your favorite stores. Stock up the pantry using Bitcoin." },
+      { name: "Uber", host: "$15 - $500", logo: "https://logo.clearbit.com/uber.com", initial: "U", tags: ["Rides", "Transport"], desc: "Pay for Uber rides with Bitcoin. Available in most major cities worldwide." },
+      { name: "Apple", host: "$2 - $500", logo: "https://logo.clearbit.com/apple.com", initial: "A", tags: ["Apps", "iTunes"], desc: "App Store and iTunes gift cards. Great for apps, music, iCloud, and in-app purchases." },
+      { name: "Walmart", host: "$5 - $500", logo: "https://logo.clearbit.com/walmart.com", initial: "W", tags: ["Retail", "Groceries"], desc: "Spend Bitcoin on groceries, essentials, and everything else at Walmart." },
+      { name: "Amazon.com", host: "$5 - $500", logo: "https://logo.clearbit.com/amazon.com", initial: "A", tags: ["Shopping", "Global"], desc: "The world's biggest online store. Spend your Bitcoin on anything Amazon sells." },
+      { name: "eBay", host: "$5 - $500", logo: "https://logo.clearbit.com/ebay.com", initial: "E", tags: ["Shopping", "Marketplace"], desc: "Shop eBay's massive marketplace using Bitcoin-funded gift cards." },
+      { name: "Best Buy", host: "$5 - $500", logo: "https://logo.clearbit.com/bestbuy.com", initial: "B", tags: ["Electronics", "Retail"], desc: "Electronics, appliances, and gadgets — paid for with Bitcoin." },
+      { name: "Uber Eats", host: "$15 - $500", logo: "https://logo.clearbit.com/ubereats.com", initial: "U", tags: ["Food", "Delivery"], desc: "Food delivery from thousands of restaurants. Order dinner and pay with Bitcoin." },
+      { name: "Starbucks", host: "$5 - $500", logo: "https://logo.clearbit.com/starbucks.com", initial: "S", tags: ["Food", "Coffee"], desc: "Buy coffee with Bitcoin — the classic use case. Works at any Starbucks." },
+      { name: "Netflix", host: "Streaming", logo: "https://logo.clearbit.com/netflix.com", initial: "N", tags: ["Streaming", "Entertainment"], desc: "Top up your Netflix account with Bitcoin. Binge your favorite shows without fiat." },
+      { name: "Google Play", host: "Apps & Media", logo: "https://logo.clearbit.com/play.google.com", initial: "G", tags: ["Apps", "Games"], desc: "Buy apps, games, movies, and books on Google Play — paid for with Bitcoin." },
+      { name: "Steam", host: "PC Gaming", logo: "https://logo.clearbit.com/steampowered.com", initial: "S", tags: ["Gaming", "PC"], desc: "The biggest PC gaming platform. Load up your Steam wallet with Bitcoin and start stacking games." },
+    ].map(p => ({ ...p, url: BITREFILL_URL }));
 
-    const CAT_TITLES = {
-      all: 'All Platforms',
-      exchange: 'Exchanges',
-      service: 'Services',
-      card: 'Debit Card',
-    };
-
-    const exchanges = [
-      {
-        name: "Kraken",
-        cat: "exchange",
-        url: "https://proinvite.kraken.com/9f1e/48k33nb4",
-        logo: "https://assets.kraken.com/marketing/static/kraken-logo.jpg",
-        initial: "K",
-        features: ["Low Fees", "Lightning", "Proof of Reserves", "Staking", "Futures"],
-        desc: "One of the oldest and most trusted Bitcoin exchanges. Known for strong security, proof of reserves, and Lightning Network support."
-      },
-      {
-        name: "Bitstamp",
-        cat: "exchange",
-        url: "https://www.bitstamp.net",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Bitstamp_Logo.svg/200px-Bitstamp_Logo.svg.png",
-        initial: "B",
-        features: ["EU Regulated", "Since 2011", "Low Fees", "Institutional Grade"],
-        desc: "The world's longest-running Bitcoin exchange, founded in 2011. Fully EU-regulated with institutional-grade security and reliability."
-      },
-      {
-        name: "Coinbase",
-        cat: "exchange",
-        url: "https://www.coinbase.com",
-        logo: "https://www.coinbase.com/apple-touch-icon.png",
-        initial: "C",
-        features: ["Publicly Traded", "Beginner Friendly", "Vault Storage", "Recurring Buys"],
-        desc: "The largest US-based exchange and a publicly traded company. User-friendly interface with vault storage and recurring purchase options."
-      },
-      {
-        name: "River",
-        cat: "exchange",
-        url: "https://river.com",
-        logo: "https://river.com/favicons/192x192-ef67264d1762a7f78c6a4266444db837.png?vsn=d",
-        initial: "R",
-        features: ["Bitcoin Only", "Auto DCA", "Lightning", "Zero Fees on Recurring"],
-        desc: "A Bitcoin-only exchange built for stackers. Automatic dollar-cost averaging, Lightning withdrawals, and zero fees on recurring purchases."
-      },
-      {
-        name: "Swan Bitcoin",
-        cat: "exchange",
-        url: "https://www.swanbitcoin.com",
-        logo: "https://help.swanbitcoin.com/hc/theming_assets/01J1BCXYS2CVYQ3K9JGX4RGAZH",
-        initial: "S",
-        features: ["Bitcoin Only", "Auto DCA", "IRA", "Advisor Platform"],
-        desc: "Bitcoin-only savings platform designed for long-term holders. Automatic recurring buys, Bitcoin IRA, and a financial advisor network."
-      },
-      {
-        name: "Binance",
-        cat: "exchange",
-        url: "https://www.binance.com/register?ref=11175123",
-        logo: "https://public.bnbstatic.com/20190405/eb2349c3-b2f8-4a93-a286-8f86a62ea9d8.png",
-        initial: "B",
-        features: ["Largest Volume", "Low Fees", "Futures", "Global"],
-        desc: "The world's largest cryptocurrency exchange by trading volume. Offers deep liquidity, low fees, and a wide range of trading tools."
-      },
-      {
-        name: "Strike",
-        cat: "exchange",
-        url: "https://strike.me",
-        logo: "https://strike.me/icons/favicon-196.png",
-        initial: "S",
-        features: ["Lightning", "Instant Payments", "No Fees", "Global Transfers"],
-        desc: "Built on Lightning for instant, nearly free Bitcoin payments worldwide. Buy Bitcoin with no trading fees and send money globally."
-      },
-      {
-        name: "Xapo Bank",
-        cat: "service",
-        url: "https://application.xapo.com/membership-application?ref=UJG-REQ-TN",
-        logo: "https://avatars.githubusercontent.com/u/6930305?v=4",
-        initial: "X",
-        features: ["Bitcoin Bank", "USD + BTC", "Gibraltar Licensed", "Debit Card"],
-        desc: "The world's first Bitcoin-native bank. Hold both USD and Bitcoin, earn interest, and spend seamlessly with an integrated debit card."
-      },
-      {
-        name: "Nexo",
-        cat: "service",
-        url: "https://nexo.com/ref/rpsk6dhdki?src=android-link",
-        logo: "https://content.nexo.com/logos/nexo-logo.png",
-        logoBg: true,
-        initial: "N",
-        features: ["Bitcoin Loans", "Earn Interest", "Nexo Card", "Insured Custody"],
-        desc: "Borrow against your Bitcoin without selling. Earn interest on holdings, access instant crypto-backed loans, and spend with the Nexo card."
-      },
-      {
-        name: "Kast",
-        cat: "card",
-        url: "https://go.kast.xyz/VqVO/9UPJ9S0N",
-        logo: "https://cdn.prod.website-files.com/660c048ecf246f8d15a85d0a/68c92ddb9a25e87eb4708c77_logo-light-bg-dark-rect.png",
-        initial: "K",
-        features: ["Bitcoin Debit Card", "Spend BTC", "Global", "No KYC Options"],
-        desc: "A Bitcoin debit card that lets you spend your sats anywhere. Seamlessly convert Bitcoin to fiat at the point of sale."
-      },
-    ];
-
-    let activeCat = 'all';
-
-    function renderExchanges() {
-      const grid = document.getElementById('exchangeGrid');
+    function renderPodcasts() {
+      const grid = document.getElementById('podcastGrid');
       const noResults = document.getElementById('noResults');
       const search = document.getElementById('searchInput').value.toLowerCase();
       const title = document.getElementById('sectionTitle');
 
-      grid.querySelectorAll('.exchange-card').forEach(c => c.remove());
+      grid.querySelectorAll('.podcast-card').forEach(c => c.remove());
 
-      let filtered = exchanges;
-
-      if (activeCat !== 'all') {
-        filtered = filtered.filter(e => e.cat === activeCat);
-      }
+      let filtered = podcasts;
 
       if (search) {
-        filtered = filtered.filter(e =>
-          e.name.toLowerCase().includes(search) ||
-          e.desc.toLowerCase().includes(search) ||
-          e.features.some(f => f.toLowerCase().includes(search))
+        filtered = filtered.filter(p =>
+          p.name.toLowerCase().includes(search) ||
+          p.host.toLowerCase().includes(search) ||
+          p.desc.toLowerCase().includes(search) ||
+          p.tags.some(t => t.toLowerCase().includes(search))
         );
       }
 
-      title.textContent = search ? `Results for "${search}"` : CAT_TITLES[activeCat];
+      title.textContent = search ? `Results for "${search}"` : 'Top 20 Gift Cards';
 
       if (filtered.length === 0) {
         noResults.style.display = 'block';
@@ -938,56 +769,44 @@
       }
       noResults.style.display = 'none';
 
-      filtered.forEach(exchange => {
-        const catInfo = CAT_LABELS[exchange.cat];
+      filtered.forEach(podcast => {
         const card = document.createElement('a');
-        card.className = 'exchange-card';
-        card.href = exchange.url;
+        card.className = 'podcast-card';
+        card.href = podcast.url;
         card.target = '_blank';
         card.rel = 'noopener';
+
+        const logoHtml = podcast.logo
+          ? `<img src="${podcast.logo}" alt="${podcast.name}"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+             <span class="avatar-fallback" style="display:none;">${podcast.initial}</span>`
+          : `<span class="avatar-fallback">${podcast.initial}</span>`;
+
         card.innerHTML = `
-          <div class="exchange-icon-area">
-            <span class="exchange-category-badge ${catInfo.badge}">${catInfo.label}</span>
-            <div class="exchange-icon-fallback" id="fallback-${exchange.name.replace(/\s/g,'')}">${exchange.initial}</div>
-            <img class="exchange-logo" src="${exchange.logo}" alt="${exchange.name}"
-              style="display:none; position:absolute;${exchange.logoBg ? ' background:#e8e8e8; padding:16px; border-radius:24px;' : ''}"
-              onload="this.style.display='block'; this.style.position='static'; document.getElementById('fallback-${exchange.name.replace(/\s/g,'')}').style.display='none';"
-              onerror="this.style.display='none';">
+          <div class="podcast-avatar">
+            ${logoHtml}
           </div>
-          <div class="exchange-info">
-            <div class="exchange-name">${exchange.name}</div>
-            <div class="exchange-type">${catInfo.label}</div>
-            <div class="exchange-features">
-              ${exchange.features.map(f => `<span class="exchange-feature">${f}</span>`).join('')}
-            </div>
-            <div class="exchange-desc">${exchange.desc}</div>
-            <div class="exchange-bottom">
-              <span class="visit-btn">
-                Visit Website
-                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
-              </span>
+          <div class="podcast-info">
+            <div class="podcast-name">${podcast.name}</div>
+            <div class="podcast-host">by ${podcast.host}</div>
+            <div class="podcast-desc">${podcast.desc}</div>
+            <div class="podcast-tags">
+              ${podcast.tags.map(t => `<span class="podcast-tag">${t}</span>`).join('')}
             </div>
           </div>
+          <span class="yt-badge" style="background:rgba(247,147,26,0.1);border-color:rgba(247,147,26,0.3);color:#F7931A;">
+            Buy on Bitrefill →
+          </span>
         `;
         grid.insertBefore(card, noResults);
       });
     }
 
-    // Category tabs
-    document.getElementById('categoryTabs').addEventListener('click', (e) => {
-      const tab = e.target.closest('.cat-tab');
-      if (!tab) return;
-      document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      activeCat = tab.dataset.cat;
-      renderExchanges();
-    });
-
     // Search
-    document.getElementById('searchInput').addEventListener('input', renderExchanges);
+    document.getElementById('searchInput').addEventListener('input', renderPodcasts);
 
     // Initial render
-    renderExchanges();
+    renderPodcasts();
 
     // ===== BTC PRICE TICKER =====
     async function fetchBtcPrice() {
