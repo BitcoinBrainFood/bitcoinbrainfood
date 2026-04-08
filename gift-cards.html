@@ -574,6 +574,9 @@
     <a href="podcasts.html">Podcasts</a>
     <a href="courses.html">Courses</a>
     <a href="gift-cards.html" class="active">Gift Cards</a>
+    <a href="esims.html">eSIMs</a>
+    <a href="phone-refills.html">Phone Refills</a>
+    <a href="gifts.html">Gifts</a>
     <a href="gifts.html">Gifts</a>
   </nav>
 
@@ -605,6 +608,14 @@
       <a href="gift-cards.html" class="sidebar-link active">
         <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
         Gift Cards
+      </a>
+      <a href="esims.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+        eSIMs
+      </a>
+      <a href="phone-refills.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
+        Phone Refills
       </a>
       <a href="gifts.html" class="sidebar-link">
         <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
@@ -719,25 +730,25 @@
     const BITREFILL_URL = "https://www.bitrefill.com/invite/m47omcic";
     const podcasts = [
       { name: "Digital Prepaid Visa", host: "$20 - $500", logo: "https://www.google.com/s2/favicons?domain=visa.com&sz=128", initial: "V", tags: ["Prepaid", "Anywhere"], desc: "A digital prepaid Visa you can use almost anywhere online. Turn your Bitcoin into flexible spending power." },
-      { name: "Airbnb", host: "$25 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "A", tags: ["Travel", "Stays"], desc: "Book your next trip and pay with Bitcoin. Airbnb stays anywhere in the world." },
-      { name: "Lowe's", host: "$5 - $2000", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "L", tags: ["Retail", "Home"], desc: "Home improvement, tools, and appliances. Fund your next project with Bitcoin." },
-      { name: "The Home Depot", host: "$3 - $2000", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "H", tags: ["Retail", "DIY"], desc: "Tools, materials, and home goods. Pay for your next renovation with Bitcoin." },
-      { name: "DoorDash", host: "$15 - $200", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "D", tags: ["Food", "Delivery"], desc: "Order food delivery from thousands of restaurants and pay with BTC." },
-      { name: "Gap", host: "$10 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "G", tags: ["Fashion", "Apparel"], desc: "Clothing for the whole family. Pay for your next wardrobe refresh with Bitcoin." },
-      { name: "Virtual Prepaid Mastercard", host: "$20 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "M", tags: ["Prepaid", "Anywhere"], desc: "A virtual prepaid Mastercard accepted at millions of merchants. Bitcoin → spendable card instantly." },
-      { name: "Hotels.com", host: "$10 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "H", tags: ["Travel", "Hotels"], desc: "Book hotels worldwide with Bitcoin. Perfect for the traveling Bitcoiner." },
-      { name: "Instacart", host: "$25 - $250", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "I", tags: ["Food", "Groceries"], desc: "Grocery delivery from your favorite stores. Stock up the pantry using Bitcoin." },
-      { name: "Uber", host: "$15 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "U", tags: ["Rides", "Transport"], desc: "Pay for Uber rides with Bitcoin. Available in most major cities worldwide." },
-      { name: "Apple", host: "$2 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "A", tags: ["Apps", "iTunes"], desc: "App Store and iTunes gift cards. Great for apps, music, iCloud, and in-app purchases." },
-      { name: "Walmart", host: "$5 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "W", tags: ["Retail", "Groceries"], desc: "Spend Bitcoin on groceries, essentials, and everything else at Walmart." },
-      { name: "Amazon.com", host: "$5 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "A", tags: ["Shopping", "Global"], desc: "The world's biggest online store. Spend your Bitcoin on anything Amazon sells." },
-      { name: "eBay", host: "$5 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "E", tags: ["Shopping", "Marketplace"], desc: "Shop eBay's massive marketplace using Bitcoin-funded gift cards." },
-      { name: "Best Buy", host: "$5 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "B", tags: ["Electronics", "Retail"], desc: "Electronics, appliances, and gadgets — paid for with Bitcoin." },
-      { name: "Uber Eats", host: "$15 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "U", tags: ["Food", "Delivery"], desc: "Food delivery from thousands of restaurants. Order dinner and pay with Bitcoin." },
-      { name: "Starbucks", host: "$5 - $500", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "S", tags: ["Food", "Coffee"], desc: "Buy coffee with Bitcoin — the classic use case. Works at any Starbucks." },
-      { name: "Netflix", host: "Streaming", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "N", tags: ["Streaming", "Entertainment"], desc: "Top up your Netflix account with Bitcoin. Binge your favorite shows without fiat." },
-      { name: "Google Play", host: "Apps & Media", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "G", tags: ["Apps", "Games"], desc: "Buy apps, games, movies, and books on Google Play — paid for with Bitcoin." },
-      { name: "Steam", host: "PC Gaming", logo: "https://www.google.com/s2/favicons?domain=&sz=128", initial: "S", tags: ["Gaming", "PC"], desc: "The biggest PC gaming platform. Load up your Steam wallet with Bitcoin and start stacking games." },
+      { name: "Airbnb", host: "$25 - $500", logo: "https://www.google.com/s2/favicons?domain=airbnb.com&sz=128", initial: "A", tags: ["Travel", "Stays"], desc: "Book your next trip and pay with Bitcoin. Airbnb stays anywhere in the world." },
+      { name: "Lowe's", host: "$5 - $2000", logo: "https://www.google.com/s2/favicons?domain=lowes.com&sz=128", initial: "L", tags: ["Retail", "Home"], desc: "Home improvement, tools, and appliances. Fund your next project with Bitcoin." },
+      { name: "The Home Depot", host: "$3 - $2000", logo: "https://www.google.com/s2/favicons?domain=homedepot.com&sz=128", initial: "H", tags: ["Retail", "DIY"], desc: "Tools, materials, and home goods. Pay for your next renovation with Bitcoin." },
+      { name: "DoorDash", host: "$15 - $200", logo: "https://www.google.com/s2/favicons?domain=doordash.com&sz=128", initial: "D", tags: ["Food", "Delivery"], desc: "Order food delivery from thousands of restaurants and pay with BTC." },
+      { name: "Gap", host: "$10 - $500", logo: "https://www.google.com/s2/favicons?domain=gap.com&sz=128", initial: "G", tags: ["Fashion", "Apparel"], desc: "Clothing for the whole family. Pay for your next wardrobe refresh with Bitcoin." },
+      { name: "Virtual Prepaid Mastercard", host: "$20 - $500", logo: "https://www.google.com/s2/favicons?domain=mastercard.com&sz=128", initial: "M", tags: ["Prepaid", "Anywhere"], desc: "A virtual prepaid Mastercard accepted at millions of merchants. Bitcoin → spendable card instantly." },
+      { name: "Hotels.com", host: "$10 - $500", logo: "https://www.google.com/s2/favicons?domain=hotels.com&sz=128", initial: "H", tags: ["Travel", "Hotels"], desc: "Book hotels worldwide with Bitcoin. Perfect for the traveling Bitcoiner." },
+      { name: "Instacart", host: "$25 - $250", logo: "https://www.google.com/s2/favicons?domain=instacart.com&sz=128", initial: "I", tags: ["Food", "Groceries"], desc: "Grocery delivery from your favorite stores. Stock up the pantry using Bitcoin." },
+      { name: "Uber", host: "$15 - $500", logo: "https://www.google.com/s2/favicons?domain=uber.com&sz=128", initial: "U", tags: ["Rides", "Transport"], desc: "Pay for Uber rides with Bitcoin. Available in most major cities worldwide." },
+      { name: "Apple", host: "$2 - $500", logo: "https://www.google.com/s2/favicons?domain=apple.com&sz=128", initial: "A", tags: ["Apps", "iTunes"], desc: "App Store and iTunes gift cards. Great for apps, music, iCloud, and in-app purchases." },
+      { name: "Walmart", host: "$5 - $500", logo: "https://www.google.com/s2/favicons?domain=walmart.com&sz=128", initial: "W", tags: ["Retail", "Groceries"], desc: "Spend Bitcoin on groceries, essentials, and everything else at Walmart." },
+      { name: "Amazon.com", host: "$5 - $500", logo: "https://www.google.com/s2/favicons?domain=amazon.com&sz=128", initial: "A", tags: ["Shopping", "Global"], desc: "The world's biggest online store. Spend your Bitcoin on anything Amazon sells." },
+      { name: "eBay", host: "$5 - $500", logo: "https://www.google.com/s2/favicons?domain=ebay.com&sz=128", initial: "E", tags: ["Shopping", "Marketplace"], desc: "Shop eBay's massive marketplace using Bitcoin-funded gift cards." },
+      { name: "Best Buy", host: "$5 - $500", logo: "https://www.google.com/s2/favicons?domain=bestbuy.com&sz=128", initial: "B", tags: ["Electronics", "Retail"], desc: "Electronics, appliances, and gadgets — paid for with Bitcoin." },
+      { name: "Uber Eats", host: "$15 - $500", logo: "https://www.google.com/s2/favicons?domain=ubereats.com&sz=128", initial: "U", tags: ["Food", "Delivery"], desc: "Food delivery from thousands of restaurants. Order dinner and pay with Bitcoin." },
+      { name: "Starbucks", host: "$5 - $500", logo: "https://www.google.com/s2/favicons?domain=starbucks.com&sz=128", initial: "S", tags: ["Food", "Coffee"], desc: "Buy coffee with Bitcoin — the classic use case. Works at any Starbucks." },
+      { name: "Netflix", host: "Streaming", logo: "https://www.google.com/s2/favicons?domain=netflix.com&sz=128", initial: "N", tags: ["Streaming", "Entertainment"], desc: "Top up your Netflix account with Bitcoin. Binge your favorite shows without fiat." },
+      { name: "Google Play", host: "Apps & Media", logo: "https://www.google.com/s2/favicons?domain=play.google.com&sz=128", initial: "G", tags: ["Apps", "Games"], desc: "Buy apps, games, movies, and books on Google Play — paid for with Bitcoin." },
+      { name: "Steam", host: "PC Gaming", logo: "https://www.google.com/s2/favicons?domain=steampowered.com&sz=128", initial: "S", tags: ["Gaming", "PC"], desc: "The biggest PC gaming platform. Load up your Steam wallet with Bitcoin and start stacking games." },
     ].map(p => ({ ...p, url: BITREFILL_URL }));
 
     function renderPodcasts() {

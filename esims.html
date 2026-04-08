@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bitcoin Brain Food - The Best Bitcoin Podcasts</title>
-  <meta name="description" content="Discover the best Bitcoin podcasts. Curated shows from top Bitcoiners covering news, education, philosophy, and technical deep dives.">
+  <title>Bitcoin Brain Food - Bitcoin eSIMs</title>
+  <meta name="description" content="Buy eSIM data plans with Bitcoin on Bitrefill. Stay connected in 190+ countries without roaming fees.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23F7931A'/><text x='32' y='43' text-anchor='middle' font-size='38' font-weight='bold' font-family='Arial' fill='white'>₿</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -328,17 +328,17 @@
       border-radius: 16px;
       flex-shrink: 0;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--orange), #FFB347);
+      background: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 10px;
     }
-
     .podcast-avatar img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      border-radius: 16px;
+      object-fit: contain;
+      border-radius: 8px;
     }
 
     .podcast-avatar .avatar-fallback {
@@ -571,12 +571,10 @@
     <a href="index.html">Books</a>
     <a href="wallets.html">Wallets</a>
     <a href="exchanges.html">Exchanges</a>
-    <a href="podcasts.html" class="active">Podcasts</a>
+    <a href="podcasts.html">Podcasts</a>
     <a href="courses.html">Courses</a>
     <a href="gift-cards.html">Gift Cards</a>
-    <a href="esims.html">eSIMs</a>
-    <a href="phone-refills.html">Phone Refills</a>
-    <a href="gifts.html">Gifts</a>
+    <a href="esims.html" class="active">eSIMs</a>
     <a href="gifts.html">Gifts</a>
   </nav>
 
@@ -597,7 +595,7 @@
         <svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
         Exchanges
       </a>
-      <a href="podcasts.html" class="sidebar-link active">
+      <a href="podcasts.html" class="sidebar-link">
         <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
         Podcasts
       </a>
@@ -609,7 +607,7 @@
         <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
         Gift Cards
       </a>
-            <a href="esims.html" class="sidebar-link">
+      <a href="esims.html" class="sidebar-link active">
         <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
         eSIMs
       </a>
@@ -628,35 +626,26 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1>The Best <span>Bitcoin Podcasts</span><br>Worth Your Time</h1>
-    <p>Hand-picked Bitcoin podcasts from the sharpest minds in the space. News, philosophy, technical deep dives, and real conversations.</p>
+    <h1>Travel with <span>Bitcoin</span><br>Stay Connected with eSIMs</h1>
+    <p>Buy data plans for 190+ countries with Bitcoin or Lightning. Instant delivery, no physical SIM required — activate on arrival.</p>
     <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="number">10</div>
-        <div class="label">Top Podcasts</div>
-      </div>
-      <div class="hero-stat">
-        <div class="number">1000+</div>
-        <div class="label">Episodes</div>
-      </div>
-      <div class="hero-stat">
-        <div class="number">100%</div>
-        <div class="label">Bitcoin Only</div>
-      </div>
+      <div class="hero-stat"><div class="number">20</div><div class="label">Top Destinations</div></div>
+      <div class="hero-stat"><div class="number">190+</div><div class="label">Countries</div></div>
+      <div class="hero-stat"><div class="number">⚡ Instant</div><div class="label">Lightning Delivery</div></div>
     </div>
   </section>
 
   <!-- FILTER BAR -->
   <div class="filter-bar">
-    <h2 id="sectionTitle">All Podcasts</h2>
+    <h2 id="sectionTitle">Top 20 eSIM Destinations</h2>
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search podcasts...">
+      <input type="text" id="searchInput" placeholder="Search eSIM destinations...">
     </div>
   </div>
 
   <!-- PODCAST GRID -->
   <div class="podcast-grid" id="podcastGrid">
-    <div class="no-results" id="noResults">No podcasts match your search. Try a different keyword.</div>
+    <div class="no-results" id="noResults">No destinations match your search. Try a different keyword.</div>
   </div>
 
   <!-- NEWS + CHART -->
@@ -719,106 +708,37 @@
 
   <!-- FOOTER -->
   <footer>
-    <p><span class="footer-brand">BitcoinBrainFood.com</span> &mdash; Your curated guide to the best Bitcoin podcasts. Feed your ears, stack your knowledge.</p>
+    <p><span class="footer-brand">BitcoinBrainFood.com</span> &mdash; Stay connected anywhere in the world with Bitcoin-funded eSIM data plans from Bitrefill.</p>
     <div class="footer-socials">
       <a href="https://x.com/BTCBrainFood" target="_blank" rel="noopener" title="Follow us on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
     </div>
-    <p class="affiliate-note">All links go to official YouTube channels. Support the creators directly.</p>
+    <p class="affiliate-note">All links are Bitrefill affiliate links. We may earn a commission at no extra cost to you.</p>
   </footer>
 
   <script>
+    const BITREFILL_URL = "https://www.bitrefill.com/invite/m47omcic";
     const podcasts = [
-      {
-        name: "Coin Stories",
-        host: "Natalie Brunell",
-        url: "https://www.youtube.com/@nataliebrunell",
-        logo: "https://yt3.googleusercontent.com/iScinnTM5GNJ2vzfScgD4QMuh_zVp9bGUCrEE3Y3bYcprD6-qXSy6XPYK166x3DVgSV2mlmqto0=s800-c-k-c0x00ffffff-no-rj",
-        initial: "C",
-        tags: ["Interviews", "News", "Culture"],
-        desc: "Natalie Brunell interviews top Bitcoiners, entrepreneurs, and thought leaders. Making Bitcoin accessible with high-quality conversations."
-      },
-      {
-        name: "TFTC: A Bitcoin Podcast",
-        host: "Marty Bent",
-        url: "https://www.youtube.com/@TFTC",
-        logo: "https://yt3.googleusercontent.com/qUHW_M2V6QkkxCzji2foKo8zTDcKG-ILmKSuh5VwaVnbdQNVqKrvT9QgQDmnujdThgTKCmU9-7U=s800-c-k-c0x00ffffff-no-rj",
-        initial: "T",
-        tags: ["News", "Philosophy", "Culture"],
-        desc: "Tales From The Crypt covers Bitcoin news, interviews, and the intersection of freedom and technology with a no-nonsense approach."
-      },
-      {
-        name: "Bitcoin Magazine",
-        host: "Bitcoin Magazine",
-        url: "https://www.youtube.com/@btcmagazine",
-        logo: "https://yt3.googleusercontent.com/K9qUy3Tneu-UXM9fWFmYtBYoZjpfcs7KIm1WcL9PiVgI7OcU5NoVylIgMOKRYvC0LUx5_NQwMg=s800-c-k-c0x00ffffff-no-rj",
-        initial: "B",
-        tags: ["News", "Events", "Education"],
-        desc: "The official Bitcoin Magazine channel featuring interviews, conference talks, and breaking Bitcoin news from the industry's leading publication."
-      },
-      {
-        name: "What Bitcoin Did",
-        host: "Peter McCormack",
-        url: "https://www.youtube.com/@WhatBitcoinDidPod",
-        logo: "https://yt3.googleusercontent.com/kpeHdF98Wud6yUlxR9vqJhEAxo6lzbosTI8xsGA1M2-U0aHe8xJUkNpiUYB3-m4v8beAy4n3Hw0=s800-c-k-c0x00ffffff-no-rj",
-        initial: "W",
-        tags: ["Interviews", "Beginner Friendly", "Deep Dives"],
-        desc: "Peter McCormack's long-form interviews with the biggest names in Bitcoin. From beginner explainers to deep technical discussions."
-      },
-      {
-        name: "Stephan Livera Podcast",
-        host: "Stephan Livera",
-        url: "https://www.youtube.com/@StephanLivera",
-        logo: "https://yt3.googleusercontent.com/ytc/AIdro_lMZyFCwHvN7f1F1vEcCr49Eq9Co2mNT-RrcVKG0ORiZEo=s800-c-k-c0x00ffffff-no-rj",
-        initial: "S",
-        tags: ["Economics", "Technical", "Philosophy"],
-        desc: "In-depth conversations on Austrian economics, Bitcoin technology, and sound money principles with leading thinkers and developers."
-      },
-      {
-        name: "Bitcoin Fundamentals",
-        host: "The Investors Podcast Network",
-        url: "https://www.youtube.com/@TheInvestorsPodcastNetwork",
-        logo: "https://yt3.googleusercontent.com/eqBwFO58C8KsjWVKxkWnUk8vekRglMzkT-Odl5nzUweC_IiPyVg35b72n3Jp86zX50G1DLTDBg=s800-c-k-c0x00ffffff-no-rj",
-        initial: "B",
-        tags: ["Investing", "Macro", "Education"],
-        desc: "Bitcoin analysis through the lens of value investing and macroeconomics. Part of The Investors Podcast Network."
-      },
-      {
-        name: "The Bitcoin Layer",
-        host: "Nik Bhatia",
-        url: "https://www.youtube.com/@TheBitcoinLayer",
-        logo: "https://yt3.googleusercontent.com/lSuEjUbnJog1ZXt55zxC7HLSRsaUgAwDMHv8r5snr6SFPs8ABFwC35dCxRP1-BqvmCCUGCf7Nw=s800-c-k-c0x00ffffff-no-rj",
-        initial: "T",
-        tags: ["Macro", "Finance", "Analysis"],
-        desc: "Nik Bhatia breaks down Bitcoin through the lens of fixed income markets, macro analysis, and the global financial system."
-      },
-      {
-        name: "Citadel Dispatch",
-        host: "Matt Odell",
-        url: "https://www.youtube.com/@CitadelDispatch",
-        logo: "https://yt3.googleusercontent.com/6SmtVdBva3ZGcDagvQY-puBupjIQkZKqwzMVhFL19uOtbwBfoKY0QhRD3AGUOy8AMxIVOUzWRQ=s800-c-k-c0x00ffffff-no-rj",
-        initial: "C",
-        tags: ["Privacy", "Technical", "Open Source"],
-        desc: "Unscripted, interactive discussions on Bitcoin privacy, security, and open-source tools. Focused on practical sovereignty."
-      },
-      {
-        name: "Bitcoin Audible",
-        host: "Guy Swann",
-        url: "https://www.youtube.com/@theguyswann",
-        logo: "https://yt3.googleusercontent.com/IvI8xNB3fMUC-eanQMfs6jD9dlXPLuMkX7_s-zBhfm00WE4ceopfayKruTyz6vM1YfGo_FYmXQ=s800-c-k-c0x00ffffff-no-rj",
-        initial: "B",
-        tags: ["Education", "Essays", "Philosophy"],
-        desc: "Guy Swann reads and breaks down the best Bitcoin essays and articles. The audio library of Bitcoin's greatest written works."
-      },
-      {
-        name: "The Bitcoin Standard Podcast",
-        host: "Saifedean Ammous",
-        url: "https://www.youtube.com/@saifedean",
-        logo: "https://yt3.googleusercontent.com/WUqvpT3npNxUo7vg3iACRg_XWgVAgLMdmUp051c-64fRRG6KjEi2lB2mNETshXTOWf0AkEo2=s800-c-k-c0x00ffffff-no-rj",
-        initial: "S",
-        tags: ["Economics", "Philosophy", "Education"],
-        desc: "Author of The Bitcoin Standard discusses Austrian economics, sound money, and how Bitcoin changes everything."
-      },
-    ];
+      { name: "United States", host: "eSIM Data Plan", logo: "", flag: "🇺🇸", initial: "U", tags: ["eSIM", "Data"], desc: "Stay connected across all 50 states with reliable high-speed data. Perfect for travel or short-term stays." },
+      { name: "Japan", host: "eSIM Data Plan", logo: "", flag: "🇯🇵", initial: "J", tags: ["eSIM", "Data"], desc: "Fast LTE/5G coverage for Tokyo, Kyoto, Osaka and beyond. Skip the airport SIM counters entirely." },
+      { name: "United Kingdom", host: "eSIM Data Plan", logo: "", flag: "🇬🇧", initial: "U", tags: ["eSIM", "Data"], desc: "Data across England, Scotland, Wales, and Northern Ireland. Instant activation on arrival." },
+      { name: "Thailand", host: "eSIM Data Plan", logo: "", flag: "🇹🇭", initial: "T", tags: ["eSIM", "Data"], desc: "High-speed data for Bangkok, Phuket, Chiang Mai and the islands. A traveler favorite." },
+      { name: "Italy", host: "eSIM Data Plan", logo: "", flag: "🇮🇹", initial: "I", tags: ["eSIM", "Data"], desc: "Reliable data across Rome, Milan, Venice and the Amalfi Coast. Works in all EU countries too." },
+      { name: "France", host: "eSIM Data Plan", logo: "", flag: "🇫🇷", initial: "F", tags: ["eSIM", "Data"], desc: "High-speed data for Paris and all of France. Ideal for travelers exploring Europe." },
+      { name: "Spain", host: "eSIM Data Plan", logo: "", flag: "🇪🇸", initial: "S", tags: ["eSIM", "Data"], desc: "Stay online in Barcelona, Madrid, and the Spanish coast. Works across the EU." },
+      { name: "Germany", host: "eSIM Data Plan", logo: "", flag: "🇩🇪", initial: "G", tags: ["eSIM", "Data"], desc: "Fast, reliable data in Berlin, Munich, Frankfurt and beyond. Perfect for Europe trips." },
+      { name: "Mexico", host: "eSIM Data Plan", logo: "", flag: "🇲🇽", initial: "M", tags: ["eSIM", "Data"], desc: "Data for Cancun, Mexico City, Tulum, and beyond. Skip roaming fees entirely." },
+      { name: "Turkey", host: "eSIM Data Plan", logo: "", flag: "🇹🇷", initial: "T", tags: ["eSIM", "Data"], desc: "Stay connected in Istanbul, Cappadocia, Antalya and across Turkey with high-speed data." },
+      { name: "United Arab Emirates", host: "eSIM Data Plan", logo: "", flag: "🇦🇪", initial: "U", tags: ["eSIM", "Data"], desc: "Premium coverage in Dubai and Abu Dhabi. Ideal for business travelers and tourists." },
+      { name: "Singapore", host: "eSIM Data Plan", logo: "", flag: "🇸🇬", initial: "S", tags: ["eSIM", "Data"], desc: "Ultra-fast 5G across the entire city-state. Stay connected from Changi to Sentosa." },
+      { name: "Australia", host: "eSIM Data Plan", logo: "", flag: "🇦🇺", initial: "A", tags: ["eSIM", "Data"], desc: "Coverage across Sydney, Melbourne, and the Outback. Activate before you land." },
+      { name: "Canada", host: "eSIM Data Plan", logo: "", flag: "🇨🇦", initial: "C", tags: ["eSIM", "Data"], desc: "High-speed data from Vancouver to Toronto. Perfect for cross-country trips." },
+      { name: "Vietnam", host: "eSIM Data Plan", logo: "", flag: "🇻🇳", initial: "V", tags: ["eSIM", "Data"], desc: "Affordable, fast data for Hanoi, Ho Chi Minh City, and Da Nang. Great for backpackers." },
+      { name: "Indonesia", host: "eSIM Data Plan", logo: "", flag: "🇮🇩", initial: "I", tags: ["eSIM", "Data"], desc: "Stay online in Bali, Jakarta, and beyond. Reliable data for the whole archipelago." },
+      { name: "India", host: "eSIM Data Plan", logo: "", flag: "🇮🇳", initial: "I", tags: ["eSIM", "Data"], desc: "Data coverage across India with nationwide roaming. Perfect for travel or business." },
+      { name: "Brazil", host: "eSIM Data Plan", logo: "", flag: "🇧🇷", initial: "B", tags: ["eSIM", "Data"], desc: "Stay connected from Rio to São Paulo with fast LTE data across Brazil." },
+      { name: "Europe (Regional)", host: "eSIM Data Plan", logo: "", flag: "🇪🇺", initial: "E", tags: ["eSIM", "Data"], desc: "One eSIM covering 30+ European countries. Ideal for multi-country trips." },
+      { name: "Global", host: "eSIM Data Plan", logo: "", flag: "🇺🇳", initial: "G", tags: ["eSIM", "Data"], desc: "Global roaming eSIM covering 100+ countries. Perfect for frequent travelers and digital nomads." },
+    ].map(p => ({ ...p, url: BITREFILL_URL }));
 
     function renderPodcasts() {
       const grid = document.getElementById('podcastGrid');
@@ -839,7 +759,7 @@
         );
       }
 
-      title.textContent = search ? `Results for "${search}"` : 'All Podcasts';
+      title.textContent = search ? `Results for "${search}"` : 'Top 20 eSIM Destinations';
 
       if (filtered.length === 0) {
         noResults.style.display = 'block';
@@ -855,10 +775,8 @@
         card.rel = 'noopener';
 
         const logoHtml = podcast.logo
-          ? `<img src="${podcast.logo}" alt="${podcast.name}"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-             <span class="avatar-fallback" style="display:none;">${podcast.initial}</span>`
-          : `<span class="avatar-fallback">${podcast.initial}</span>`;
+          ? `<img src="${podcast.logo}" alt="${podcast.name}" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';"><span class="avatar-fallback" style="display:none;font-size:40px;">${podcast.flag||podcast.initial}</span>`
+          : `<span class="avatar-fallback" style="font-size:40px;">${podcast.flag||podcast.initial}</span>`;
 
         card.innerHTML = `
           <div class="podcast-avatar">
@@ -872,9 +790,8 @@
               ${podcast.tags.map(t => `<span class="podcast-tag">${t}</span>`).join('')}
             </div>
           </div>
-          <span class="yt-badge">
-            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><path fill="#fff" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            YouTube
+          <span class="yt-badge" style="background:rgba(247,147,26,0.1);border-color:rgba(247,147,26,0.3);color:#F7931A;">
+            Buy on Bitrefill →
           </span>
         `;
         grid.insertBefore(card, noResults);

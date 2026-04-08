@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bitcoin Brain Food - The Best Bitcoin Podcasts</title>
-  <meta name="description" content="Discover the best Bitcoin podcasts. Curated shows from top Bitcoiners covering news, education, philosophy, and technical deep dives.">
+  <title>Bitcoin Brain Food - Bitcoin Phone Refills</title>
+  <meta name="description" content="Top up prepaid phones worldwide with Bitcoin. Instant mobile refills to 150+ countries through Bitrefill.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23F7931A'/><text x='32' y='43' text-anchor='middle' font-size='38' font-weight='bold' font-family='Arial' fill='white'>₿</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -328,17 +328,17 @@
       border-radius: 16px;
       flex-shrink: 0;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--orange), #FFB347);
+      background: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 10px;
     }
-
     .podcast-avatar img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      border-radius: 16px;
+      object-fit: contain;
+      border-radius: 8px;
     }
 
     .podcast-avatar .avatar-fallback {
@@ -571,12 +571,10 @@
     <a href="index.html">Books</a>
     <a href="wallets.html">Wallets</a>
     <a href="exchanges.html">Exchanges</a>
-    <a href="podcasts.html" class="active">Podcasts</a>
+    <a href="podcasts.html">Podcasts</a>
     <a href="courses.html">Courses</a>
     <a href="gift-cards.html">Gift Cards</a>
-    <a href="esims.html">eSIMs</a>
-    <a href="phone-refills.html">Phone Refills</a>
-    <a href="gifts.html">Gifts</a>
+    <a href="phone-refills.html" class="active">Phone Refills</a>
     <a href="gifts.html">Gifts</a>
   </nav>
 
@@ -597,7 +595,7 @@
         <svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
         Exchanges
       </a>
-      <a href="podcasts.html" class="sidebar-link active">
+      <a href="podcasts.html" class="sidebar-link">
         <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
         Podcasts
       </a>
@@ -609,11 +607,11 @@
         <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
         Gift Cards
       </a>
-            <a href="esims.html" class="sidebar-link">
+      <a href="esims.html" class="sidebar-link">
         <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
         eSIMs
       </a>
-      <a href="phone-refills.html" class="sidebar-link">
+      <a href="phone-refills.html" class="sidebar-link active">
         <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
         Phone Refills
       </a>
@@ -628,35 +626,26 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1>The Best <span>Bitcoin Podcasts</span><br>Worth Your Time</h1>
-    <p>Hand-picked Bitcoin podcasts from the sharpest minds in the space. News, philosophy, technical deep dives, and real conversations.</p>
+    <h1>Top Up Phones with <span>Bitcoin</span><br>Anywhere in the World</h1>
+    <p>Instantly refill prepaid mobile plans in 150+ countries. Pay with Bitcoin or Lightning — the recipient gets airtime in seconds.</p>
     <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="number">10</div>
-        <div class="label">Top Podcasts</div>
-      </div>
-      <div class="hero-stat">
-        <div class="number">1000+</div>
-        <div class="label">Episodes</div>
-      </div>
-      <div class="hero-stat">
-        <div class="number">100%</div>
-        <div class="label">Bitcoin Only</div>
-      </div>
+      <div class="hero-stat"><div class="number">20</div><div class="label">Top Carriers</div></div>
+      <div class="hero-stat"><div class="number">150+</div><div class="label">Countries</div></div>
+      <div class="hero-stat"><div class="number">⚡ Instant</div><div class="label">Lightning Delivery</div></div>
     </div>
   </section>
 
   <!-- FILTER BAR -->
   <div class="filter-bar">
-    <h2 id="sectionTitle">All Podcasts</h2>
+    <h2 id="sectionTitle">Top 20 Phone Refills</h2>
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search podcasts...">
+      <input type="text" id="searchInput" placeholder="Search phone carriers...">
     </div>
   </div>
 
   <!-- PODCAST GRID -->
   <div class="podcast-grid" id="podcastGrid">
-    <div class="no-results" id="noResults">No podcasts match your search. Try a different keyword.</div>
+    <div class="no-results" id="noResults">No carriers match your search. Try a different keyword.</div>
   </div>
 
   <!-- NEWS + CHART -->
@@ -719,106 +708,37 @@
 
   <!-- FOOTER -->
   <footer>
-    <p><span class="footer-brand">BitcoinBrainFood.com</span> &mdash; Your curated guide to the best Bitcoin podcasts. Feed your ears, stack your knowledge.</p>
+    <p><span class="footer-brand">BitcoinBrainFood.com</span> &mdash; Refill prepaid phones worldwide with Bitcoin. Instant top-ups to 150+ countries through Bitrefill.</p>
     <div class="footer-socials">
       <a href="https://x.com/BTCBrainFood" target="_blank" rel="noopener" title="Follow us on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
     </div>
-    <p class="affiliate-note">All links go to official YouTube channels. Support the creators directly.</p>
+    <p class="affiliate-note">All links are Bitrefill affiliate links. We may earn a commission at no extra cost to you.</p>
   </footer>
 
   <script>
+    const BITREFILL_URL = "https://www.bitrefill.com/invite/m47omcic";
     const podcasts = [
-      {
-        name: "Coin Stories",
-        host: "Natalie Brunell",
-        url: "https://www.youtube.com/@nataliebrunell",
-        logo: "https://yt3.googleusercontent.com/iScinnTM5GNJ2vzfScgD4QMuh_zVp9bGUCrEE3Y3bYcprD6-qXSy6XPYK166x3DVgSV2mlmqto0=s800-c-k-c0x00ffffff-no-rj",
-        initial: "C",
-        tags: ["Interviews", "News", "Culture"],
-        desc: "Natalie Brunell interviews top Bitcoiners, entrepreneurs, and thought leaders. Making Bitcoin accessible with high-quality conversations."
-      },
-      {
-        name: "TFTC: A Bitcoin Podcast",
-        host: "Marty Bent",
-        url: "https://www.youtube.com/@TFTC",
-        logo: "https://yt3.googleusercontent.com/qUHW_M2V6QkkxCzji2foKo8zTDcKG-ILmKSuh5VwaVnbdQNVqKrvT9QgQDmnujdThgTKCmU9-7U=s800-c-k-c0x00ffffff-no-rj",
-        initial: "T",
-        tags: ["News", "Philosophy", "Culture"],
-        desc: "Tales From The Crypt covers Bitcoin news, interviews, and the intersection of freedom and technology with a no-nonsense approach."
-      },
-      {
-        name: "Bitcoin Magazine",
-        host: "Bitcoin Magazine",
-        url: "https://www.youtube.com/@btcmagazine",
-        logo: "https://yt3.googleusercontent.com/K9qUy3Tneu-UXM9fWFmYtBYoZjpfcs7KIm1WcL9PiVgI7OcU5NoVylIgMOKRYvC0LUx5_NQwMg=s800-c-k-c0x00ffffff-no-rj",
-        initial: "B",
-        tags: ["News", "Events", "Education"],
-        desc: "The official Bitcoin Magazine channel featuring interviews, conference talks, and breaking Bitcoin news from the industry's leading publication."
-      },
-      {
-        name: "What Bitcoin Did",
-        host: "Peter McCormack",
-        url: "https://www.youtube.com/@WhatBitcoinDidPod",
-        logo: "https://yt3.googleusercontent.com/kpeHdF98Wud6yUlxR9vqJhEAxo6lzbosTI8xsGA1M2-U0aHe8xJUkNpiUYB3-m4v8beAy4n3Hw0=s800-c-k-c0x00ffffff-no-rj",
-        initial: "W",
-        tags: ["Interviews", "Beginner Friendly", "Deep Dives"],
-        desc: "Peter McCormack's long-form interviews with the biggest names in Bitcoin. From beginner explainers to deep technical discussions."
-      },
-      {
-        name: "Stephan Livera Podcast",
-        host: "Stephan Livera",
-        url: "https://www.youtube.com/@StephanLivera",
-        logo: "https://yt3.googleusercontent.com/ytc/AIdro_lMZyFCwHvN7f1F1vEcCr49Eq9Co2mNT-RrcVKG0ORiZEo=s800-c-k-c0x00ffffff-no-rj",
-        initial: "S",
-        tags: ["Economics", "Technical", "Philosophy"],
-        desc: "In-depth conversations on Austrian economics, Bitcoin technology, and sound money principles with leading thinkers and developers."
-      },
-      {
-        name: "Bitcoin Fundamentals",
-        host: "The Investors Podcast Network",
-        url: "https://www.youtube.com/@TheInvestorsPodcastNetwork",
-        logo: "https://yt3.googleusercontent.com/eqBwFO58C8KsjWVKxkWnUk8vekRglMzkT-Odl5nzUweC_IiPyVg35b72n3Jp86zX50G1DLTDBg=s800-c-k-c0x00ffffff-no-rj",
-        initial: "B",
-        tags: ["Investing", "Macro", "Education"],
-        desc: "Bitcoin analysis through the lens of value investing and macroeconomics. Part of The Investors Podcast Network."
-      },
-      {
-        name: "The Bitcoin Layer",
-        host: "Nik Bhatia",
-        url: "https://www.youtube.com/@TheBitcoinLayer",
-        logo: "https://yt3.googleusercontent.com/lSuEjUbnJog1ZXt55zxC7HLSRsaUgAwDMHv8r5snr6SFPs8ABFwC35dCxRP1-BqvmCCUGCf7Nw=s800-c-k-c0x00ffffff-no-rj",
-        initial: "T",
-        tags: ["Macro", "Finance", "Analysis"],
-        desc: "Nik Bhatia breaks down Bitcoin through the lens of fixed income markets, macro analysis, and the global financial system."
-      },
-      {
-        name: "Citadel Dispatch",
-        host: "Matt Odell",
-        url: "https://www.youtube.com/@CitadelDispatch",
-        logo: "https://yt3.googleusercontent.com/6SmtVdBva3ZGcDagvQY-puBupjIQkZKqwzMVhFL19uOtbwBfoKY0QhRD3AGUOy8AMxIVOUzWRQ=s800-c-k-c0x00ffffff-no-rj",
-        initial: "C",
-        tags: ["Privacy", "Technical", "Open Source"],
-        desc: "Unscripted, interactive discussions on Bitcoin privacy, security, and open-source tools. Focused on practical sovereignty."
-      },
-      {
-        name: "Bitcoin Audible",
-        host: "Guy Swann",
-        url: "https://www.youtube.com/@theguyswann",
-        logo: "https://yt3.googleusercontent.com/IvI8xNB3fMUC-eanQMfs6jD9dlXPLuMkX7_s-zBhfm00WE4ceopfayKruTyz6vM1YfGo_FYmXQ=s800-c-k-c0x00ffffff-no-rj",
-        initial: "B",
-        tags: ["Education", "Essays", "Philosophy"],
-        desc: "Guy Swann reads and breaks down the best Bitcoin essays and articles. The audio library of Bitcoin's greatest written works."
-      },
-      {
-        name: "The Bitcoin Standard Podcast",
-        host: "Saifedean Ammous",
-        url: "https://www.youtube.com/@saifedean",
-        logo: "https://yt3.googleusercontent.com/WUqvpT3npNxUo7vg3iACRg_XWgVAgLMdmUp051c-64fRRG6KjEi2lB2mNETshXTOWf0AkEo2=s800-c-k-c0x00ffffff-no-rj",
-        initial: "S",
-        tags: ["Economics", "Philosophy", "Education"],
-        desc: "Author of The Bitcoin Standard discusses Austrian economics, sound money, and how Bitcoin changes everything."
-      },
-    ];
+      { name: "AT&T", host: "United States", logo: "https://www.google.com/s2/favicons?domain=att.com&sz=128", flag: "🇺🇸", initial: "A", tags: ["Mobile", "Prepaid"], desc: "Instant prepaid refill for AT&T Wireless. Top up any AT&T prepaid number in seconds." },
+      { name: "T-Mobile", host: "United States", logo: "https://www.google.com/s2/favicons?domain=tmobile.com&sz=128", flag: "🇺🇸", initial: "T", tags: ["Mobile", "Prepaid"], desc: "Top up T-Mobile prepaid plans with Bitcoin. Instant Lightning delivery." },
+      { name: "Verizon", host: "United States", logo: "https://www.google.com/s2/favicons?domain=verizon.com&sz=128", flag: "🇺🇸", initial: "V", tags: ["Mobile", "Prepaid"], desc: "Refill Verizon prepaid phones instantly. Pay with Bitcoin or Lightning." },
+      { name: "Telcel", host: "Mexico", logo: "https://www.google.com/s2/favicons?domain=telcel.com&sz=128", flag: "🇲🇽", initial: "T", tags: ["Mobile", "Prepaid"], desc: "Mexico's largest mobile carrier. Refill any Telcel number with Bitcoin." },
+      { name: "Movistar", host: "Spain", logo: "https://www.google.com/s2/favicons?domain=movistar.com&sz=128", flag: "🇪🇸", initial: "M", tags: ["Mobile", "Prepaid"], desc: "Top up Movistar prepaid lines across Spain and Latin America." },
+      { name: "Vodafone", host: "United Kingdom", logo: "https://www.google.com/s2/favicons?domain=vodafone.com&sz=128", flag: "🇬🇧", initial: "V", tags: ["Mobile", "Prepaid"], desc: "Refill Vodafone prepaid in the UK and many other countries." },
+      { name: "Orange", host: "France", logo: "https://www.google.com/s2/favicons?domain=orange.com&sz=128", flag: "🇫🇷", initial: "O", tags: ["Mobile", "Prepaid"], desc: "Top up Orange mobile in France and across Europe and Africa." },
+      { name: "Airtel", host: "India", logo: "https://www.google.com/s2/favicons?domain=airtel.com&sz=128", flag: "🇮🇳", initial: "A", tags: ["Mobile", "Prepaid"], desc: "Refill Bharti Airtel prepaid numbers across India instantly." },
+      { name: "Jio", host: "India", logo: "https://www.google.com/s2/favicons?domain=jio.com&sz=128", flag: "🇮🇳", initial: "J", tags: ["Mobile", "Prepaid"], desc: "Top up Reliance Jio in India with Bitcoin. Instant delivery." },
+      { name: "MTN", host: "South Africa", logo: "https://www.google.com/s2/favicons?domain=mtn.com&sz=128", flag: "🇿🇦", initial: "M", tags: ["Mobile", "Prepaid"], desc: "Refill MTN prepaid across South Africa and dozens of African countries." },
+      { name: "Glo", host: "Nigeria", logo: "https://www.google.com/s2/favicons?domain=glo.com&sz=128", flag: "🇳🇬", initial: "G", tags: ["Mobile", "Prepaid"], desc: "Top up Glo Mobile in Nigeria and other African markets." },
+      { name: "Safaricom", host: "Kenya", logo: "https://www.google.com/s2/favicons?domain=safaricom.com&sz=128", flag: "🇰🇪", initial: "S", tags: ["Mobile", "Prepaid"], desc: "Refill Safaricom / M-Pesa numbers in Kenya with Bitcoin." },
+      { name: "Claro", host: "Brazil", logo: "https://www.google.com/s2/favicons?domain=claro.com&sz=128", flag: "🇧🇷", initial: "C", tags: ["Mobile", "Prepaid"], desc: "Top up Claro prepaid across Brazil and Latin America." },
+      { name: "Vivo", host: "Brazil", logo: "https://www.google.com/s2/favicons?domain=vivo.com&sz=128", flag: "🇧🇷", initial: "V", tags: ["Mobile", "Prepaid"], desc: "Refill Vivo mobile in Brazil using Bitcoin or Lightning." },
+      { name: "Tigo", host: "Colombia", logo: "https://www.google.com/s2/favicons?domain=tigo.com&sz=128", flag: "🇨🇴", initial: "T", tags: ["Mobile", "Prepaid"], desc: "Top up Tigo prepaid in Colombia and across Central America." },
+      { name: "Digicel", host: "Caribbean", logo: "https://www.google.com/s2/favicons?domain=digicel.com&sz=128", flag: "🇯🇲", initial: "D", tags: ["Mobile", "Prepaid"], desc: "Refill Digicel numbers across the Caribbean and Pacific." },
+      { name: "Etisalat", host: "UAE", logo: "https://www.google.com/s2/favicons?domain=etisalat.com&sz=128", flag: "🇦🇪", initial: "E", tags: ["Mobile", "Prepaid"], desc: "Top up Etisalat prepaid in the UAE with Bitcoin." },
+      { name: "STC", host: "Saudi Arabia", logo: "https://www.google.com/s2/favicons?domain=stc.com&sz=128", flag: "🇸🇦", initial: "S", tags: ["Mobile", "Prepaid"], desc: "Refill Saudi Telecom Company prepaid plans instantly." },
+      { name: "Smart", host: "Philippines", logo: "https://www.google.com/s2/favicons?domain=smart.com&sz=128", flag: "🇵🇭", initial: "S", tags: ["Mobile", "Prepaid"], desc: "Top up Smart prepaid in the Philippines with Bitcoin." },
+      { name: "Globe", host: "Philippines", logo: "https://www.google.com/s2/favicons?domain=globe.com&sz=128", flag: "🇵🇭", initial: "G", tags: ["Mobile", "Prepaid"], desc: "Refill Globe Telecom prepaid numbers in the Philippines." },
+    ].map(p => ({ ...p, url: BITREFILL_URL }));
 
     function renderPodcasts() {
       const grid = document.getElementById('podcastGrid');
@@ -839,7 +759,7 @@
         );
       }
 
-      title.textContent = search ? `Results for "${search}"` : 'All Podcasts';
+      title.textContent = search ? `Results for "${search}"` : 'Top 20 Phone Refills';
 
       if (filtered.length === 0) {
         noResults.style.display = 'block';
@@ -855,10 +775,8 @@
         card.rel = 'noopener';
 
         const logoHtml = podcast.logo
-          ? `<img src="${podcast.logo}" alt="${podcast.name}"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-             <span class="avatar-fallback" style="display:none;">${podcast.initial}</span>`
-          : `<span class="avatar-fallback">${podcast.initial}</span>`;
+          ? `<img src="${podcast.logo}" alt="${podcast.name}" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';"><span class="avatar-fallback" style="display:none;font-size:40px;">${podcast.flag||podcast.initial}</span>`
+          : `<span class="avatar-fallback" style="font-size:40px;">${podcast.flag||podcast.initial}</span>`;
 
         card.innerHTML = `
           <div class="podcast-avatar">
@@ -872,9 +790,8 @@
               ${podcast.tags.map(t => `<span class="podcast-tag">${t}</span>`).join('')}
             </div>
           </div>
-          <span class="yt-badge">
-            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><path fill="#fff" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            YouTube
+          <span class="yt-badge" style="background:rgba(247,147,26,0.1);border-color:rgba(247,147,26,0.3);color:#F7931A;">
+            Buy on Bitrefill →
           </span>
         `;
         grid.insertBefore(card, noResults);
