@@ -295,56 +295,92 @@
       margin: 0 auto;
       padding: 16px 24px 80px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
     }
 
     .podcast-card {
       background: var(--dark-card);
       border: 1px solid var(--dark-border);
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
       transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
       display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px;
+      flex-direction: column;
       text-decoration: none;
       color: inherit;
       cursor: pointer;
     }
 
     .podcast-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: var(--orange);
-      box-shadow: 0 8px 30px rgba(247, 147, 26, 0.1);
+      box-shadow: 0 12px 36px rgba(247, 147, 26, 0.15);
     }
 
     .podcast-card:visited { color: inherit; }
 
-    .podcast-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 16px;
-      flex-shrink: 0;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--orange), #FFB347);
+    .course-banner {
+      position: relative;
+      height: 150px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(255,255,255,0.18) 0%, transparent 45%),
+        radial-gradient(circle at 15% 90%, rgba(0,0,0,0.35) 0%, transparent 55%),
+        linear-gradient(135deg, #F7931A 0%, #FF6B00 60%, #8B3A00 100%);
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
-    .podcast-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 16px;
-    }
-
-    .podcast-avatar .avatar-fallback {
-      font-size: 32px;
+    .course-banner::before {
+      content: '₿';
+      position: absolute;
+      top: -40px;
+      right: -30px;
+      font-size: 240px;
       font-weight: 900;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .course-banner-btc {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--orange);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+      z-index: 1;
+    }
+
+    .course-level {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
       color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .course-body {
+      padding: 16px 18px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .podcast-info {
@@ -353,26 +389,28 @@
     }
 
     .podcast-name {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 2px;
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 4px;
       line-height: 1.3;
     }
 
     .podcast-host {
       font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
+      color: var(--orange);
+      margin-bottom: 10px;
+      font-weight: 600;
     }
 
     .podcast-desc {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.55;
       display: -webkit-box;
-      -webkit-line-clamp: 2;
+      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      flex: 1;
     }
 
     .podcast-tags {
@@ -827,27 +865,23 @@
         card.target = '_blank';
         card.rel = 'noopener';
 
-        const logoHtml = podcast.logo
-          ? `<img src="${podcast.logo}" alt="${podcast.name}"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-             <span class="avatar-fallback" style="display:none;">${podcast.initial}</span>`
-          : `<span class="avatar-fallback">${podcast.initial}</span>`;
-
+        const level = (podcast.tags && podcast.tags[0]) || 'Course';
         card.innerHTML = `
-          <div class="podcast-avatar">
-            ${logoHtml}
+          <div class="course-banner">
+            <span class="course-level">${level}</span>
+            <div class="course-banner-btc">₿</div>
           </div>
-          <div class="podcast-info">
+          <div class="course-body">
             <div class="podcast-name">${podcast.name}</div>
             <div class="podcast-host">by ${podcast.host}</div>
             <div class="podcast-desc">${podcast.desc}</div>
-            <div class="podcast-tags">
+            <div class="podcast-tags" style="margin-top:12px;">
               ${podcast.tags.map(t => `<span class="podcast-tag">${t}</span>`).join('')}
             </div>
+            <span class="yt-badge" style="align-self:flex-start;margin-top:14px;background:rgba(247,147,26,0.1);border-color:rgba(247,147,26,0.3);color:var(--orange);">
+              View on Udemy →
+            </span>
           </div>
-          <span class="yt-badge" style="background:rgba(163,18,206,0.1);border-color:rgba(163,18,206,0.3);color:#A312CE;">
-            View on Udemy →
-          </span>
         `;
         grid.insertBefore(card, noResults);
       });
