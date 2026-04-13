@@ -1,0 +1,11 @@
+Program,Affiliate Link / Referral URL,Referral Code / ID,Used On Page(s),Category,Date Added,Notes
+Amazon Associates,https://www.amazon.com/dp/{PRODUCT}?tag=jalinn.v.-20,jalinn.v.-20,"index.html, gifts.html",Books & Gifts,,Per-product links with ?tag= parameter
+BitcoinMerch,https://bitcoinmerch.com/products/{PRODUCT}?aff=888,aff=888,gifts.html,Gifts / Mining,,Per-product links with ?aff= parameter
+Bitrefill,https://www.bitrefill.com/invite/m47omcic,m47omcic,"gift-cards.html, esims.html, phone-refills.html",Gift Cards / eSIMs / Phone Refills,,Single invite link for all products
+Udemy,https://trk.udemy.com/{TRACKING_CODE},Multiple (R0RZXg / PzaR9Y / L0DOqY / xJnr3v / rEgL33 / k4R93d / AgKnV7),courses.html,Courses,,7 tracking links - one per course
+Binance,https://www.binance.com/register?ref=11175123,11175123,exchanges.html,Exchanges,,
+Kraken,https://proinvite.kraken.com/9f1e/48k33nb4,9f1e/48k33nb4,exchanges.html,Exchanges,,
+Nexo,https://nexo.com/ref/rpsk6dhdki?src=android-link,rpsk6dhdki,exchanges.html,Exchanges,,
+Xapo Bank,https://application.xapo.com/membership-application?ref=UJG-REQ-TN,UJG-REQ-TN,exchanges.html,Exchanges,,
+Kast.xyz,https://go.kast.xyz/VqVO/9UPJ9S0N,9UPJ9S0N,exchanges.html,Exchanges / Staking,,
+Roxom,https://roxom.com/auth/signup?referral=bitcoinbrainfood,bitcoinbrainfood,exchanges.html,Exchanges,2026-04-13,
