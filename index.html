@@ -435,6 +435,44 @@
     .hero-stat .number { font-size: 24px; font-weight: 800; color: var(--orange); }
     .hero-stat .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 
+    .hero-cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 22px 0 24px;
+      flex-wrap: wrap;
+    }
+    .hero-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange);
+      color: #fff;
+      padding: 13px 24px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(247,147,26,0.35);
+      transition: all 0.2s;
+    }
+    .hero-cta-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(247,147,26,0.5);
+    }
+    .hero-cta-primary svg { width: 16px; height: 16px; }
+    .hero-cta-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+    .hero-cta-sub strong { color: var(--text); }
+
+    @media (max-width: 480px) {
+      .hero-cta-primary { padding: 11px 20px; font-size: 14px; }
+    }
+
     /* ===== CATEGORY TABS ===== */
     .category-bar {
       max-width: 1280px;
@@ -608,6 +646,37 @@
     .badge-philosophy { background: rgba(163,113,247,0.15); color: var(--cat-philosophy); border: 1px solid rgba(163,113,247,0.3); }
     .badge-technical { background: rgba(88,166,255,0.15); color: var(--cat-technical); border: 1px solid rgba(88,166,255,0.3); }
     .badge-stories { background: rgba(247,129,102,0.15); color: var(--cat-stories); border: 1px solid rgba(247,129,102,0.3); }
+
+    .editors-choice-ribbon {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, #F7931A 0%, #FFB84D 100%);
+      color: #1a1a1a;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(247, 147, 26, 0.4);
+      z-index: 2;
+    }
+    .editors-choice-ribbon svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+    .book-card.is-editors-choice {
+      border-color: rgba(247, 147, 26, 0.4);
+      box-shadow: 0 0 0 1px rgba(247, 147, 26, 0.2);
+    }
+    .book-card.is-editors-choice:hover {
+      box-shadow: 0 8px 30px rgba(247, 147, 26, 0.25);
+    }
 
     .book-info {
       padding: 20px;
@@ -788,6 +857,8 @@
           <a href="https://x.com/BTCBrainFood" target="_blank" rel="noopener" title="Follow us on X">
             <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
+          <a href="https://www.instagram.com/bitcoinbrainfood" target="_blank" rel="noopener" title="Follow us on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.tiktok.com/@bitcoinbrainfood" target="_blank" rel="noopener" title="Follow us on TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.45a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.36z"/></svg></a>
         </div>
         <div class="btc-ticker" id="btcTicker">
           <span class="btc-label">BTC</span>
@@ -800,7 +871,9 @@
 
   <!-- MOBILE NAV -->
   <nav class="mobile-nav">
-    <a href="index.html" class="active">Books</a>
+    
+    <a href="start-here.html">Start Here</a>
+<a href="index.html" class="active">Books</a>
     <a href="wallets.html">Wallets</a>
     <a href="exchanges.html">Exchanges</a>
     <a href="podcasts.html">Podcasts</a>
@@ -817,7 +890,12 @@
   <aside class="sidebar">
     <div class="sidebar-label">Navigate</div>
     <nav class="sidebar-nav">
-      <a href="index.html" class="sidebar-link active">
+      
+      <a href="start-here.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Start Here
+      </a>
+<a href="index.html" class="sidebar-link active">
         <svg viewBox="0 0 24 24"><path d="M6 6h4v4H6V6zm8 0h4v4h-4V6zM6 14h4v4H6v-4zm8 0h4v4h-4v-4z"/></svg>
         Books
       </a>
@@ -863,6 +941,13 @@
   <section class="hero">
     <h1>The Best <span>Bitcoin Resources</span><br>All in One Place</h1>
     <p>Hand-picked collection of the top 50 highest-rated Bitcoin books. From beginner guides to deep technical dives.</p>
+    <div class="hero-cta-row">
+      <a href="start-here.html" class="hero-cta-primary">
+        ✨ Start Here — Take the 30 second quiz
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+      </a>
+    </div>
+    <div class="hero-cta-sub">New to Bitcoin? Get a <strong>personalized path</strong> matched to your level & style.</div>
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="number">41</div>
@@ -968,6 +1053,8 @@
       <a href="https://x.com/BTCBrainFood" target="_blank" rel="noopener" title="Follow us on X">
         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </a>
+          <a href="https://www.instagram.com/bitcoinbrainfood" target="_blank" rel="noopener" title="Follow us on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.tiktok.com/@bitcoinbrainfood" target="_blank" rel="noopener" title="Follow us on TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.45a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.36z"/></svg></a>
     </div>
     <p class="affiliate-note">As an Amazon Associate, we earn from qualifying purchases. Prices shown are approximate and may vary.</p>
   </footer>
@@ -991,9 +1078,9 @@
     };
 
     const books = [
-      { rank: 1, title: "The Bitcoin Standard", author: "Saifedean Ammous", rating: 4.7, price: 23.89, asin: "1119473861", cat: "philosophy", desc: "The definitive guide to Bitcoin's economic theory, tracing the history of money to explain why Bitcoin represents a superior form of sound money." },
+      { rank: 1, title: "The Bitcoin Standard", author: "Saifedean Ammous", rating: 4.7, price: 23.89, asin: "1119473861", cat: "philosophy", editorsChoice: true, desc: "The definitive guide to Bitcoin's economic theory, tracing the history of money to explain why Bitcoin represents a superior form of sound money." },
       { rank: 2, title: "Mastering Bitcoin", author: "Andreas M. Antonopoulos", rating: 4.7, price: 33.99, asin: "1098150090", cat: "technical", desc: "The technical Bitcoin bible \u2014 a comprehensive guide to Bitcoin's architecture, consensus mechanism, and blockchain programming." },
-      { rank: 3, title: "Broken Money", author: "Lyn Alden", rating: 4.8, price: 22.36, asin: "B0CG8985FR", cat: "philosophy", desc: "Explains why our financial system is failing and how Bitcoin solves fundamental problems with money." },
+      { rank: 3, title: "Broken Money", author: "Lyn Alden", rating: 4.8, price: 22.36, asin: "B0CG8985FR", cat: "philosophy", editorsChoice: true, desc: "Explains why our financial system is failing and how Bitcoin solves fundamental problems with money." },
       { rank: 4, title: "The Internet of Money", author: "Andreas M. Antonopoulos", rating: 4.7, price: 14.99, asin: "1537000454", cat: "philosophy", desc: "A collection of inspiring talks explaining why Bitcoin matters \u2014 the philosophy and vision behind cryptocurrency." },
       { rank: 5, title: "Digital Gold", author: "Nathaniel Popper", rating: 4.5, price: 13.99, asin: "006236250X", cat: "stories", desc: "NYT reporter's brilliant history of Bitcoin's rise \u2014 the misfits and millionaires trying to reinvent money." },
       { rank: 6, title: "Inventing Bitcoin", author: "Yan Pritzker", rating: 4.7, price: 4.99, asin: "1794326316", cat: "beginner", desc: "The best high-level intro to Bitcoin. Walks through cryptography, economics, and game theory in under 100 pages." },
@@ -1092,16 +1179,22 @@
       filtered.forEach(book => {
         const catInfo = CAT_LABELS[book.cat];
         const card = document.createElement('a');
-        card.className = 'book-card';
+        card.className = 'book-card' + (book.editorsChoice ? ' is-editors-choice' : '');
         card.href = getAffiliateUrl(book.asin);
         card.target = '_blank';
         card.rel = 'noopener';
+        const editorsChoiceBadge = book.editorsChoice ? `
+            <div class="editors-choice-ribbon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.39 7.36H22l-6.18 4.49 2.36 7.27L12 16.63l-6.18 4.49 2.36-7.27L2 9.36h7.61L12 2z"/></svg>
+              Editor's Choice
+            </div>` : '';
         card.innerHTML = `
           <div class="book-cover">
             <span class="book-rank">#${book.rank}</span>
             <span class="book-category-badge ${catInfo.badge}">${catInfo.label}</span>
             <img src="${getImageUrl(book.asin)}" alt="${book.title}" loading="lazy"
               onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\\'padding:40px;text-align:center;color:#8B949E;font-size:14px;\\'><div style=\\'font-size:48px;margin-bottom:12px;\\'>&#128214;</div>${book.title.replace(/'/g, "\\'")}</div>';">
+            ${editorsChoiceBadge}
           </div>
           <div class="book-info">
             <div class="book-title">${book.title}</div>
