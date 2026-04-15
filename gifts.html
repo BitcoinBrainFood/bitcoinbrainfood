@@ -25,6 +25,7 @@
       --cat-decor: #A371F7;
       --cat-accessories: #58A6FF;
       --cat-mining: #F7931A;
+      --cat-marketplace: #F778BA;
     }
 
     body {
@@ -437,6 +438,7 @@
     .badge-decor { background: rgba(163,113,247,0.15); color: var(--cat-decor); border: 1px solid rgba(163,113,247,0.3); }
     .badge-accessories { background: rgba(88,166,255,0.15); color: var(--cat-accessories); border: 1px solid rgba(88,166,255,0.3); }
     .badge-mining { background: rgba(247,147,26,0.15); color: var(--cat-mining); border: 1px solid rgba(247,147,26,0.3); }
+    .badge-marketplace { background: rgba(247,120,186,0.15); color: var(--cat-marketplace); border: 1px solid rgba(247,120,186,0.3); }
 
     .gift-info {
       padding: 20px;
@@ -615,13 +617,14 @@
 <a href="index.html">Books</a>
     <a href="wallets.html">Wallets</a>
     <a href="exchanges.html">Exchanges</a>
+    <a href="accept-bitcoin.html">Accept Bitcoin</a>
+    <a href="earn-bitcoin.html">Earn Bitcoin</a>
     <a href="podcasts.html">Podcasts</a>
     <a href="courses.html">Courses</a>
     <a href="gift-cards.html">Gift Cards</a>
     <a href="esims.html">eSIMs</a>
     <a href="phone-refills.html">Phone Refills</a>
     <a href="gifts.html">Gifts</a>
-    <a href="gifts.html" class="active">Gifts</a>
   </nav>
 
   <div class="site-layout">
@@ -646,7 +649,15 @@
         <svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
         Exchanges
       </a>
-      <a href="podcasts.html" class="sidebar-link">
+            <a href="accept-bitcoin.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M2 11h20M6 15h4"/></svg>
+        Accept Bitcoin
+      </a>
+      <a href="earn-bitcoin.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v2m0 8v2M9 10h6a2 2 0 010 4H9a2 2 0 000 4h6"/></svg>
+        Earn Bitcoin
+      </a>
+<a href="podcasts.html" class="sidebar-link">
         <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
         Podcasts
       </a>
@@ -681,11 +692,11 @@
     <p>Hand-picked Bitcoin merchandise and gift ideas for the Bitcoiner in your life. From funny mugs to collectible figurines.</p>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="number">22</div>
+        <div class="number">23</div>
         <div class="label">Gift Ideas</div>
       </div>
       <div class="hero-stat">
-        <div class="number">4</div>
+        <div class="number">5</div>
         <div class="label">Categories</div>
       </div>
       <div class="hero-stat">
@@ -698,11 +709,12 @@
   <!-- CATEGORY TABS -->
   <div class="category-bar">
     <ul class="category-tabs" id="categoryTabs">
-      <li class="cat-tab active" data-cat="all">All Gifts <span class="tab-count">22</span></li>
+      <li class="cat-tab active" data-cat="all">All Gifts <span class="tab-count">23</span></li>
       <li class="cat-tab" data-cat="mining">Mine at Home <span class="tab-count">10</span></li>
       <li class="cat-tab" data-cat="wearables">Wearables <span class="tab-count">3</span></li>
       <li class="cat-tab" data-cat="decor">Decor &amp; Collectibles <span class="tab-count">4</span></li>
       <li class="cat-tab" data-cat="accessories">Accessories <span class="tab-count">5</span></li>
+      <li class="cat-tab" data-cat="marketplace">Marketplace <span class="tab-count">1</span></li>
     </ul>
   </div>
 
@@ -794,6 +806,7 @@
       decor: { label: 'Decor & Collectibles', badge: 'badge-decor' },
       accessories: { label: 'Accessories', badge: 'badge-accessories' },
       mining: { label: 'Mine at Home', badge: 'badge-mining' },
+      marketplace: { label: 'Marketplace', badge: 'badge-marketplace' },
     };
 
     const CAT_TITLES = {
@@ -802,9 +815,19 @@
       decor: 'Decor & Collectibles',
       accessories: 'Accessories',
       mining: 'Mine at Home',
+      marketplace: 'Marketplace',
     };
 
     const gifts = [
+      {
+        name: "Scarce.city — Bitcoin Marketplace",
+        cat: "marketplace",
+        source: "scarcecity",
+        url: "https://scarce.city",
+        img: "https://www.google.com/s2/favicons?domain=scarce.city&sz=128",
+        imgBg: true,
+        desc: "A peer-to-peer marketplace where you can spend your sats on rare collectibles, art, and goods — or list your own items for sale. Every transaction is Bitcoin-only via the Lightning Network or on-chain."
+      },
       {
         name: "\"Smells Like I Was Right About Bitcoin\" Candle",
         cat: "accessories",
@@ -995,17 +1018,21 @@
         card.href = g.url;
         card.target = '_blank';
         card.rel = 'noopener';
+        const btnLabel = g.source === 'bitcoinmerch' ? 'Buy on BitcoinMerch'
+          : g.source === 'scarcecity' ? 'Browse Scarce.city'
+          : 'Buy on Amazon';
+        const imgStyle = g.imgBg ? 'style="background:#fff;padding:24px;object-fit:contain;"' : '';
         card.innerHTML = `
           <div class="gift-image">
             <span class="gift-category-badge ${catInfo.badge}">${catInfo.label}</span>
-            <img src="${g.img}" alt="${g.name}" loading="lazy">
+            <img src="${g.img}" alt="${g.name}" loading="lazy" ${imgStyle}>
           </div>
           <div class="gift-info">
             <div class="gift-title">${g.name}</div>
             <div class="gift-desc">${g.desc}</div>
             <div class="gift-bottom">
               <span class="buy-btn">
-                ${g.source === 'bitcoinmerch' ? 'Buy on BitcoinMerch' : 'Buy on Amazon'}
+                ${btnLabel}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
               </span>
             </div>
