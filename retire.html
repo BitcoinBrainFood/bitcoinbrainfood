@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- Unlisted — don't index while this is in soft-launch. -->
+<meta name="robots" content="noindex,nofollow" />
+<title>Can You Retire on Bitcoin? · BitcoinBrainFood</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23F7931A'/><text x='32' y='43' text-anchor='middle' font-size='38' font-weight='bold' font-family='Arial' fill='white'>%E2%82%BF</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(247,147,26,0.08), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(247,147,26,0.05), transparent 60%);
+    background-attachment: fixed;
+  }
+  .stat .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: rgb(163,163,163); }
+  .stat .val { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 1.25rem; font-weight: 700; margin-top: 0.25rem; }
+  select { appearance: none; }
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  /* Hide tailwind spinner on number inputs */
+  input[type=number] { -moz-appearance: textfield; }
+</style>
+</head>
+<body class="bg-[#0b0d10] text-neutral-100 min-h-screen">
+
+<header class="border-b border-neutral-800 px-6 py-4 flex items-center justify-between">
+  <a href="https://bitcoinbrainfood.com" title="Back to BitcoinBrainFood" class="flex items-center gap-3 group hover:opacity-90 transition">
+    <div class="h-8 w-8 rounded-full bg-gradient-to-br from-[#f7931a] to-[#b86100] grid place-items-center font-black text-black group-hover:scale-105 transition-transform">₿</div>
+    <div>
+      <h1 class="text-xl font-bold tracking-tight group-hover:text-[#f7931a] transition-colors">Bitcoin<span class="text-[#f7931a]">Retirement</span></h1>
+      <p class="text-xs text-neutral-400">Can you retire on your sats? Do the math.</p>
+    </div>
+  </a>
+  <div id="btcTicker" class="text-sm text-neutral-400">BTC: <span class="text-[#f7931a] font-semibold">—</span></div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 md:px-6 py-6 space-y-6">
+
+  <!-- Hero -->
+  <section class="text-center py-4 md:py-8 space-y-3 relative">
+    <div aria-hidden="true" class="absolute inset-0 -z-10 bg-gradient-to-b from-[#f7931a]/5 via-transparent to-transparent rounded-3xl"></div>
+    <h2 class="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+      Can you retire on <span class="text-[#f7931a]">Bitcoin</span>?
+    </h2>
+    <p class="text-base md:text-lg text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+      Plug in your stack, your stacking rhythm, and what you think BTC will do.
+      We'll tell you when you can clock out —
+      <span class="italic whitespace-nowrap">and how long the stack&nbsp;lasts.</span>
+    </p>
+  </section>
+
+  <!-- INPUTS: about you -->
+  <section class="bg-neutral-900/60 border border-neutral-800 rounded-xl p-5 space-y-4">
+    <h3 class="font-semibold">About you</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <label class="block">
+        <span class="text-[10px] uppercase tracking-wider text-neutral-400">Current age</span>
+        <input id="currentAge" type="number" value="35" min="18" max="90" class="mt-1 w-full bg-black/40 border border-neutral-700 rounded-lg px-3 py-2 font-mono" />
+      </label>
+      <label class="block">
+        <span class="text-[10px] uppercase tracking-wider text-neutral-400 flex justify-between">
+          <span>Retirement age</span>
+          <span id="retireAgeLabel" class="text-[#f7931a] font-bold">55</span>
+        </span>
+        <input id="retireAge" type="range" min="30" max="85" step="1" value="55" class="mt-2 w-full accent-[#f7931a]" />
+      </label>
+      <label class="block">
+        <span class="text-[10px] uppercase tracking-wider text-neutral-400">BTC held today</span>
+        <input id="currentBtc" type="number" value="1" step="0.01" min="0" class="mt-1 w-full bg-black/40 border border-neutral-700 rounded-lg px-3 py-2 font-mono" />
+      </label>
+      <label class="block">
+        <span class="text-[10px] uppercase tracking-wider text-neutral-400">Monthly stacking ($)</span>
+        <input id="stackMonthly" type="number" value="500" step="50" min="0" class="mt-1 w-full bg-black/40 border border-neutral-700 rounded-lg px-3 py-2 font-mono" />
+      </label>
+    </div>
+  </section>
+
+  <!-- INPUTS: assumptions -->
+  <section class="bg-neutral-900/60 border border-neutral-800 rounded-xl p-5 space-y-4">
+    <h3 class="font-semibold">Assumptions</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div>
+        <div class="flex justify-between items-baseline mb-1">
+          <span class="text-[10px] uppercase tracking-wider text-neutral-400">BTC price growth · per year</span>
+          <span id="cagrLabel" class="text-[#f7931a] font-bold text-sm">+20%</span>
+        </div>
+        <input id="cagr" type="range" min="-20" max="50" step="1" value="20" class="w-full accent-[#f7931a]" />
+      </div>
+      <div>
+        <div class="flex justify-between items-baseline mb-1">
+          <span class="text-[10px] uppercase tracking-wider text-neutral-400">Inflation · per year</span>
+          <span id="inflLabel" class="text-[#f7931a] font-bold text-sm">+3%</span>
+        </div>
+        <input id="infl" type="range" min="0" max="10" step="0.1" value="3" class="w-full accent-[#f7931a]" />
+      </div>
+      <div>
+        <div class="flex justify-between items-baseline mb-1">
+          <span class="text-[10px] uppercase tracking-wider text-neutral-400">Safe withdrawal rate</span>
+          <span id="swrLabel" class="text-[#f7931a] font-bold text-sm">4.0%</span>
+        </div>
+        <input id="swr" type="range" min="2" max="8" step="0.1" value="4" class="w-full accent-[#f7931a]" />
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <label class="block">
+        <span class="text-[10px] uppercase tracking-wider text-neutral-400">Monthly income needed in retirement · today's $</span>
+        <input id="monthlyNeed" type="number" value="5000" step="100" min="0" class="mt-1 w-full bg-black/40 border border-neutral-700 rounded-lg px-3 py-2 font-mono" />
+      </label>
+      <label class="block">
+        <span class="text-[10px] uppercase tracking-wider text-neutral-400 flex justify-between">
+          <span>Borrow rate (if using loan strategy)</span>
+          <span id="borrowLabel" class="text-[#f7931a] font-bold">5.0%</span>
+        </span>
+        <input id="borrowRate" type="range" min="0" max="15" step="0.1" value="5" class="mt-2 w-full accent-[#f7931a]" />
+      </label>
+    </div>
+  </section>
+
+  <!-- OUTPUT: key stats -->
+  <section class="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div class="stat bg-neutral-900/60 border border-neutral-800 rounded-xl p-4">
+      <div class="lbl">Stack at retirement</div>
+      <div class="val text-[#f7931a]"><span id="outStackBtc">—</span> ₿</div>
+      <div class="text-xs text-neutral-500 mt-1"><span id="outStackUsd">$—</span> USD</div>
+    </div>
+    <div class="stat bg-neutral-900/60 border border-neutral-800 rounded-xl p-4">
+      <div class="lbl">Annual need at retirement</div>
+      <div class="val"><span id="outAnnualNeed">$—</span></div>
+      <div class="text-xs text-neutral-500 mt-1">inflation-adjusted</div>
+    </div>
+    <div class="stat bg-neutral-900/60 border border-neutral-800 rounded-xl p-4">
+      <div class="lbl">Sell strategy runway</div>
+      <div class="val"><span id="outSellYears">—</span> yrs</div>
+      <div class="text-xs text-neutral-500 mt-1">ends at age <span id="outSellAge">—</span></div>
+    </div>
+    <div class="stat bg-neutral-900/60 border border-neutral-800 rounded-xl p-4">
+      <div class="lbl">Borrow strategy runway</div>
+      <div class="val text-emerald-400"><span id="outBorrowYears">—</span> yrs</div>
+      <div class="text-xs text-neutral-500 mt-1">until LTV hits 50%</div>
+    </div>
+  </section>
+
+  <!-- Verdict -->
+  <section id="verdictBox" class="bg-neutral-900/60 border border-neutral-800 rounded-xl p-5">
+    <div class="text-[10px] uppercase tracking-wider text-neutral-400 mb-2">Verdict</div>
+    <div id="verdictText" class="text-lg text-neutral-100 leading-relaxed">—</div>
+  </section>
+
+  <!-- CHART 1: accumulation -->
+  <section class="bg-neutral-900/60 border border-neutral-800 rounded-xl p-5">
+    <h3 class="font-semibold">Stack growth until retirement</h3>
+    <p class="text-xs text-neutral-500 mb-3">BTC holdings (orange) and USD value (blue) by age, assuming your CAGR and monthly stacking.</p>
+    <div class="h-64 relative w-full"><canvas id="accumChart" class="!w-full !h-full"></canvas></div>
+  </section>
+
+  <!-- CHART 2: retirement runway -->
+  <section class="bg-neutral-900/60 border border-neutral-800 rounded-xl p-5">
+    <h3 class="font-semibold">Retirement runway: sell vs borrow</h3>
+    <p class="text-xs text-neutral-500 mb-3">
+      Sell strategy: you sell BTC each year to cover spending (inflation-adjusted).
+      Borrow strategy: you borrow against BTC at the rate above. Danger zone when loan-to-value reaches 50%.
+    </p>
+    <div class="h-64 relative w-full"><canvas id="retireChart" class="!w-full !h-full"></canvas></div>
+  </section>
+
+  <footer class="text-center text-xs text-neutral-600 pt-4 pb-8 space-y-2">
+    <p>
+      Want to see the exact carry-trade math?
+      <a href="https://stackerspread.bitcoinbrainfood.com" class="text-[#f7931a] hover:underline">Try StackerSpread →</a>
+    </p>
+    <p>Not financial advice. Assumptions are what they are — assumptions.</p>
+  </footer>
+
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const fmtUSD = n => n == null || !isFinite(n) ? '$—' : '$' + Math.round(n).toLocaleString();
+const fmtBtc = n => n == null || !isFinite(n) ? '—' : n.toFixed(4);
+
+const state = {
+  btcPrice: 100000,
+  accumChart: null,
+  retireChart: null,
+};
+
+// ---------- live BTC price from Coinbase (CORS-friendly) ----------
+async function loadBtcPrice() {
+  try {
+    const r = await fetch('https://api.coinbase.com/v2/prices/BTC-USD/spot');
+    const d = await r.json();
+    const n = parseFloat(d?.data?.amount);
+    if (isFinite(n)) {
+      state.btcPrice = n;
+      $('btcTicker').innerHTML = `BTC: <span class="text-[#f7931a] font-semibold">$${Math.round(n).toLocaleString()}</span>`;
+      compute();
+    }
+  } catch {}
+}
+
+// ---------- the math ----------
+function compute() {
+  const age0 = +$('currentAge').value || 35;
+  const ageR = +$('retireAge').value || 55;
+  const btc0 = +$('currentBtc').value || 0;
+  const stackM = +$('stackMonthly').value || 0;
+  const cagr = (+$('cagr').value || 0) / 100;
+  const infl = (+$('infl').value || 0) / 100;
+  const swr = (+$('swr').value || 0) / 100;
+  const needMo = +$('monthlyNeed').value || 0;
+  const borrowRate = (+$('borrowRate').value || 0) / 100;
+
+  // Update slider labels
+  $('retireAgeLabel').textContent = ageR;
+  $('cagrLabel').textContent     = (cagr * 100 >= 0 ? '+' : '') + (cagr * 100).toFixed(0) + '%';
+  $('inflLabel').textContent     = '+' + (infl * 100).toFixed(1) + '%';
+  $('swrLabel').textContent      = (swr * 100).toFixed(1) + '%';
+  $('borrowLabel').textContent   = (borrowRate * 100).toFixed(1) + '%';
+
+  const yrsToRetire = Math.max(0, ageR - age0);
+  const p0 = state.btcPrice;
+
+  // --- Accumulation phase ---
+  // Each year: buy (stackM * 12) / currentYearPrice worth of BTC.
+  // Yearly BTC price compounds from p0 at cagr.
+  const accumRows = [];
+  let stack = btc0;
+  for (let y = 0; y <= yrsToRetire; y++) {
+    const price = p0 * Math.pow(1 + cagr, y);
+    if (y > 0) {
+      const yearlyStackUsd = stackM * 12;
+      stack += yearlyStackUsd / price;
+    }
+    accumRows.push({ age: age0 + y, price, stack, usd: stack * price });
+  }
+  const stackAtRetire = stack;
+  const priceAtRetire = p0 * Math.pow(1 + cagr, yrsToRetire);
+  const stackAtRetireUsd = stackAtRetire * priceAtRetire;
+
+  // Annual need at retirement = today's monthly * 12 * (1+infl)^yrsToRetire
+  const annualNeedAtRetire = needMo * 12 * Math.pow(1 + infl, yrsToRetire);
+
+  // --- Decumulation: SELL strategy ---
+  // Each retirement year, sell enough BTC to cover inflation-adjusted spend.
+  const MAX_RETIRE = 50;
+  const sellSeries = [{ age: ageR, btc: stackAtRetire }];
+  let sellBtc = stackAtRetire;
+  let sellYears = 0;
+  for (let r = 1; r <= MAX_RETIRE; r++) {
+    const yearsFromNow = yrsToRetire + r - 1;
+    const price = p0 * Math.pow(1 + cagr, yearsFromNow);
+    const annualUsd = needMo * 12 * Math.pow(1 + infl, yearsFromNow);
+    const btcOut = annualUsd / price;
+    sellBtc -= btcOut;
+    if (sellBtc <= 0) { sellYears = r; sellSeries.push({ age: ageR + r, btc: 0 }); break; }
+    sellSeries.push({ age: ageR + r, btc: sellBtc });
+    sellYears = r;
+  }
+  const sellNeverRuns = sellBtc > 0 && sellYears >= MAX_RETIRE;
+
+  // --- Decumulation: BORROW strategy ---
+  // Each year borrow enough to cover spend; loan compounds at borrowRate.
+  // Stack stays intact and keeps appreciating. Fail when loan/collateral > 0.5.
+  const LTV_MAX = 0.5;
+  const borrowSeries = [{ age: ageR, ltv: 0 }];
+  let loan = 0;
+  let borrowYears = 0;
+  let borrowFailed = false;
+  for (let r = 1; r <= MAX_RETIRE; r++) {
+    const yearsFromNow = yrsToRetire + r - 1;
+    const price = p0 * Math.pow(1 + cagr, yearsFromNow);
+    const annualUsd = needMo * 12 * Math.pow(1 + infl, yearsFromNow);
+    loan = loan * (1 + borrowRate) + annualUsd;
+    const collateralUsd = stackAtRetire * price;
+    const ltv = collateralUsd > 0 ? loan / collateralUsd : Infinity;
+    borrowSeries.push({ age: ageR + r, ltv });
+    if (ltv >= LTV_MAX) { borrowYears = r; borrowFailed = true; break; }
+    borrowYears = r;
+  }
+  const borrowNeverFails = !borrowFailed && borrowYears >= MAX_RETIRE;
+
+  // --- Write output cards ---
+  $('outStackBtc').textContent = fmtBtc(stackAtRetire);
+  $('outStackUsd').textContent = fmtUSD(stackAtRetireUsd);
+  $('outAnnualNeed').textContent = fmtUSD(annualNeedAtRetire);
+  $('outSellYears').textContent = sellNeverRuns ? '50+' : sellYears;
+  $('outSellAge').textContent = sellNeverRuns ? (ageR + 50) + '+' : (ageR + sellYears);
+  $('outBorrowYears').textContent = borrowNeverFails ? '50+' : borrowYears;
+
+  // --- Verdict ---
+  const verdictEl = $('verdictText');
+  const verdictBox = $('verdictBox');
+  let msg = '';
+  let tone = 'neutral';
+  const borrowBeatsSell = borrowYears > sellYears;
+  const lifeExpectancyLeft = 90 - ageR;
+  if (sellNeverRuns && borrowNeverFails) {
+    msg = `🔥 Based on these assumptions, you can retire at age <b>${ageR}</b> and your stack outlasts you either way. Keep stacking.`;
+    tone = 'good';
+  } else if (sellYears >= lifeExpectancyLeft) {
+    msg = `✅ Retirement at age <b>${ageR}</b> works. Your stack lasts <b>${sellYears} years</b> of spending (to age ${ageR + sellYears}) — that covers a long life.`;
+    tone = 'good';
+  } else if (borrowBeatsSell && borrowYears >= lifeExpectancyLeft) {
+    msg = `🟧 Selling isn't enough on its own, but borrowing against your BTC extends your runway to <b>${borrowYears}+ years</b>. Worth considering the loan strategy.`;
+    tone = 'neutral';
+  } else if (borrowBeatsSell) {
+    msg = `⚠️ Neither approach gets you to age 90. Sell strategy lasts ${sellYears} years; borrow strategy lasts ${borrowYears} years. You'd need to stack more, retire later, or lower spending.`;
+    tone = 'warn';
+  } else {
+    msg = `⚠️ Your stack runs out at age <b>${ageR + sellYears}</b>. Either stack more, retire later, lower retirement spending, or revisit your BTC growth assumption.`;
+    tone = 'warn';
+  }
+  verdictEl.innerHTML = msg;
+  verdictBox.className = 'border rounded-xl p-5 ' + (
+    tone === 'good'  ? 'bg-emerald-500/5 border-emerald-500/30' :
+    tone === 'warn'  ? 'bg-red-500/5 border-red-500/30'
+                     : 'bg-amber-500/5 border-amber-500/30'
+  );
+
+  // --- Draw charts ---
+  drawAccum(accumRows);
+  drawRetire(sellSeries, borrowSeries, stackAtRetire);
+}
+
+function drawAccum(rows) {
+  const ctx = $('accumChart').getContext('2d');
+  const data = {
+    labels: rows.map(r => 'Age ' + r.age),
+    datasets: [
+      { label: 'BTC stack', data: rows.map(r => r.stack), borderColor: '#f7931a', backgroundColor: 'rgba(247,147,26,0.12)', fill: true, tension: 0.25, pointRadius: 0, yAxisID: 'y' },
+      { label: 'USD value', data: rows.map(r => r.usd), borderColor: '#60a5fa', borderDash: [4,4], tension: 0.25, pointRadius: 0, yAxisID: 'y1' },
+    ],
+  };
+  const opts = {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { intersect: false, mode: 'index' },
+    scales: {
+      x: { ticks: { color: '#888', maxTicksLimit: 10 }, grid: { color: 'rgba(255,255,255,0.04)' } },
+      y: { position: 'left', ticks: { color: '#f7931a', callback: v => v.toFixed(2) + ' ₿' }, grid: { color: 'rgba(255,255,255,0.04)' } },
+      y1: { position: 'right', ticks: { color: '#60a5fa', callback: v => '$' + (v/1e6).toFixed(1) + 'M' }, grid: { drawOnChartArea: false } },
+    },
+    plugins: {
+      legend: { labels: { color: '#ccc' } },
+      tooltip: { callbacks: {
+        label: c => c.dataset.label + ': ' + (c.dataset.yAxisID === 'y' ? c.parsed.y.toFixed(4) + ' ₿' : '$' + Math.round(c.parsed.y).toLocaleString()),
+      } },
+    },
+  };
+  if (state.accumChart) { state.accumChart.data = data; state.accumChart.options = opts; state.accumChart.update(); }
+  else {
+    state.accumChart = new Chart(ctx, { type: 'line', data, options: opts });
+    setTimeout(() => state.accumChart?.resize(), 300);
+  }
+}
+
+function drawRetire(sell, borrow, startStack) {
+  const ctx = $('retireChart').getContext('2d');
+  // Align both series on the same X axis (retirement ages)
+  const maxAge = Math.max(sell[sell.length-1].age, borrow[borrow.length-1].age);
+  const minAge = sell[0].age;
+  const labels = [];
+  for (let a = minAge; a <= maxAge; a++) labels.push('Age ' + a);
+
+  const sellBtcByAge = new Map(sell.map(p => [p.age, p.btc]));
+  const borrowLtvByAge = new Map(borrow.map(p => [p.age, p.ltv]));
+
+  const sellData = labels.map((_, i) => {
+    const age = minAge + i;
+    return sellBtcByAge.has(age) ? (sellBtcByAge.get(age) / startStack) * 100 : null;
+  });
+  const borrowData = labels.map((_, i) => {
+    const age = minAge + i;
+    return borrowLtvByAge.has(age) ? borrowLtvByAge.get(age) * 100 : null;
+  });
+
+  const data = {
+    labels,
+    datasets: [
+      { label: 'Sell: BTC remaining (% of stack)', data: sellData, borderColor: '#f7931a', backgroundColor: 'rgba(247,147,26,0.1)', fill: true, tension: 0.25, pointRadius: 0, yAxisID: 'y' },
+      { label: 'Borrow: loan-to-value %', data: borrowData, borderColor: '#ef4444', borderDash: [4,4], tension: 0.25, pointRadius: 0, yAxisID: 'y' },
+    ],
+  };
+  const opts = {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { intersect: false, mode: 'index' },
+    scales: {
+      x: { ticks: { color: '#888', maxTicksLimit: 10 }, grid: { color: 'rgba(255,255,255,0.04)' } },
+      y: {
+        beginAtZero: true,
+        ticks: { color: '#888', callback: v => v + '%' },
+        grid: { color: 'rgba(255,255,255,0.04)' },
+      },
+    },
+    plugins: {
+      legend: { labels: { color: '#ccc' } },
+      tooltip: { callbacks: { label: c => c.dataset.label + ': ' + c.parsed.y.toFixed(1) + '%' } },
+      annotation: undefined,
+    },
+  };
+  if (state.retireChart) { state.retireChart.data = data; state.retireChart.options = opts; state.retireChart.update(); }
+  else {
+    state.retireChart = new Chart(ctx, { type: 'line', data, options: opts });
+    setTimeout(() => state.retireChart?.resize(), 300);
+  }
+}
+
+// ---------- wire events ----------
+['currentAge','retireAge','currentBtc','stackMonthly','cagr','infl','swr','monthlyNeed','borrowRate']
+  .forEach(id => $(id).addEventListener('input', compute));
+
+// ---------- init ----------
+compute();
+loadBtcPrice();
+</script>
+</body>
+</html>
