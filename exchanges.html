@@ -644,7 +644,7 @@
   <!-- MOBILE NAV (shown on small screens) -->
   <nav class="mobile-nav">
     
-    <a href="start-here.html">Start Here</a>
+    <a href="start-here.html">Take the Quiz</a>
 <a href="index.html">Books</a>
     <a href="wallets.html">Wallets</a>
     <a href="exchanges.html" class="active">Exchanges</a>
@@ -666,7 +666,7 @@
       
       <a href="start-here.html" class="sidebar-link">
         <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Start Here
+        Take the Quiz
       </a>
 <a href="index.html" class="sidebar-link">
         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
@@ -1099,5 +1099,46 @@
     }
     fetchNews(0);
   </script>
+
+<!-- FLOATING QUIZ CTA -->
+<style>
+.floating-quiz-cta {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: linear-gradient(135deg, #F7931A 0%, #FF6F00 100%);
+  color: #fff;
+  padding: 13px 18px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(247,147,26,0.35), 0 2px 6px rgba(0,0,0,0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.floating-quiz-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(247,147,26,0.5), 0 2px 6px rgba(0,0,0,0.3);
+  color: #fff;
+}
+.floating-quiz-cta .fq-sparkle { font-size: 16px; }
+.floating-quiz-cta .fq-arrow { transition: transform 0.2s ease; }
+.floating-quiz-cta:hover .fq-arrow { transform: translateX(3px); }
+@media (max-width: 600px) {
+  .floating-quiz-cta { bottom: 14px; right: 14px; padding: 11px 16px; font-size: 13px; }
+}
+</style>
+<a href="start-here.html" class="floating-quiz-cta" aria-label="Take the 30-second quiz">
+  <span class="fq-sparkle">✨</span>
+  <span class="fq-text">Take the 30-second quiz</span>
+  <span class="fq-arrow">→</span>
+</a>
+
 </body>
 </html>

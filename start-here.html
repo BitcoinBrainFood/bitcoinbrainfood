@@ -404,6 +404,10 @@
     .restart {
       text-align: center;
       margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
     .restart button {
       background: transparent;
@@ -501,7 +505,7 @@
 
   <!-- MOBILE NAV -->
   <nav class="mobile-nav">
-    <a href="start-here.html" class="active">Start Here</a>
+    <a href="start-here.html" class="active">Take the Quiz</a>
     <a href="index.html">Books</a>
     <a href="wallets.html">Wallets</a>
     <a href="exchanges.html">Exchanges</a>
@@ -522,7 +526,7 @@
     <nav class="sidebar-nav">
       <a href="start-here.html" class="sidebar-link active">
         <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Start Here
+        Take the Quiz
       </a>
       <a href="index.html" class="sidebar-link">
         <svg viewBox="0 0 24 24"><path d="M6 6h4v4H6V6zm8 0h4v4h-4V6zM6 14h4v4H6v-4zm8 0h4v4h-4v-4z"/></svg>
@@ -578,115 +582,17 @@
     <section class="hero">
       <span class="hero-badge">✨ Personalized Learning Path</span>
       <h1>Your Bitcoin Journey, <span>Made Simple</span></h1>
-      <p>Answer 3 quick questions and get a hand-picked set of books, podcasts, and resources matched to your level and learning style.</p>
+      <p>Answer a few quick questions and get a hand-picked set of resources matched to your level and your goals.</p>
     </section>
 
     <!-- QUIZ -->
     <div class="quiz-wrap">
       <div id="quiz">
-        <div class="progress-label" id="progressLabel">Question 1 of 3</div>
+        <div class="progress-label" id="progressLabel">Question 1</div>
         <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
 
-        <!-- STEP 1: Experience -->
-        <div class="quiz-step active" data-step="1">
-          <h2 class="quiz-question">How much Bitcoin experience do you have?</h2>
-          <p class="quiz-sub">Be honest — there's no wrong answer.</p>
-          <div class="quiz-options" data-field="experience">
-            <button class="quiz-option" data-value="curious">
-              <div class="opt-icon">🌱</div>
-              <div class="opt-text">
-                <div class="opt-title">Bitcoin curious</div>
-                <div class="opt-desc">I've heard about it but don't really get it yet.</div>
-              </div>
-            </button>
-            <button class="quiz-option" data-value="some">
-              <div class="opt-icon">📈</div>
-              <div class="opt-text">
-                <div class="opt-title">I've dabbled</div>
-                <div class="opt-desc">Bought a little, maybe have a wallet. Ready to go deeper.</div>
-              </div>
-            </button>
-            <button class="quiz-option" data-value="seasoned">
-              <div class="opt-icon">🔥</div>
-              <div class="opt-text">
-                <div class="opt-title">Seasoned HODLer</div>
-                <div class="opt-desc">I know the basics. Show me the advanced stuff.</div>
-              </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- STEP 2: Learning style -->
-        <div class="quiz-step" data-step="2">
-          <h2 class="quiz-question">How do you like to learn?</h2>
-          <p class="quiz-sub">Everyone's different. We'll match resources to your style.</p>
-          <div class="quiz-options" data-field="learn">
-            <button class="quiz-option" data-value="reading">
-              <div class="opt-icon">📖</div>
-              <div class="opt-text">
-                <div class="opt-title">Reading</div>
-                <div class="opt-desc">Give me a great book I can dive into.</div>
-              </div>
-            </button>
-            <button class="quiz-option" data-value="listening">
-              <div class="opt-icon">🎧</div>
-              <div class="opt-text">
-                <div class="opt-title">Listening</div>
-                <div class="opt-desc">Podcasts while I drive, walk, or work.</div>
-              </div>
-            </button>
-            <button class="quiz-option" data-value="watching">
-              <div class="opt-icon">🎥</div>
-              <div class="opt-text">
-                <div class="opt-title">Watching</div>
-                <div class="opt-desc">Videos and courses I can follow along with.</div>
-              </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- STEP 3: Interest -->
-        <div class="quiz-step" data-step="3">
-          <h2 class="quiz-question">What's calling to you right now?</h2>
-          <p class="quiz-sub">Pick what excites you most — we'll point you there next.</p>
-          <div class="quiz-options" data-field="interest">
-            <button class="quiz-option" data-value="basics">
-              <div class="opt-icon">💡</div>
-              <div class="opt-text">
-                <div class="opt-title">Understand why Bitcoin matters</div>
-                <div class="opt-desc">The big picture — sound money, inflation, freedom.</div>
-              </div>
-            </button>
-            <button class="quiz-option" data-value="buying">
-              <div class="opt-icon">💱</div>
-              <div class="opt-text">
-                <div class="opt-title">Start stacking sats</div>
-                <div class="opt-desc">I want to buy my first Bitcoin safely.</div>
-              </div>
-            </button>
-            <button class="quiz-option" data-value="storing">
-              <div class="opt-icon">🔐</div>
-              <div class="opt-text">
-                <div class="opt-title">Store it safely</div>
-                <div class="opt-desc">Wallets, self-custody, keeping my sats secure.</div>
-              </div>
-            </button>
-            <button class="quiz-option" data-value="earning">
-              <div class="opt-icon">💰</div>
-              <div class="opt-text">
-                <div class="opt-title">Earn yield on my Bitcoin</div>
-                <div class="opt-desc">Staking, interest accounts, putting my BTC to work.</div>
-              </div>
-            </button>
-            <button class="quiz-option" data-value="spending">
-              <div class="opt-icon">🛒</div>
-              <div class="opt-text">
-                <div class="opt-title">Spend my Bitcoin</div>
-                <div class="opt-desc">Gift cards, eSIMs, real-world use.</div>
-              </div>
-            </button>
-          </div>
-        </div>
+        <!-- Dynamic step — rendered from QUESTIONS tree -->
+        <div class="quiz-step active" id="quizStep"></div>
 
         <div class="quiz-nav">
           <button class="btn" id="backBtn" disabled>← Back</button>
@@ -703,6 +609,7 @@
         </div>
         <div class="recs" id="recsList"></div>
         <div class="restart">
+          <button id="resultsBackBtn">← Change my last answer</button>
           <button id="restartBtn">↻ Retake the quiz</button>
         </div>
       </div>
@@ -737,63 +644,214 @@
     }
     loadBTC();
 
-    // ===== QUIZ =====
-    const answers = { experience: null, learn: null, interest: null };
-    let step = 1;
-    const TOTAL = 3;
+    // ===== QUIZ (branching tree) =====
+    //
+    // Question tree:
+    //   experience  →  goal  →  (medium if goal === 'learn')  →  results
+    //
+    // To add/edit questions, edit the QUESTIONS object below.
+    // Each question has: q, sub, options (array or function(answers)), next(answers).
+    // `next` returns the key of the next question, or null to finish.
+
+    const QUESTIONS = {
+      experience: {
+        q: "How much Bitcoin experience do you have?",
+        sub: "Be honest — there's no wrong answer.",
+        options: [
+          { id: 'curious',  icon: '🌱', title: 'Bitcoin curious', desc: "I've heard about it but don't really get it yet." },
+          { id: 'some',     icon: '📈', title: "I've dabbled",    desc: "Bought a little, maybe have a wallet. Ready to go deeper." },
+          { id: 'seasoned', icon: '🔥', title: 'Seasoned HODLer', desc: "I know the basics. Show me the advanced stuff." },
+        ],
+        next: () => 'goal'
+      },
+
+      goal: {
+        q: "What do you want to do next?",
+        sub: "Pick the step that excites you most — we'll point you there.",
+        options: (a) => {
+          if (a.experience === 'curious') {
+            return [
+              { id: 'buy',    icon: '💱', title: 'Buy my first Bitcoin',     desc: "Pick an exchange and stack my first sats safely." },
+              { id: 'wallet', icon: '🔐', title: 'Download a wallet',        desc: "Set up self-custody — pick the right wallet for me." },
+              { id: 'learn',  icon: '💡', title: 'Learn more about Bitcoin', desc: "Understand why it matters — sound money, freedom, inflation." },
+            ];
+          }
+          if (a.experience === 'some') {
+            return [
+              { id: 'buy',    icon: '💱', title: 'Buy / stack more sats',    desc: "Compare exchanges for DCA or bigger buys." },
+              { id: 'trade',  icon: '📊', title: 'Trade Bitcoin',            desc: "Active trading platforms — Binance, Kraken, and more." },
+              { id: 'wallet', icon: '🔐', title: 'Get a wallet',             desc: "Upgrade my storage — hardware wallets and best practices." },
+              { id: 'spend',  icon: '🛒', title: 'Spend my Bitcoin',         desc: "Debit cards, gift cards, eSIMs — use my sats IRL." },
+              { id: 'accept', icon: '🏪', title: 'Accept Bitcoin',           desc: "Take BTC payments — for my business or side hustle." },
+              { id: 'earn',   icon: '💼', title: 'Earn Bitcoin',             desc: "Get sats through work, content, or shopping rewards." },
+              { id: 'learn',  icon: '💡', title: 'Deepen my understanding',  desc: "Go beyond the basics — macro, economics, Bitcoin thesis." },
+            ];
+          }
+          // seasoned
+          return [
+            { id: 'buy',    icon: '💱', title: 'Buy / stack',            desc: "Best exchanges for bulk buys and DCA." },
+            { id: 'trade',  icon: '📊', title: 'Trade Bitcoin',          desc: "Top platforms for spot & derivatives." },
+            { id: 'spend',  icon: '🛒', title: 'Spend my Bitcoin',       desc: "Debit cards, gift cards, merch, home miners." },
+            { id: 'wallet', icon: '🔐', title: 'Harden my wallet setup', desc: "Hardware wallets, multisig, cold storage." },
+            { id: 'accept', icon: '🏪', title: 'Accept Bitcoin',         desc: "Set up my business to take BTC payments." },
+            { id: 'earn',   icon: '💼', title: 'Earn Bitcoin',           desc: "Get sats through work, content, or shopping rewards." },
+            { id: 'yield',  icon: '💰', title: 'Earn yield on my BTC',   desc: "Nexo, Xapo, and DIY carry-trade strategies." },
+            { id: 'learn',  icon: '💡', title: 'Go deeper on theory',    desc: "Advanced books, Lightning, macro deep dives." },
+          ];
+        },
+        next: (a) => a.goal === 'learn' ? 'medium' : null
+      },
+
+      medium: {
+        q: "How do you like to learn?",
+        sub: "Everyone's different. We'll match resources to your style.",
+        options: [
+          { id: 'reading',   icon: '📖', title: 'Reading',   desc: "Give me a great book I can dive into." },
+          { id: 'listening', icon: '🎧', title: 'Listening', desc: "Podcasts while I drive, walk, or work." },
+          { id: 'watching',  icon: '🎥', title: 'Watching',  desc: "Videos and courses I can follow along with." },
+        ],
+        next: () => null
+      },
+    };
+
+    const answers = {};
+    const history = [];   // stack of question keys visited before `currentQ`
+    let currentQ = 'experience';
 
     const progressFill = document.getElementById('progressFill');
     const progressLabel = document.getElementById('progressLabel');
     const nextBtn = document.getElementById('nextBtn');
     const backBtn = document.getElementById('backBtn');
+    const stepEl = document.getElementById('quizStep');
 
-    function updateProgress() {
-      progressFill.style.width = (step / TOTAL * 100) + '%';
-      progressLabel.textContent = 'Question ' + step + ' of ' + TOTAL;
-      backBtn.disabled = step === 1;
-      const field = document.querySelector('.quiz-step[data-step="'+step+'"]').dataset ? null : null;
-      const currentField = ['experience','learn','interest'][step-1];
-      nextBtn.disabled = !answers[currentField];
-      nextBtn.textContent = step === TOTAL ? 'See my path →' : 'Next →';
+    // Walk the tree to find the longest remaining path from a given key,
+    // given the current answers. Used to compute "Question X of Y".
+    function stepsToEnd(key, ctx) {
+      const q = QUESTIONS[key];
+      if (!q) return 0;
+      if (ctx[key]) {
+        // answer known → deterministic next
+        const nextK = q.next(ctx);
+        return 1 + (nextK ? stepsToEnd(nextK, ctx) : 0);
+      }
+      // not answered → assume worst-case (longest) branch
+      const opts = typeof q.options === 'function' ? q.options(ctx) : q.options;
+      let max = 0;
+      for (const o of opts) {
+        const newCtx = { ...ctx, [key]: o.id };
+        const nextK = q.next(newCtx);
+        const d = 1 + (nextK ? stepsToEnd(nextK, newCtx) : 0);
+        if (d > max) max = d;
+      }
+      return max;
     }
 
-    function showStep(n) {
-      document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
-      document.querySelector('.quiz-step[data-step="'+n+'"]').classList.add('active');
-      step = n;
-      updateProgress();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    document.querySelectorAll('.quiz-options').forEach(group => {
-      const field = group.dataset.field;
-      group.querySelectorAll('.quiz-option').forEach(opt => {
+    function renderQuestion() {
+      const q = QUESTIONS[currentQ];
+      const opts = typeof q.options === 'function' ? q.options(answers) : q.options;
+      const optsHtml = opts.map(o => `
+        <button class="quiz-option" data-value="${o.id}">
+          <div class="opt-icon">${o.icon}</div>
+          <div class="opt-text">
+            <div class="opt-title">${o.title}</div>
+            <div class="opt-desc">${o.desc}</div>
+          </div>
+        </button>
+      `).join('');
+      stepEl.innerHTML = `
+        <h2 class="quiz-question">${q.q}</h2>
+        <p class="quiz-sub">${q.sub}</p>
+        <div class="quiz-options" data-field="${currentQ}">
+          ${optsHtml}
+        </div>
+      `;
+      // Restore selection if user already answered this question
+      if (answers[currentQ]) {
+        const sel = stepEl.querySelector(`.quiz-option[data-value="${answers[currentQ]}"]`);
+        if (sel) sel.classList.add('selected');
+      }
+      // Wire option clicks — auto-advance for mid-flow questions
+      stepEl.querySelectorAll('.quiz-option').forEach(opt => {
         opt.addEventListener('click', () => {
-          group.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+          stepEl.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
           opt.classList.add('selected');
-          answers[field] = opt.dataset.value;
-          updateProgress();
+          answers[currentQ] = opt.dataset.value;
+          updateNav();
+          // If this answer leads to another question, auto-advance after a short pause
+          // so the user sees the selection highlight. Last question stays manual so
+          // the user can review before clicking "See my path".
+          const nextKey = QUESTIONS[currentQ].next(answers);
+          if (nextKey) {
+            setTimeout(() => {
+              // Only advance if this is still the selected option (user hasn't changed their mind)
+              if (answers[currentQ] === opt.dataset.value) nextBtn.click();
+            }, 280);
+          }
         });
       });
-    });
+      updateNav();
+    }
+
+    function updateNav() {
+      const current = history.length + 1;
+      const total = history.length + stepsToEnd(currentQ, answers);
+      progressLabel.textContent = 'Question ' + current + ' of ' + total;
+      progressFill.style.width = (current / total * 100) + '%';
+      backBtn.disabled = history.length === 0;
+      nextBtn.disabled = !answers[currentQ];
+      // If answered and no next question, button says "See my path"
+      if (answers[currentQ]) {
+        const nextKey = QUESTIONS[currentQ].next(answers);
+        nextBtn.textContent = nextKey ? 'Next →' : 'See my path →';
+      } else {
+        nextBtn.textContent = 'Next →';
+      }
+    }
 
     nextBtn.addEventListener('click', () => {
-      if (step < TOTAL) {
-        showStep(step + 1);
+      if (!answers[currentQ]) return;
+      const nextKey = QUESTIONS[currentQ].next(answers);
+      if (nextKey) {
+        history.push(currentQ);
+        currentQ = nextKey;
+        // Clear any stale downstream answer for this key so selection renders fresh
+        // (user may have gone back and changed an earlier answer)
+        if (answers[currentQ] !== undefined) delete answers[currentQ];
+        renderQuestion();
+        // No scroll — the quiz element stays put, content just swaps in place.
       } else {
         showResults();
       }
     });
+
     backBtn.addEventListener('click', () => {
-      if (step > 1) showStep(step - 1);
+      if (history.length === 0) return;
+      currentQ = history.pop();
+      renderQuestion();
+      // No scroll — stay put.
     });
 
     document.getElementById('restartBtn').addEventListener('click', () => {
-      answers.experience = answers.learn = answers.interest = null;
-      document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+      for (const k of Object.keys(answers)) delete answers[k];
+      history.length = 0;
+      currentQ = 'experience';
       document.getElementById('results').classList.remove('active');
       document.getElementById('quiz').style.display = 'block';
-      showStep(1);
+      renderQuestion();
+      // User was on the results page; scroll the quiz top into view so they see Q1.
+      document.getElementById('quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Results-page "Change my last answer" — go back one step from results
+    // without wiping progress. The user lands back on the last question they
+    // answered, with their choice still highlighted so they can change it.
+    document.getElementById('resultsBackBtn').addEventListener('click', () => {
+      document.getElementById('results').classList.remove('active');
+      document.getElementById('quiz').style.display = 'block';
+      // currentQ is already the last question (we never changed it on showResults)
+      renderQuestion();
+      // Scroll the quiz top into view (user was on results, possibly scrolled down).
+      document.getElementById('quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     // ===== RECOMMENDATION ENGINE =====
@@ -818,68 +876,118 @@
       wallets: { icon: '🔐', tag: 'Self-custody', title: 'Bitcoin Wallets', by: 'Secure your stack', desc: 'From beginner-friendly mobile wallets to hardware cold storage — find the right wallet for you.', cta: 'Browse Wallets', href: 'wallets.html' },
       giftCards: { icon: '🎁', tag: 'Spend your sats', title: 'Gift Cards with Bitcoin', by: 'Via Bitrefill', desc: 'Amazon, Uber, Airbnb, and hundreds more — spend your Bitcoin anywhere.', cta: 'Browse Gift Cards', href: 'gift-cards.html' },
       esims: { icon: '📱', tag: 'Travel smart', title: 'eSIMs with Bitcoin', by: 'Global data', desc: 'Buy mobile data for 190+ countries with Bitcoin. Perfect for travelers.', cta: 'Browse eSIMs', href: 'esims.html' },
-      nexo: { icon: '💰', tag: 'Earn yield', title: 'Earn on Nexo', by: 'Interest accounts', desc: 'Earn daily interest on your Bitcoin holdings with trusted yield platforms.', cta: 'See Exchanges', href: 'exchanges.html' },
+      nexo: { icon: '💰', tag: 'Earn yield', title: 'Nexo', by: 'Earn on your BTC', desc: 'One of the largest crypto yield platforms. Earn daily interest on your Bitcoin holdings with a trusted name.', cta: 'Open Nexo', href: 'https://nexo.com/ref/rpsk6dhdki?src=android-link', external: true },
+      xapo: { icon: '🏦', tag: 'Bitcoin bank', title: 'Xapo Bank', by: 'Licensed Bitcoin banking', desc: 'A fully licensed bank built for Bitcoiners. Earn interest on BTC with institutional-grade custody.', cta: 'Apply for an Account', href: 'https://application.xapo.com/membership-application?ref=UJG-REQ-TN', external: true },
+      stackerSpread: { icon: '🧮', tag: 'DIY carry trade', title: 'Stacker Spread Calculator', by: 'Our own tool', desc: "Compare BTC-backed borrowing rates against lending yields — build DIY carry-trade strategies without custodial risk.", cta: 'Open Calculator', href: 'https://stackerspread.bitcoinbrainfood.com/', external: true },
+      exchangesTrade: { icon: '📊', tag: 'Active trading', title: 'Bitcoin Trading Platforms', by: 'Binance, Kraken & more', desc: 'Compare platforms with deep liquidity, spot and derivatives, and low fees for active Bitcoin trading.', cta: 'See Platforms', href: 'exchanges.html' },
+      kast: { icon: '💳', tag: 'Spend your sats', title: 'Kast Debit Card', by: 'Spend BTC anywhere Visa works', desc: 'Load sats onto a card and spend them anywhere Visa is accepted — in-store, online, or at an ATM.', cta: 'Get Kast', href: 'https://go.kast.xyz/VqVO/9UPJ9S0N', external: true },
+      gifts: { icon: '🎁', tag: 'Merch & gear', title: 'Bitcoin Gifts & Home Miners', by: 'BitcoinMerch, lottery miners, merch', desc: 'Bitcoin-themed apparel, lottery miners, and collectibles — perfect for gifting or your own setup.', cta: 'Browse Gifts', href: 'gifts.html' },
+      earnBitcoin: { icon: '💼', tag: 'Earn sats', title: 'Earn Bitcoin Online', by: 'Work, content & rewards', desc: 'Freelance gigs, content platforms, and shopping rewards — earn your first sats without buying them.', cta: 'See Platforms', href: 'earn-bitcoin.html' },
+      acceptBitcoin: { icon: '🏪', tag: 'For business', title: 'Accept Bitcoin Payments', by: 'Payment processors', desc: 'Set up your business to take Bitcoin via BTCPay, OpenNode, or CoinGate.', cta: 'See Processors', href: 'accept-bitcoin.html' },
     };
 
-    function buildPath({ experience, learn, interest }) {
+    function buildPath({ experience, goal, medium }) {
       const path = [];
       const profile = [];
 
-      // Primary: based on experience + learn
-      if (experience === 'curious') {
-        profile.push('Bitcoin Curious');
-        if (learn === 'reading') {
-          path.push({ ...R.bitcoinStandard, tag: 'START HERE', primary: true });
-          path.push(R.inventingBitcoin);
-        } else if (learn === 'listening') {
-          path.push({ ...R.podcasts, tag: 'START HERE', primary: true, desc: 'New to Bitcoin? Our podcasts page has beginner-friendly shows like "What Bitcoin Did" to get you up to speed on your commute.' });
-          path.push(R.inventingBitcoin);
-        } else if (learn === 'watching') {
-          path.push({ ...R.courses, tag: 'START HERE', primary: true, desc: 'Start with beginner-friendly video courses that explain Bitcoin visually. Perfect if you learn best by watching.' });
-          path.push(R.bitcoinStandard);
-        }
-      } else if (experience === 'some') {
-        profile.push('Dabbling Stacker');
-        if (learn === 'reading') {
-          path.push({ ...R.brokenMoney, tag: 'START HERE', primary: true });
-          path.push(R.bullishCase);
-        } else if (learn === 'listening') {
-          path.push({ ...R.podcasts, tag: 'START HERE', primary: true, desc: 'Level up your understanding with in-depth podcast interviews featuring Lyn Alden, Saifedean Ammous, and other top thinkers.' });
-          path.push(R.brokenMoney);
-        } else if (learn === 'watching') {
-          path.push({ ...R.courses, tag: 'START HERE', primary: true });
-          path.push(R.brokenMoney);
-        }
-      } else if (experience === 'seasoned') {
-        profile.push('Seasoned HODLer');
-        if (learn === 'reading') {
-          path.push({ ...R.masteringBitcoin, tag: 'START HERE', primary: true });
-          path.push(R.brokenMoney);
-        } else if (learn === 'listening') {
-          path.push({ ...R.podcasts, tag: 'START HERE', primary: true, desc: 'Advanced podcasts for people who already know the basics — dive into technical, policy, and macro discussions.' });
-          path.push(R.masteringBitcoin);
-        } else if (learn === 'watching') {
-          path.push({ ...R.courses, tag: 'START HERE', primary: true, desc: 'Deep-dive courses on Lightning Network, self-custody, and advanced topics for experienced Bitcoiners.' });
-          path.push(R.programmingBitcoin);
+      // --- Profile tag (experience · goal) ---
+      const expLabels = {
+        curious:  'Bitcoin Curious',
+        some:     'Dabbling Stacker',
+        seasoned: 'Seasoned HODLer',
+      };
+      const goalLabels = {
+        learn:  'wants the big picture',
+        buy:    'ready to stack',
+        trade:  'active trader',
+        wallet: 'focused on self-custody',
+        spend:  'ready to spend sats',
+        accept: 'accepting Bitcoin',
+        earn:   'earning sats',
+        yield:  'chasing yield',
+      };
+      if (expLabels[experience])  profile.push(expLabels[experience]);
+      if (goalLabels[goal])       profile.push(goalLabels[goal]);
+
+      // --- LEARN (all levels, by medium) ---
+      if (goal === 'learn') {
+        if (experience === 'curious') {
+          if (medium === 'reading') {
+            path.push({ ...R.bitcoinStandard, tag: 'START HERE', primary: true });
+            path.push(R.inventingBitcoin);
+          } else if (medium === 'listening') {
+            path.push({ ...R.podcasts, tag: 'START HERE', primary: true, desc: 'Beginner-friendly podcasts like "What Bitcoin Did" — get up to speed on your commute.' });
+            path.push(R.inventingBitcoin);
+          } else if (medium === 'watching') {
+            path.push({ ...R.courses, tag: 'START HERE', primary: true, desc: 'Beginner-friendly video courses that explain Bitcoin visually. Perfect if you learn best by watching.' });
+            path.push(R.bitcoinStandard);
+          }
+        } else if (experience === 'some') {
+          if (medium === 'reading') {
+            path.push({ ...R.brokenMoney, tag: 'START HERE', primary: true });
+            path.push(R.bullishCase);
+          } else if (medium === 'listening') {
+            path.push({ ...R.podcasts, tag: 'START HERE', primary: true, desc: 'In-depth interviews with Lyn Alden, Saifedean Ammous, and top thinkers — take your understanding to the next level.' });
+            path.push(R.brokenMoney);
+          } else if (medium === 'watching') {
+            path.push({ ...R.courses, tag: 'START HERE', primary: true });
+            path.push(R.brokenMoney);
+          }
+        } else if (experience === 'seasoned') {
+          if (medium === 'reading') {
+            path.push({ ...R.masteringBitcoin, tag: 'START HERE', primary: true });
+            path.push(R.brokenMoney);
+          } else if (medium === 'listening') {
+            path.push({ ...R.podcasts, tag: 'START HERE', primary: true, desc: 'Advanced podcasts — technical, policy, and macro deep dives for people who already know the basics.' });
+            path.push(R.masteringBitcoin);
+          } else if (medium === 'watching') {
+            path.push({ ...R.courses, tag: 'START HERE', primary: true, desc: 'Deep-dive courses on Lightning, self-custody, and advanced topics for experienced Bitcoiners.' });
+            path.push(R.programmingBitcoin);
+          }
         }
       }
-
-      // Secondary: based on interest
-      if (interest === 'basics') {
-        profile.push('wants the big picture');
-      } else if (interest === 'buying') {
-        profile.push('ready to stack');
-        path.push(R.exchanges);
-      } else if (interest === 'storing') {
-        profile.push('focused on security');
-        path.push(R.wallets);
-      } else if (interest === 'earning') {
-        profile.push('chasing yield');
-        path.push(R.nexo);
-      } else if (interest === 'spending') {
-        profile.push('ready to spend sats');
+      // --- BUY (all levels) ---
+      else if (goal === 'buy') {
+        path.push({ ...R.exchanges, tag: 'START HERE', primary: true });
+        if (experience === 'curious')       path.push(R.inventingBitcoin);
+        else if (experience === 'some')     path.push(R.bullishCase);
+        else                                path.push(R.brokenMoney);
+      }
+      // --- TRADE (some + seasoned) ---
+      else if (goal === 'trade') {
+        path.push({ ...R.exchangesTrade, tag: 'START HERE', primary: true });
+        if (experience === 'some')          path.push(R.brokenMoney);
+        else                                path.push(R.masteringBitcoin);
+      }
+      // --- WALLET (all levels) ---
+      else if (goal === 'wallet') {
+        path.push({ ...R.wallets, tag: 'START HERE', primary: true });
+        if (experience === 'curious')       path.push(R.inventingBitcoin);
+        else if (experience === 'some')     path.push(R.bullishCase);
+        else                                path.push(R.masteringBitcoin);
+      }
+      // --- SPEND (some + seasoned) ---
+      else if (goal === 'spend') {
+        path.push({ ...R.kast, tag: 'START HERE', primary: true });
         path.push(R.giftCards);
+        path.push(R.gifts);
         path.push(R.esims);
+      }
+      // --- ACCEPT BITCOIN (some + seasoned) ---
+      else if (goal === 'accept') {
+        path.push({ ...R.acceptBitcoin, tag: 'START HERE', primary: true });
+        path.push(R.wallets);
+      }
+      // --- EARN BITCOIN (some + seasoned) ---
+      else if (goal === 'earn') {
+        path.push({ ...R.earnBitcoin, tag: 'START HERE', primary: true });
+        path.push(R.wallets);
+      }
+      // --- YIELD (seasoned only) ---
+      else if (goal === 'yield') {
+        path.push({ ...R.nexo, tag: 'START HERE', primary: true });
+        path.push(R.xapo);
+        path.push(R.stackerSpread);
       }
 
       return { path, profile };
@@ -912,11 +1020,13 @@
       document.getElementById('recsList').innerHTML = path.map(renderRecCard).join('');
       document.getElementById('quiz').style.display = 'none';
       document.getElementById('results').classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Scroll the results header into view so the user sees their profile pill
+      // and heading — not the page nav.
+      document.querySelector('.results-header').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // Init
-    updateProgress();
+    renderQuestion();
   </script>
 </body>
 </html>
