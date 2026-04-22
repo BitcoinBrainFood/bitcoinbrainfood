@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bitcoin Brain Food - The Best Bitcoin Courses</title>
-  <meta name="description" content="Discover the best Bitcoin courses. Curated online courses to help you master Bitcoin from beginner to advanced levels.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23F7931A'/><text x='32' y='43' text-anchor='middle' font-size='38' font-weight='bold' font-family='Arial' fill='white'>₿</text></svg>">
+  <title>Bitcoin Brain Food - Home Bitcoin Lottery Miners</title>
+  <meta name="description" content="The best home Bitcoin lottery miners — from beginner-friendly USB miners to all-in-one full nodes. Start solo mining from home.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23F7931A'/><text x='32' y='43' text-anchor='middle' font-size='38' font-weight='bold' font-family='Arial' fill='white'>&#x20BF;</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -21,6 +21,9 @@
       --text: #E6EDF3;
       --text-muted: #8B949E;
       --gold-star: #F7931A;
+      --cat-bitcoin: #F7931A;
+      --cat-combo: #58A6FF;
+      --cat-altcoin: #A371F7;
     }
 
     body {
@@ -118,6 +121,30 @@
     .footer-socials a svg { width: 18px; height: 18px; fill: currentColor; }
     .btc-change.up { color: #3FB950; }
     .btc-change.down { color: #F85149; }
+
+    /* ===== BOTTOM SECTION (News + Chart) ===== */
+    .bottom-section { max-width: 1280px; margin: 0 auto; padding: 40px 24px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .news-panel, .chart-panel { background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 12px; padding: 20px; overflow: hidden; }
+    .chart-panel { max-height: 440px; }
+    .panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .panel-header h3 { font-size: 16px; font-weight: 700; }
+    .panel-header h3 span { color: var(--orange); }
+    .news-source { font-size: 11px; color: var(--text-muted); text-decoration: none; border: 1px solid var(--dark-border); padding: 3px 10px; border-radius: 6px; transition: all 0.2s; }
+    .news-source:hover { border-color: var(--orange); color: var(--orange); }
+    .news-source a { color: inherit; text-decoration: none; }
+    .news-list { display: flex; flex-direction: column; gap: 0; }
+    .news-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--dark-border); text-decoration: none; color: inherit; transition: all 0.15s; }
+    .news-item:last-child { border-bottom: none; }
+    .news-item:hover { padding-left: 4px; }
+    .news-item:hover .news-title { color: var(--orange); }
+    .news-item:visited { color: inherit; }
+    .news-item .news-date { font-size: 11px; color: var(--text-muted); white-space: nowrap; padding-top: 2px; min-width: 50px; }
+    .news-item .news-title { font-size: 13px; font-weight: 600; line-height: 1.4; color: var(--text); transition: color 0.15s; }
+    .news-loading { text-align: center; padding: 40px; color: var(--text-muted); font-size: 14px; }
+    .chart-container { width: 100%; height: 360px; border-radius: 8px; overflow: hidden; position: relative; }
+    .chart-container .tradingview-widget-container { width: 100%; height: 100%; }
+    .chart-container .tradingview-widget-container__widget { width: 100%; height: 100%; }
+    .chart-container iframe { width: 100% !important; height: 100% !important; }
 
     /* ===== SIDEBAR NAV ===== */
     .site-layout {
@@ -248,11 +275,62 @@
     .hero-stat .number { font-size: 24px; font-weight: 800; color: var(--orange); }
     .hero-stat .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 
+    /* ===== CATEGORY TABS ===== */
+    .category-bar {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 24px 0;
+    }
+
+    .category-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .cat-tab {
+      padding: 7px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--dark-border);
+      background: var(--dark-card);
+      color: var(--text-muted);
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .cat-tab:hover {
+      border-color: #444;
+      color: var(--text);
+    }
+
+    .cat-tab.active {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+    }
+
+    .cat-tab .tab-count {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 1px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      margin-left: 6px;
+    }
+
+    .cat-tab:not(.active) .tab-count {
+      background: rgba(255,255,255,0.06);
+    }
+
     /* ===== FILTER BAR ===== */
     .filter-bar {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 32px 24px 16px;
+      padding: 20px 24px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -289,20 +367,20 @@
       opacity: 0.5;
     }
 
-    /* ===== PODCAST GRID ===== */
-    .podcast-grid {
+    /* ===== GIFT GRID ===== */
+    .gift-grid {
       max-width: 1280px;
       margin: 0 auto;
       padding: 16px 24px 80px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
     }
 
-    .podcast-card {
+    .gift-card {
       background: var(--dark-card);
       border: 1px solid var(--dark-border);
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: hidden;
       transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
       display: flex;
@@ -312,143 +390,87 @@
       cursor: pointer;
     }
 
-    .podcast-card:hover {
+    .gift-card:hover {
       transform: translateY(-4px);
       border-color: var(--orange);
-      box-shadow: 0 12px 36px rgba(247, 147, 26, 0.15);
+      box-shadow: 0 8px 30px rgba(247, 147, 26, 0.1);
     }
 
-    .podcast-card:visited { color: inherit; }
+    .gift-card:visited { color: inherit; }
 
-    .course-banner {
-      position: relative;
-      height: 150px;
-      background:
-        radial-gradient(circle at 85% 15%, rgba(255,255,255,0.18) 0%, transparent 45%),
-        radial-gradient(circle at 15% 90%, rgba(0,0,0,0.35) 0%, transparent 55%),
-        linear-gradient(135deg, #F7931A 0%, #FF6B00 60%, #8B3A00 100%);
+    .gift-image {
+      width: 100%;
+      height: 260px;
+      background: #1C2128;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 40px 32px;
+      position: relative;
       overflow: hidden;
     }
 
-    .course-banner::before {
-      content: '₿';
-      position: absolute;
-      top: -40px;
-      right: -30px;
-      font-size: 240px;
-      font-weight: 900;
-      color: rgba(255,255,255,0.08);
-      line-height: 1;
-      pointer-events: none;
+    .gift-image img {
+      max-height: 100%;
+      max-width: 75%;
+      object-fit: contain;
+      border-radius: 4px;
+      transition: transform 0.2s;
     }
 
-    .course-banner-btc {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.95);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 42px;
-      font-weight: 900;
-      color: var(--orange);
-      box-shadow: 0 6px 24px rgba(0,0,0,0.35);
-      z-index: 1;
-    }
+    .gift-card:hover .gift-image img { transform: scale(1.05); }
 
-    .course-level {
+    .gift-category-badge {
       position: absolute;
       top: 12px;
-      left: 12px;
-      background: rgba(0,0,0,0.45);
-      backdrop-filter: blur(6px);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
+      right: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
       text-transform: uppercase;
-      padding: 5px 10px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.2);
+      letter-spacing: 0.5px;
     }
 
-    .course-body {
-      padding: 16px 18px 18px;
+    .badge-bitcoin { background: rgba(247,147,26,0.15); color: var(--cat-bitcoin); border: 1px solid rgba(247,147,26,0.3); }
+    .badge-combo { background: rgba(88,166,255,0.15); color: var(--cat-combo); border: 1px solid rgba(88,166,255,0.3); }
+    .badge-altcoin { background: rgba(163,113,247,0.15); color: var(--cat-altcoin); border: 1px solid rgba(163,113,247,0.3); }
+
+    .gift-info {
+      padding: 20px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
-    .podcast-info {
-      flex: 1;
-      min-width: 0;
-    }
+    .gift-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .gift-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; flex: 1; }
 
-    .podcast-name {
-      font-size: 17px;
-      font-weight: 800;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-
-    .podcast-host {
-      font-size: 12px;
-      color: var(--orange);
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    .podcast-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.55;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      flex: 1;
-    }
-
-    .podcast-tags {
+    .gift-bottom {
       display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 8px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+      margin-top: auto;
     }
 
-    .podcast-tag {
-      font-size: 10px;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 4px;
-      background: rgba(247,147,26,0.1);
-      color: var(--orange);
-      border: 1px solid rgba(247,147,26,0.2);
-    }
-
-    .yt-badge {
+    .buy-btn {
       display: flex;
       align-items: center;
-      gap: 4px;
-      flex-shrink: 0;
-      background: rgba(255,0,0,0.1);
-      border: 1px solid rgba(255,0,0,0.2);
-      color: #FF4444;
-      font-size: 11px;
+      justify-content: center;
+      gap: 8px;
+      background: var(--orange);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
       font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 6px;
+      transition: background 0.2s, transform 0.1s;
     }
 
-    .yt-badge svg {
-      width: 14px;
-      height: 14px;
-      fill: #FF4444;
-    }
+    .buy-btn:hover { background: var(--orange-dark); transform: scale(1.02); }
+    .buy-btn svg { width: 16px; height: 16px; }
 
     /* ===== NO RESULTS ===== */
     .no-results {
@@ -459,29 +481,6 @@
       font-size: 18px;
       display: none;
     }
-
-    /* ===== BOTTOM SECTION (News + Chart) ===== */
-    .bottom-section { max-width: 1280px; margin: 0 auto; padding: 40px 24px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .news-panel, .chart-panel { background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 12px; padding: 20px; overflow: hidden; }
-    .chart-panel { max-height: 440px; }
-    .panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-    .panel-header h3 { font-size: 16px; font-weight: 700; }
-    .panel-header h3 span { color: var(--orange); }
-    .news-source { font-size: 11px; color: var(--text-muted); text-decoration: none; border: 1px solid var(--dark-border); padding: 3px 10px; border-radius: 6px; transition: all 0.2s; }
-    .news-source:hover { border-color: var(--orange); color: var(--orange); }
-    .news-list { display: flex; flex-direction: column; gap: 0; }
-    .news-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--dark-border); text-decoration: none; color: inherit; transition: all 0.15s; }
-    .news-item:last-child { border-bottom: none; }
-    .news-item:hover { padding-left: 4px; }
-    .news-item:hover .news-title { color: var(--orange); }
-    .news-item:visited { color: inherit; }
-    .news-item .news-date { font-size: 11px; color: var(--text-muted); white-space: nowrap; padding-top: 2px; min-width: 50px; }
-    .news-item .news-title { font-size: 13px; font-weight: 600; line-height: 1.4; color: var(--text); transition: color 0.15s; }
-    .news-loading { text-align: center; padding: 40px; color: var(--text-muted); font-size: 14px; }
-    .chart-container { width: 100%; height: 360px; border-radius: 8px; overflow: hidden; position: relative; }
-    .chart-container .tradingview-widget-container { width: 100%; height: 100%; }
-    .chart-container .tradingview-widget-container__widget { width: 100%; height: 100%; }
-    .chart-container iframe { width: 100% !important; height: 100% !important; }
 
     /* ===== FOOTER ===== */
     footer {
@@ -517,9 +516,12 @@
       .hero p { font-size: 14px; }
       .hero-stats { gap: 24px; }
       .hero-stat .number { font-size: 22px; }
-      .podcast-grid { grid-template-columns: 1fr; gap: 12px; padding: 16px 16px 60px; }
-      .filter-bar { padding: 24px 16px 8px; }
+      .gift-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 16px 16px 60px; }
+      .filter-bar { padding: 16px 16px 8px; }
       .filter-bar h2 { font-size: 18px; }
+      .category-bar { padding: 24px 16px 0; }
+      .category-tabs { gap: 8px; }
+      .cat-tab { padding: 6px 10px; font-size: 11px; }
       .search-box input { width: 100%; }
       .bottom-section { padding: 24px 16px 40px; }
       .chart-container { height: 300px; }
@@ -538,10 +540,9 @@
       .hero p { font-size: 13px; margin-bottom: 16px; }
       .hero-stat .number { font-size: 20px; }
       .hero-stat .label { font-size: 10px; }
-      .podcast-grid { padding: 12px 12px 48px; }
-      .podcast-avatar { width: 64px; height: 64px; }
-      .podcast-avatar .avatar-fallback { font-size: 24px; }
+      .gift-grid { grid-template-columns: 1fr; padding: 12px 12px 48px; }
       .filter-bar { padding: 12px 12px 8px; flex-direction: column; align-items: stretch; }
+      .category-bar { padding: 16px 12px 0; }
       .bottom-section { padding: 16px 12px 32px; gap: 16px; }
       .news-panel, .chart-panel { padding: 16px; }
       .chart-container { height: 260px; }
@@ -595,7 +596,6 @@
           <a href="https://x.com/BTCBrainFood" target="_blank" rel="noopener" title="Follow us on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
           <a href="https://www.instagram.com/bitcoinbrainfood" target="_blank" rel="noopener" title="Follow us on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
           <a href="https://www.tiktok.com/@bitcoinbrainfood" target="_blank" rel="noopener" title="Follow us on TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.45a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.36z"/></svg></a>
-
         </div>
         <div class="btc-ticker" id="btcTicker">
           <span class="btc-label">BTC</span>
@@ -615,9 +615,9 @@
     <a href="exchanges.html">Exchanges</a>
     <a href="accept-bitcoin.html">Accept Bitcoin</a>
     <a href="earn-bitcoin.html">Earn Bitcoin</a>
-    <a href="mine-bitcoin.html">Mine Bitcoin</a>
+    <a href="mine-bitcoin.html" class="active">Mine Bitcoin</a>
     <a href="podcasts.html">Podcasts</a>
-    <a href="courses.html" class="active">Courses</a>
+    <a href="courses.html">Courses</a>
     <a href="gift-cards.html">Gift Cards</a>
     <a href="esims.html">eSIMs</a>
     <a href="phone-refills.html">Phone Refills</a>
@@ -657,7 +657,7 @@
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v2m0 8v2M9 10h6a2 2 0 010 4H9a2 2 0 000 4h6"/></svg>
         Earn Bitcoin
       </a>
-      <a href="mine-bitcoin.html" class="sidebar-link">
+      <a href="mine-bitcoin.html" class="sidebar-link active">
         <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg>
         Mine Bitcoin
       </a>
@@ -665,7 +665,7 @@
         <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
         Podcasts
       </a>
-      <a href="courses.html" class="sidebar-link active">
+      <a href="courses.html" class="sidebar-link">
         <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
         Courses
       </a>
@@ -701,35 +701,45 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1>The Best <span>Bitcoin Courses</span><br>To Master Bitcoin</h1>
-    <p>Hand-picked online Bitcoin courses for every level. From beginner basics to advanced transactions and mining — learn at your own pace.</p>
+    <h1>Mine <span>Bitcoin</span><br>From Home</h1>
+    <p>Lottery miners for your desk, your wall, or your workshop. Ultra-low-power solo miners that give you a real shot at mining a full Bitcoin block.</p>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="number">7</div>
-        <div class="label">Top Courses</div>
+        <div class="number">10</div>
+        <div class="label">Miners</div>
       </div>
       <div class="hero-stat">
-        <div class="number">All Levels</div>
-        <div class="label">Beginner → Advanced</div>
+        <div class="number">3</div>
+        <div class="label">Categories</div>
       </div>
       <div class="hero-stat">
-        <div class="number">100%</div>
-        <div class="label">Bitcoin Focused</div>
+        <div class="number">Solo</div>
+        <div class="label">Lottery Mining</div>
       </div>
     </div>
   </section>
 
+  <!-- CATEGORY TABS -->
+  <div class="category-bar">
+    <ul class="category-tabs" id="categoryTabs">
+      <li class="cat-tab active" data-cat="all">All Miners <span class="tab-count">10</span></li>
+      <li class="cat-tab" data-cat="bitcoin">Bitcoin (Single) <span class="tab-count">5</span></li>
+      <li class="cat-tab" data-cat="combo">Combos <span class="tab-count">3</span></li>
+      <li class="cat-tab" data-cat="altcoin">DOGE / LTC (SCRYPT) <span class="tab-count">2</span></li>
+    </ul>
+  </div>
+
   <!-- FILTER BAR -->
   <div class="filter-bar">
-    <h2 id="sectionTitle">All Courses</h2>
+    <h2 id="sectionTitle">All Miners</h2>
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search courses...">
+      <input type="text" id="searchInput" placeholder="Search miners...">
     </div>
   </div>
 
-  <!-- PODCAST GRID -->
-  <div class="podcast-grid" id="podcastGrid">
-    <div class="no-results" id="noResults">No courses match your search. Try a different keyword.</div>
+  <!-- GIFT GRID -->
+  <div class="gift-grid" id="giftGrid">
+    <div class="no-results" id="noResults">No miners match your search. Try a different keyword.</div>
   </div>
 
   <!-- NEWS + CHART -->
@@ -737,7 +747,7 @@
     <div class="news-panel">
       <div class="panel-header">
         <h3>Latest <span>Bitcoin News</span></h3>
-        <span class="news-source" id="newsSource">Bitcoin Magazine</span>
+        <span class="news-source" id="newsSource"></span>
       </div>
       <div class="news-list" id="newsList">
         <div class="news-loading" id="newsLoading">Loading headlines...</div>
@@ -792,143 +802,183 @@
 
   <!-- FOOTER -->
   <footer>
-    <p><span class="footer-brand">BitcoinBrainFood.com</span> &mdash; Your curated guide to the best Bitcoin courses. Learn, level up, and stack your knowledge.</p>
+    <p><span class="footer-brand">BitcoinBrainFood.com</span> &mdash; Hand-picked home Bitcoin miners. Mine your own sats at home with solo lottery miners.</p>
     <div class="footer-socials">
       <a href="https://x.com/BTCBrainFood" target="_blank" rel="noopener" title="Follow us on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
           <a href="https://www.instagram.com/bitcoinbrainfood" target="_blank" rel="noopener" title="Follow us on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
           <a href="https://www.tiktok.com/@bitcoinbrainfood" target="_blank" rel="noopener" title="Follow us on TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.45a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.36z"/></svg></a>
     </div>
-    <p class="affiliate-note">Course links are Udemy affiliate links. We may earn a commission at no extra cost to you.</p>
+    <p class="affiliate-note">As an Amazon Associate and BitcoinMerch affiliate, we earn from qualifying purchases. Prices shown are approximate and may vary.</p>
   </footer>
 
   <script>
-    const podcasts = [
+    const CAT_LABELS = {
+      bitcoin: { label: 'Bitcoin', badge: 'badge-bitcoin' },
+      combo:   { label: 'Combo Pack', badge: 'badge-combo' },
+      altcoin: { label: 'DOGE / LTC', badge: 'badge-altcoin' },
+    };
+
+    const CAT_TITLES = {
+      all:     'All Miners',
+      bitcoin: 'Bitcoin (Single Unit)',
+      combo:   'Combo Packs',
+      altcoin: 'DOGE / LTC (SCRYPT) Miners',
+    };
+
+    const miners = [
+      // --- BITCOIN (single unit) ---
       {
-        name: "Blockchain and Bitcoin Fundamentals",
-        host: "George Levy",
-        url: "https://trk.udemy.com/R0RZXg",
-        logo: "",
-        initial: "B",
-        tags: ["Beginner", "Fundamentals"],
-        desc: "A clear, jargon-free introduction to blockchain and Bitcoin. Perfect for beginners who want to understand how it all works from the ground up."
+        name: "USB Lottery Miner (NerdMiner 2)",
+        cat: "bitcoin",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/nerdminer2?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/1_1da66bec-7d07-404b-a7ab-3dbbb7fde27f.png?v=1764973513",
+        desc: "Affordable USB-powered WiFi solo miner at 70 KH/s — perfect entry point for home Bitcoin lottery mining. Plugs into any USB port."
       },
       {
-        name: "Understand How Bitcoin Works — A Visual Tech Guide",
-        host: "Brandon Schreiner",
-        url: "https://trk.udemy.com/PzaR9Y",
-        logo: "",
-        initial: "U",
-        tags: ["Beginner", "Visual", "Technical"],
-        desc: "A modern visual guide that breaks down how Bitcoin actually works under the hood. Great for visual learners who want real understanding, not just hype."
+        name: "Gold Nugget Lottery Miner",
+        cat: "bitcoin",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/goldnugget-nerdminer?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/2_2abb0cd8-66d3-472b-9e90-415a7ce42ce0.png?v=1773444929",
+        desc: "Compact WiFi-enabled solo Bitcoin lottery miner with optimized 377 KH/s firmware and ultra-low power draw."
       },
       {
-        name: "Unlocking the Power of Bitcoin: A Step-by-Step Guide",
-        host: "Udemy Instructor",
-        url: "https://trk.udemy.com/L0DOqY",
-        logo: "",
-        initial: "U",
-        tags: ["Beginner", "Practical"],
-        desc: "A practical step-by-step walkthrough of Bitcoin — wallets, transactions, security, and how to start using it confidently in the real world."
+        name: "Gold Digger Lottery Miner",
+        cat: "bitcoin",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-gold-digger-lottery-nmminer-1000kh-s?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/3_bdc193f5-9094-46c4-9b5c-dfc343b072bd.png?v=1764973548",
+        desc: "Pocket-sized solo miner pushing over 1,000 KH/s with a built-in clock mode and four color options."
       },
       {
-        name: "Bitcoin Advanced Level: Transactions",
-        host: "George Levy",
-        url: "https://trk.udemy.com/xJnr3v",
-        logo: "",
-        initial: "B",
-        tags: ["Advanced", "Technical"],
-        desc: "Go deep into how Bitcoin transactions actually work. Inputs, outputs, scripts, fees, and more — for those ready to level up beyond the basics."
+        name: "Disruptor USB Lottery Miner",
+        cat: "bitcoin",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-disruptor-usb-solo-bitcoin-miner?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/AMS0892.jpg?v=1750192416",
+        desc: "Ultra-efficient 300 GH/s+ USB Bitcoin solo miner with WiFi, AxeOS Swarm Mode and RGB status lights. The serious hobbyist's pick."
       },
       {
-        name: "Complete Bitcoin Mining Guide 2025: Generate Passive Income",
-        host: "Sid",
-        url: "https://trk.udemy.com/rEgL33",
-        logo: "",
-        initial: "M",
-        tags: ["Mining", "Passive Income"],
-        desc: "Everything you need to start mining Bitcoin in 2025. Hardware, setup, profitability, and strategies to turn mining into a real income stream."
+        name: "MARS LANDER 3 All-In-One Lottery Miner",
+        cat: "bitcoin",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch%C2%AE-mars-lander-3-all-in-one-lottery-miner-full-node-pre-order?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/ML3_1.png?v=1769043233",
+        desc: "All-in-one Bitcoin solo lottery miner and full node. 1.2 TH/s, 2TB SSD, 8GB RAM, touchscreen and RGB lighting — your whole mining setup in one box."
+      },
+
+      // --- COMBO PACKS ---
+      {
+        name: "6x Gold Nugget Lottery Miner Combo",
+        cat: "combo",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-6x-gold-nugget-combo?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/Join_the_race_of_Solo_Mining.png?v=1773445149",
+        desc: "Six Gold Nugget miners with a USB-powered stand — multiply your solo mining lottery odds by 6x."
       },
       {
-        name: "Bitcoin: The Complete Digital Currency Guide",
-        host: "Udemy Instructor",
-        url: "https://trk.udemy.com/k4R93d",
-        logo: "",
-        initial: "B",
-        tags: ["All Levels", "Comprehensive"],
-        desc: "A comprehensive guide covering everything Bitcoin: history, technology, economics, wallets, and how to use it as digital money."
+        name: "7x USB Lottery Miner Combo",
+        cat: "combo",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-7x-nerdminer-2-usb-solo-bitcoin-miner-combo?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/Join_the_race_of_Solo_Mining_1.png?v=1765907629",
+        desc: "Seven USB miners with a dedicated 7-port hub — easy, scalable solo mining at home."
       },
       {
-        name: "Basics of Bitcoin and Beyond",
-        host: "Udemy Instructor",
-        url: "https://trk.udemy.com/AgKnV7",
-        logo: "",
-        initial: "B",
-        tags: ["Beginner", "Overview"],
-        desc: "Start from zero and build a solid foundation in Bitcoin. Covers the basics and then takes you a step beyond to understand the bigger picture."
+        name: "10x USB Lottery Miner Combo",
+        cat: "combo",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-10x-nerdminer-2-usb-solo-bitcoin-miner-combo?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/AMS4502copy.jpg?v=1748559601",
+        desc: "Ten USB miners with a unified 10-port hub — compact, larger-scale home mining in one plug-and-play setup."
+      },
+
+      // --- DOGE / LTC (SCRYPT) ---
+      {
+        name: "DOGE Digger Lottery Miner (SCRYPT)",
+        cat: "altcoin",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch-dogedigger-scrypt-lottery-miner-105mh-s-doge-ltc-hammer-miner-scrypt?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/dogedigger.png?v=1772133722",
+        desc: "First-of-its-kind SCRYPT home lottery miner pushing ~105 MH/s on just ~25 watts. WiFi setup, DOGE and LTC friendly."
+      },
+      {
+        name: "DOGE DRILLER Lottery Miner (SCRYPT)",
+        cat: "altcoin",
+        source: "bitcoinmerch",
+        url: "https://bitcoinmerch.com/products/bitcoin-merch%C2%AE-doge-driller-lottery-miner-330mh-s-scrypt-ltc-doge?aff=888",
+        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/ChatGPTImageFeb3_2026_12_34_58PM.png?v=1770150907",
+        desc: "High-performance SCRYPT solo miner delivering ~330 MH/s at just ~105 watts. For serious DOGE/LTC lottery hunters."
       },
     ];
 
-    function renderPodcasts() {
-      const grid = document.getElementById('podcastGrid');
+    // Keep the old var name working for render code compatibility
+    const gifts = miners;
+
+    let currentCat = 'all';
+
+    function renderGifts() {
+      const grid = document.getElementById('giftGrid');
       const noResults = document.getElementById('noResults');
       const search = document.getElementById('searchInput').value.toLowerCase();
-      const title = document.getElementById('sectionTitle');
 
-      grid.querySelectorAll('.podcast-card').forEach(c => c.remove());
+      // Remove old cards
+      grid.querySelectorAll('.gift-card').forEach(c => c.remove());
+      let count = 0;
 
-      let filtered = podcasts;
-
-      if (search) {
-        filtered = filtered.filter(p =>
-          p.name.toLowerCase().includes(search) ||
-          p.host.toLowerCase().includes(search) ||
-          p.desc.toLowerCase().includes(search) ||
-          p.tags.some(t => t.toLowerCase().includes(search))
-        );
-      }
-
-      title.textContent = search ? `Results for "${search}"` : 'All Courses';
-
-      if (filtered.length === 0) {
-        noResults.style.display = 'block';
-        return;
-      }
-      noResults.style.display = 'none';
-
-      filtered.forEach(podcast => {
+      gifts.forEach(g => {
+        if (currentCat !== 'all' && g.cat !== currentCat) return;
+        if (search && !g.name.toLowerCase().includes(search) && !g.desc.toLowerCase().includes(search)) return;
+        count++;
+        const catInfo = CAT_LABELS[g.cat];
         const card = document.createElement('a');
-        card.className = 'podcast-card';
-        card.href = podcast.url;
+        card.className = 'gift-card';
+        card.href = g.url;
         card.target = '_blank';
         card.rel = 'noopener';
-
-        const level = (podcast.tags && podcast.tags[0]) || 'Course';
+        const btnLabel = g.source === 'bitcoinmerch' ? 'Buy on BitcoinMerch'
+          : g.source === 'scarcecity' ? 'Browse Scarce.city'
+          : 'Buy on Amazon';
+        const imgStyle = g.imgBg ? 'style="background:#fff;padding:24px;object-fit:contain;"' : '';
         card.innerHTML = `
-          <div class="course-banner">
-            <span class="course-level">${level}</span>
-            <div class="course-banner-btc">₿</div>
+          <div class="gift-image">
+            <span class="gift-category-badge ${catInfo.badge}">${catInfo.label}</span>
+            <img src="${g.img}" alt="${g.name}" loading="lazy" ${imgStyle}>
           </div>
-          <div class="course-body">
-            <div class="podcast-name">${podcast.name}</div>
-            <div class="podcast-host">by ${podcast.host}</div>
-            <div class="podcast-desc">${podcast.desc}</div>
-            <div class="podcast-tags" style="margin-top:12px;">
-              ${podcast.tags.map(t => `<span class="podcast-tag">${t}</span>`).join('')}
+          <div class="gift-info">
+            <div class="gift-title">${g.name}</div>
+            <div class="gift-desc">${g.desc}</div>
+            <div class="gift-bottom">
+              <span class="buy-btn">
+                ${btnLabel}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </span>
             </div>
-            <span class="yt-badge" style="align-self:flex-start;margin-top:14px;background:rgba(247,147,26,0.1);border-color:rgba(247,147,26,0.3);color:var(--orange);">
-              View on Udemy →
-            </span>
           </div>
         `;
-        grid.insertBefore(card, noResults);
+        grid.appendChild(card);
       });
+
+      noResults.style.display = count === 0 ? 'block' : 'none';
     }
 
+    // Category tabs
+    document.getElementById('categoryTabs').addEventListener('click', function(e) {
+      const tab = e.target.closest('.cat-tab');
+      if (!tab) return;
+      document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentCat = tab.dataset.cat;
+      document.getElementById('sectionTitle').textContent = CAT_TITLES[currentCat];
+      renderGifts();
+    });
+
     // Search
-    document.getElementById('searchInput').addEventListener('input', renderPodcasts);
+    document.getElementById('searchInput').addEventListener('input', renderGifts);
 
     // Initial render
-    renderPodcasts();
+    renderGifts();
 
     // ===== BTC PRICE TICKER =====
     async function fetchBtcPrice() {
@@ -937,11 +987,11 @@
         const data = await res.json();
         const price = data.bitcoin.usd;
         const change = data.bitcoin.usd_24h_change;
-        document.getElementById('btcPrice').textContent = '$' + price.toLocaleString('en-US', { maximumFractionDigits: 0 });
+        document.getElementById('btcPrice').textContent = '$' + price.toLocaleString('en-US', {maximumFractionDigits: 0});
         const changeEl = document.getElementById('btcChange');
         changeEl.textContent = (change >= 0 ? '+' : '') + change.toFixed(1) + '%';
         changeEl.className = 'btc-change ' + (change >= 0 ? 'up' : 'down');
-      } catch (e) { document.getElementById('btcPrice').textContent = '--'; }
+      } catch (e) {}
     }
     fetchBtcPrice();
     setInterval(fetchBtcPrice, 60000);
@@ -962,10 +1012,10 @@
       const sourceEl = document.getElementById('newsSource');
       loading.style.display = 'none';
       sourceEl.innerHTML = '<a href="' + source.site + '" target="_blank" rel="noopener">' + source.name + '</a>';
-      items.forEach(item => {
-        const date = new Date(item.pubDate);
-        const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-        const link = document.createElement('a');
+      items.forEach(function(item) {
+        var date = new Date(item.pubDate);
+        var dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        var link = document.createElement('a');
         link.className = 'news-item';
         link.href = item.link;
         link.target = '_blank';
@@ -980,12 +1030,12 @@
         document.getElementById('newsLoading').textContent = 'Unable to load news.';
         return;
       }
-      const source = newsSources[index];
+      var source = newsSources[index];
       try {
-        const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(source.url));
-        const data = await res.json();
+        var res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(source.url));
+        var data = await res.json();
         if (data.status === 'ok' && data.items && data.items.length > 0) {
-          const btcItems = data.items.filter(i => btcKeywords.test(i.title));
+          var btcItems = data.items.filter(function(i) { return btcKeywords.test(i.title); });
           if (btcItems.length >= 3) {
             renderNews(btcItems.slice(0, 6), source);
           } else {
