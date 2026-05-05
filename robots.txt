@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /instagram-carousel.html
+
+Sitemap: https://bitcoinbrainfood.com/sitemap.xml

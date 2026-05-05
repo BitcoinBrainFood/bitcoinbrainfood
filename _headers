@@ -1,0 +1,30 @@
+# Cloudflare Pages cache rules
+# Reference: https://developers.cloudflare.com/pages/configuration/headers/
+
+# HTML pages — short browser cache, longer edge cache (revalidates automatically)
+/*.html
+  Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400
+
+# Root index (covers /, which serves index.html)
+/
+  Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400
+
+# Sitemap & robots — short cache so updates propagate quickly
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+# Local images — long cache, immutable (you'll bust via filename if needed)
+/img/*
+  Cache-Control: public, max-age=2592000
+
+# Static CSV (affiliate-tracker, quiz workbook) — short
+/*.csv
+  Cache-Control: public, max-age=600
+
+# Standard security + privacy hardening on every response
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
