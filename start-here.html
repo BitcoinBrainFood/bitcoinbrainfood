@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Start Here - Bitcoin Brain Food | Your Personalized Bitcoin Journey</title>
   <meta name="description" content="New to Bitcoin? Take our 30-second quiz and get a personalized learning path with hand-picked books, podcasts, and resources tailored to you.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23F7931A'/><text x='32' y='43' text-anchor='middle' font-size='38' font-weight='bold' font-family='Arial' fill='white'>₿</text></svg>">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="apple-touch-icon" href="/img/logo.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -44,17 +45,20 @@
       align-items: center;
       justify-content: space-between;
     }
-    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .logo-icon {
-      width: 42px; height: 42px;
-      background: var(--orange);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; font-weight: 800; color: #fff;
-      box-shadow: 0 0 20px rgba(247, 147, 26, 0.3);
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
     }
-    .logo-text { font-size: 22px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
-    .logo-text span { color: var(--orange); }
+    .logo-img {
+      display: block;
+      height: 52px;
+      width: auto;
+      border-radius: 8px;
+    }
+    @media (max-width: 600px) {
+      .logo-img { height: 40px; }
+    }
     .header-right { display: flex; align-items: center; gap: 20px; }
     .header-tagline { color: var(--text-muted); font-size: 14px; font-weight: 500; }
     .social-icons { display: flex; align-items: center; gap: 10px; }
@@ -454,8 +458,6 @@
     }
     @media (max-width: 480px) {
       .header-inner { padding: 10px 12px; }
-      .logo-icon { width: 36px; height: 36px; font-size: 18px; }
-      .logo-text { font-size: 18px; }
       .hero h1 { font-size: 26px; }
       .quiz-question { font-size: 20px; }
     }
@@ -481,8 +483,7 @@
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-icon">B</div>
-        <div class="logo-text">Bitcoin<span>BrainFood</span></div>
+        <img src="/img/logo.png" alt="Bitcoin Brain Food" class="logo-img">
       </a>
       <div class="header-right">
         <div class="header-tagline">Feed Your Mind. Stack Your Knowledge.</div>
