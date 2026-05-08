@@ -25,7 +25,6 @@
       --gold-star: #F7931A;
       --cat-bitcoin: #F7931A;
       --cat-combo: #58A6FF;
-      --cat-altcoin: #A371F7;
     }
 
     body {
@@ -381,7 +380,6 @@
 
     .badge-bitcoin { background: rgba(247,147,26,0.15); color: var(--cat-bitcoin); border: 1px solid rgba(247,147,26,0.3); }
     .badge-combo { background: rgba(88,166,255,0.15); color: var(--cat-combo); border: 1px solid rgba(88,166,255,0.3); }
-    .badge-altcoin { background: rgba(163,113,247,0.15); color: var(--cat-altcoin); border: 1px solid rgba(163,113,247,0.3); }
 
     .gift-info {
       padding: 20px;
@@ -660,11 +658,11 @@
     <p>Lottery miners for your desk, your wall, or your workshop. Ultra-low-power solo miners that give you a real shot at mining a full Bitcoin block.</p>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="number">10</div>
+        <div class="number">8</div>
         <div class="label">Miners</div>
       </div>
       <div class="hero-stat">
-        <div class="number">3</div>
+        <div class="number">2</div>
         <div class="label">Categories</div>
       </div>
       <div class="hero-stat">
@@ -677,10 +675,9 @@
   <!-- CATEGORY TABS -->
   <div class="category-bar">
     <ul class="category-tabs" id="categoryTabs">
-      <li class="cat-tab active" data-cat="all">All Miners <span class="tab-count">10</span></li>
+      <li class="cat-tab active" data-cat="all">All Miners <span class="tab-count">8</span></li>
       <li class="cat-tab" data-cat="bitcoin">Bitcoin (Single) <span class="tab-count">5</span></li>
       <li class="cat-tab" data-cat="combo">Combos <span class="tab-count">3</span></li>
-      <li class="cat-tab" data-cat="altcoin">DOGE / LTC (SCRYPT) <span class="tab-count">2</span></li>
     </ul>
   </div>
 
@@ -720,14 +717,12 @@
     const CAT_LABELS = {
       bitcoin: { label: 'Bitcoin', badge: 'badge-bitcoin' },
       combo:   { label: 'Combo Pack', badge: 'badge-combo' },
-      altcoin: { label: 'DOGE / LTC', badge: 'badge-altcoin' },
     };
 
     const CAT_TITLES = {
       all:     'All Miners',
       bitcoin: 'Bitcoin (Single Unit)',
       combo:   'Combo Packs',
-      altcoin: 'DOGE / LTC (SCRYPT) Miners',
     };
 
     const miners = [
@@ -797,24 +792,6 @@
         url: "/go/bm?p=bitcoin-merch-10x-nerdminer-2-usb-solo-bitcoin-miner-combo",
         img: "https://cdn.shopify.com/s/files/1/2609/9556/files/AMS4502copy.jpg?v=1748559601",
         desc: "Ten USB miners with a unified 10-port hub — compact, larger-scale home mining in one plug-and-play setup."
-      },
-
-      // --- DOGE / LTC (SCRYPT) ---
-      {
-        name: "DOGE Digger Lottery Miner (SCRYPT)",
-        cat: "altcoin",
-        source: "bitcoinmerch",
-        url: "/go/bm?p=bitcoin-merch-dogedigger-scrypt-lottery-miner-105mh-s-doge-ltc-hammer-miner-scrypt",
-        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/dogedigger.png?v=1772133722",
-        desc: "First-of-its-kind SCRYPT home lottery miner pushing ~105 MH/s on just ~25 watts. WiFi setup, DOGE and LTC friendly."
-      },
-      {
-        name: "DOGE DRILLER Lottery Miner (SCRYPT)",
-        cat: "altcoin",
-        source: "bitcoinmerch",
-        url: "/go/bm?p=bitcoin-merch%C2%AE-doge-driller-lottery-miner-330mh-s-scrypt-ltc-doge",
-        img: "https://cdn.shopify.com/s/files/1/2609/9556/files/ChatGPTImageFeb3_2026_12_34_58PM.png?v=1770150907",
-        desc: "High-performance SCRYPT solo miner delivering ~330 MH/s at just ~105 watts. For serious DOGE/LTC lottery hunters."
       },
     ];
 
