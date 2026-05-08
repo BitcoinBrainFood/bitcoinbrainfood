@@ -85,4 +85,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://bitcoinbrainfood.com/compare/coldcard-q-vs-ledger-nano-x.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bitcoinbrainfood.com/compare/coldcard-q-vs-jade-plus.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>
