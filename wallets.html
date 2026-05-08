@@ -21,6 +21,7 @@
       --gold-star: #F7931A;
       --cat-mobile: #3FB950;
       --cat-hardware: #58A6FF;
+      --cat-desktop: #A371F7;
     }
 
     body {
@@ -392,6 +393,7 @@
 
     .badge-mobile { background: rgba(63,185,80,0.15); color: var(--cat-mobile); border: 1px solid rgba(63,185,80,0.3); }
     .badge-hardware { background: rgba(88,166,255,0.15); color: var(--cat-hardware); border: 1px solid rgba(88,166,255,0.3); }
+    .badge-desktop { background: rgba(163,113,247,0.15); color: var(--cat-desktop); border: 1px solid rgba(163,113,247,0.3); }
 
     .wallet-info {
       padding: 20px;
@@ -697,16 +699,20 @@
     <p>Hand-picked selection of the most trusted Bitcoin wallets. From mobile apps to hardware cold storage &mdash; take control of your keys.</p>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="number">10</div>
+        <div class="number">13</div>
         <div class="label">Trusted Wallets</div>
       </div>
       <div class="hero-stat">
-        <div class="number">3</div>
+        <div class="number">5</div>
         <div class="label">Mobile Wallets</div>
       </div>
       <div class="hero-stat">
         <div class="number">7</div>
         <div class="label">Hardware Wallets</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">1</div>
+        <div class="label">Desktop Wallet</div>
       </div>
     </div>
   </section>
@@ -770,9 +776,10 @@
   <!-- CATEGORY TABS -->
   <div class="category-bar">
     <ul class="category-tabs" id="categoryTabs">
-      <li class="cat-tab active" data-cat="all">All Wallets <span class="tab-count">10</span></li>
-      <li class="cat-tab" data-cat="mobile">Mobile Wallets <span class="tab-count" id="count-mobile">3</span></li>
+      <li class="cat-tab active" data-cat="all">All Wallets <span class="tab-count">13</span></li>
+      <li class="cat-tab" data-cat="mobile">Mobile Wallets <span class="tab-count" id="count-mobile">5</span></li>
       <li class="cat-tab" data-cat="hardware">Hardware Wallets <span class="tab-count" id="count-hardware">7</span></li>
+      <li class="cat-tab" data-cat="desktop">Desktop Wallets <span class="tab-count" id="count-desktop">1</span></li>
     </ul>
   </div>
 
@@ -812,12 +819,14 @@
     const CAT_LABELS = {
       mobile: { label: 'Mobile', badge: 'badge-mobile' },
       hardware: { label: 'Hardware', badge: 'badge-hardware' },
+      desktop: { label: 'Desktop', badge: 'badge-desktop' },
     };
 
     const CAT_TITLES = {
       all: 'All Wallets',
       mobile: 'Mobile Wallets',
       hardware: 'Hardware Wallets',
+      desktop: 'Desktop Wallets',
     };
 
     const wallets = [
@@ -840,6 +849,28 @@
         price: "Free",
         features: ["Multisig", "Tor Support", "Hardware Wallet Companion", "Open Source"],
         desc: "A secure Bitcoin wallet by Blockstream with multisig protection, Tor support, and seamless hardware wallet integration."
+      },
+      {
+        name: "Speed",
+        cat: "mobile",
+        url: "https://www.speed.app",
+        logo: "https://www.google.com/s2/favicons?domain=speed.app&sz=128",
+        logoBg: true,
+        initial: "S",
+        price: "Free",
+        features: ["Lightning", "Bitcoin + USDT", "Buy with Card", "Beginner Friendly"],
+        desc: "A fast Lightning + Bitcoin wallet with built-in buy/sell via card or bank. Great for beginners who want to send and receive sats instantly with near-zero fees."
+      },
+      {
+        name: "Cove",
+        cat: "mobile",
+        url: "https://covebitcoinwallet.com",
+        logo: "https://www.google.com/s2/favicons?domain=covebitcoinwallet.com&sz=128",
+        logoBg: true,
+        initial: "C",
+        price: "Free",
+        features: ["Bitcoin Only", "Self-Custody", "Hardware Wallet PSBT", "Open Source", "Decoy PIN"],
+        desc: "A simple, Bitcoin-only mobile wallet that bridges beginner and advanced. Self-custodial with PSBT support for ColdCard, Krux, and TAPSIGNER, plus a decoy PIN for plausible deniability."
       },
       {
         name: "Wallet of Satoshi",
@@ -922,6 +953,17 @@
         price: "$169",
         features: ["Air-gapped", "Open Source", "QR Camera", "Bluetooth", "Liquid Network"],
         desc: "Open-source hardware wallet from Blockstream with a unique “blind oracle” security model instead of a traditional secure element. Color screen, QR camera, microSD, and Liquid network support."
+      },
+      {
+        name: "Sparrow",
+        cat: "desktop",
+        url: "https://sparrowwallet.com",
+        logo: "https://www.google.com/s2/favicons?domain=sparrowwallet.com&sz=128",
+        logoBg: true,
+        initial: "S",
+        price: "Free",
+        features: ["Bitcoin Only", "Multisig", "Coin Control", "Hardware Wallet Support", "Tor", "Open Source"],
+        desc: "The most powerful desktop Bitcoin wallet. Full coin control, multisig, transaction-level UTXO labeling, integrated Tor, and support for every major hardware wallet — air-gapped or USB. The standard for serious self-custody on Windows, Mac, and Linux."
       },
     ];
 
