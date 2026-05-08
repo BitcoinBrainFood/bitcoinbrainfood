@@ -357,6 +357,26 @@
       background: rgba(0,0,0,0.15); border-radius: 0 8px 8px 0;
     }
 
+    /* ===== WARNING CALLOUT (Trezor Suite shitcoin trap) ===== */
+    .warning-callout {
+      background: rgba(217,119,6,0.08);
+      border: 1px solid rgba(217,119,6,0.35);
+      border-left: 4px solid #D97706;
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 0 0 40px;
+    }
+    .warning-callout .label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #D97706;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .warning-callout p { margin-bottom: 0; font-size: 14.5px; line-height: 1.65; }
+    .warning-callout strong { color: var(--text); }
+
     /* ===== FOOTER ===== */
     footer {
       border-top: 1px solid var(--dark-border);
@@ -535,6 +555,11 @@
           </div>
         </div>
 
+        <div class="warning-callout">
+          <div class="label">⚠ One thing to know if you're new and leaning Trezor</div>
+          <p>The <strong>Trezor Suite</strong> app — which is most beginners' default way to use a Trezor — has built-in <em>buy</em>, <em>sell</em>, and <em>swap</em> buttons that put dozens of altcoins right next to Bitcoin. If you're brand new and you bought a Trezor specifically to start stacking sats, the UI itself can quietly distract you into "diversifying" into shitcoins you don't actually want. The ColdCard Q has no such shop because it has no manufacturer software at all — you bring your own Bitcoin wallet (Sparrow, Specter, Electrum) and that's it. Worth knowing before you buy.</p>
+        </div>
+
         <h2>The full spec comparison</h2>
         <div class="spec-table-wrap">
           <table class="spec-table">
@@ -589,8 +614,14 @@
         <p>The Trezor Safe 7 supports 1000s of coins and 70k+ dApps via WalletConnect. That's an enormous codebase — every protocol, every chain, every token standard is potential code that could have a vulnerability.</p>
         <p>The ColdCard Q supports Bitcoin only. Less code, smaller attack surface, easier to audit. If you're a Bitcoin maxi (or just hold mostly BTC anyway), this is a real philosophical and practical advantage.</p>
 
-        <h3><span class="num">4.</span>The serious power-user toolkit</h3>
-        <p>ColdCard ships with features you don't realize you want until you need them:</p>
+        <h3><span class="num">4.</span>You generate your own entropy — and you can verify it</h3>
+        <p>This one matters more than people realize. When you set up almost any hardware wallet, the device's internal random number generator picks the 24 words for your seed. You're trusting that the manufacturer's RNG is actually random and hasn't been backdoored at the factory or compromised in firmware.</p>
+        <p>The ColdCard lets you contribute your own entropy — physically. <strong>Roll a set of dice 99 times</strong>, type the rolls into the device, and the ColdCard mixes your entropy with its own to derive the seed. The math is verifiable: you can confirm the device used your dice rolls, not its own RNG. If you don't trust Coinkite's RNG (or any RNG), you can prove they didn't pick your seed.</p>
+        <p>Trezor Safe 7 has no equivalent. You roll the dice in Coinkite's hand or you don't roll them at all.</p>
+        <p class="muted">Sound paranoid? It's exactly the kind of paranoia that's appropriate for a device holding your life savings. Trust math, not vendors.</p>
+
+        <h3><span class="num">5.</span>The rest of the power-user toolkit</h3>
+        <p>Beyond user-generated entropy, ColdCard ships with features you don't realize you want until you need them:</p>
         <ul>
           <li><strong>Brick PIN</strong> — type this PIN and the device permanently destroys itself.</li>
           <li><strong>Duress PIN</strong> — type this and a decoy wallet (with smaller funds) opens, leaving the real wallet hidden. Plausible deniability under coercion.</li>
@@ -598,12 +629,11 @@
           <li><strong>Encrypted MicroSD backups</strong> — back up your wallet to an SD card, encrypted with a passphrase.</li>
           <li><strong>BIP-85 child seeds</strong> — derive multiple separate wallets from one master seed.</li>
           <li><strong>Seed XOR</strong> — split your seed into multiple parts where none alone is useful.</li>
-          <li><strong>Dice-roll entropy</strong> — generate your seed from physical dice rolls, with verifiable math.</li>
           <li><strong>Miniscript + PSBT v2</strong> — modern multisig and transaction features.</li>
         </ul>
         <p>The Trezor Safe 7 has Multi-share Backup (Shamir-style splitting), which is genuinely good — but it skips most of the rest.</p>
 
-        <h3><span class="num">5.</span>Open standards instead of vendor lock-in</h3>
+        <h3><span class="num">6.</span>Open standards instead of vendor lock-in</h3>
         <p>Coinkite ships hardware. They don't push their own software. Connect your ColdCard Q to <em>Sparrow Wallet</em>, <em>Specter</em>, <em>Electrum</em>, or whatever you prefer that speaks PSBT. You're never trapped in their ecosystem.</p>
         <p>Trezor technically supports this too — you can absolutely use a Trezor with Sparrow — but their <em>Trezor Suite</em> app is so polished that most users end up living inside it. Whether that's good or bad depends on your taste, but if you value being able to swap out software freely, ColdCard's hardware-only philosophy is more aligned with that.</p>
 
