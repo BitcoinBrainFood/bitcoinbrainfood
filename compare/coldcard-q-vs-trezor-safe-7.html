@@ -311,20 +311,150 @@
     .spec-table .partial { color: #D97706; font-weight: 700; }
     .spec-table .price-row td { background: rgba(247,147,26,0.04); font-weight: 700; }
 
-    /* ===== DECISION BLOCK ===== */
-    .decision {
+    /* ===== INTERACTIVE QUIZ ===== */
+    .comparison-quiz {
       background: var(--dark-card);
       border: 1px solid var(--dark-border);
-      border-radius: 12px;
-      padding: 22px 24px;
-      margin: 32px 0;
-      font-family: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
-      font-size: 13.5px;
-      line-height: 1.85;
-      color: var(--text);
-      white-space: pre-wrap;
+      border-radius: 14px;
+      padding: 26px 28px;
+      margin: 24px 0 32px;
     }
-    .decision .accent { color: var(--orange); font-weight: 700; }
+    .qz-progress {
+      font-size: 11px; font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .qz-progress .qz-bar {
+      display: block;
+      height: 3px;
+      background: var(--dark-border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .qz-progress .qz-bar-fill {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--orange) 0%, #FFB84D 100%);
+      width: 33%;
+      transition: width 0.35s ease;
+    }
+    .qz-step, .qz-result { display: none; }
+    .qz-step.active, .qz-result.active {
+      display: block;
+      animation: qzFade 0.3s ease;
+    }
+    @keyframes qzFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .qz-q {
+      font-size: 19px;
+      font-weight: 700;
+      margin: 0 0 18px;
+      line-height: 1.35;
+      letter-spacing: -0.2px;
+    }
+    .qz-options {
+      display: grid;
+      gap: 10px;
+    }
+    .qz-options button {
+      background: var(--dark);
+      border: 2px solid var(--dark-border);
+      color: var(--text);
+      text-align: left;
+      padding: 14px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14.5px;
+      font-weight: 500;
+      font-family: inherit;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+    }
+    .qz-options button:hover {
+      border-color: var(--orange);
+      background: rgba(247,147,26,0.06);
+      transform: translateX(2px);
+    }
+    .qz-options button .qz-arrow {
+      color: var(--text-muted);
+      transition: all 0.15s;
+      font-weight: 700;
+    }
+    .qz-options button:hover .qz-arrow {
+      color: var(--orange);
+      transform: translateX(3px);
+    }
+    .qz-options button.qz-flash {
+      border-color: var(--orange);
+      background: rgba(247,147,26,0.15);
+    }
+    .qz-result {
+      padding-top: 4px;
+    }
+    .qz-result .qz-label {
+      display: inline-block;
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 1.4px; text-transform: uppercase;
+      color: var(--orange);
+      background: rgba(247,147,26,0.12);
+      padding: 4px 10px; border-radius: 6px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(247,147,26,0.3);
+    }
+    .qz-result h3 {
+      font-size: 24px;
+      margin: 0 0 10px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+    .qz-result h3 .pick { color: var(--orange); }
+    .qz-result p {
+      margin-bottom: 18px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+    .qz-result-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .qz-result-actions a {
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .qz-result-actions a.qz-cta-primary {
+      background: var(--orange); color: #fff;
+    }
+    .qz-result-actions a.qz-cta-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+    .qz-result-actions a.qz-cta-secondary {
+      background: transparent;
+      border: 1px solid var(--dark-border);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .qz-result-actions a.qz-cta-secondary:hover {
+      color: var(--text);
+      border-color: var(--text-muted);
+    }
 
     /* ===== FINAL CTA STRIP ===== */
     .final-cta {
@@ -648,17 +778,153 @@
           <li><strong>The TROPIC01 secure element.</strong> The world's first transparent, auditable secure element — a genuinely novel piece of engineering. ColdCard's approach (two off-the-shelf secure elements from different vendors) is solid, but TROPIC01 is more transparent.</li>
         </ul>
 
-        <h2>The 2-minute decision</h2>
-        <div class="decision">Have you set up a hardware wallet before?
-├── No  →  <span class="accent">Trezor Safe 7</span>  (UX hand-holding wins for first-timers)
-└── Yes
-    ├── Do you hold mostly Bitcoin?
-    │   ├── Yes  →  <span class="accent">ColdCard Q</span>  ← my pick for most readers
-    │   └── No (significant ETH / SOL / etc.)  →  <span class="accent">Trezor Safe 7</span>
-    │
-    └── Will the device sit in cold storage for months or years?
-        ├── Yes  →  <span class="accent">ColdCard Q</span>  (replaceable batteries are a real win)
-        └── No  →  either works</div>
+        <h2>Pick yours in 10 seconds</h2>
+        <p class="muted">Two or three taps and you'll have an answer.</p>
+
+        <div class="comparison-quiz" id="comparisonQuiz">
+          <div class="qz-progress" id="qzProgress">
+            Question 1 of 3
+            <span class="qz-bar"><span class="qz-bar-fill" id="qzBarFill"></span></span>
+          </div>
+
+          <!-- STEP 1 -->
+          <div class="qz-step active" data-step="1">
+            <h3 class="qz-q">How comfortable are you with self-custody already?</h3>
+            <div class="qz-options">
+              <button data-next="result-trezor-newbie">
+                <span>This is my first hardware wallet</span>
+                <span class="qz-arrow">→</span>
+              </button>
+              <button data-next="step-2">
+                <span>I've used self-custody before — ready to level up</span>
+                <span class="qz-arrow">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="qz-step" data-step="2">
+            <h3 class="qz-q">What do you hold?</h3>
+            <div class="qz-options">
+              <button data-next="step-3">
+                <span>Mostly Bitcoin (or going Bitcoin-only)</span>
+                <span class="qz-arrow">→</span>
+              </button>
+              <button data-next="result-trezor-multicoin">
+                <span>Significant ETH, SOL, or other altcoins</span>
+                <span class="qz-arrow">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="qz-step" data-step="3">
+            <h3 class="qz-q">How will you mostly use it?</h3>
+            <div class="qz-options">
+              <button data-next="result-coldcard-cold">
+                <span>Long-term cold storage — set and forget for years</span>
+                <span class="qz-arrow">→</span>
+              </button>
+              <button data-next="result-coldcard-active">
+                <span>Active use — I'll sign transactions regularly</span>
+                <span class="qz-arrow">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- RESULT: Trezor for total beginner -->
+          <div class="qz-result" data-result="trezor-newbie">
+            <span class="qz-label">Your match</span>
+            <h3>Get the <span class="pick">Trezor Safe 7</span></h3>
+            <p>For your first hardware wallet, the Trezor's polished onboarding via Trezor Suite will hold your hand through every step. <strong>One heads-up:</strong> the Suite app has buy / sell / swap buttons next to Bitcoin — ignore them and stick to BTC. Once you're comfortable in 6&ndash;12 months, consider upgrading to a ColdCard Q.</p>
+            <div class="qz-result-actions">
+              <a class="qz-cta-primary" href="/go/trezor-safe-7">Buy Trezor Safe 7 →</a>
+              <a class="qz-cta-secondary qz-restart" href="#">↻ Retake quiz</a>
+            </div>
+          </div>
+
+          <!-- RESULT: Trezor for multi-coin holders -->
+          <div class="qz-result" data-result="trezor-multicoin">
+            <span class="qz-label">Your match</span>
+            <h3>Get the <span class="pick">Trezor Safe 7</span></h3>
+            <p>If you hold real amounts of ETH, SOL, or other chains, the ColdCard Q isn't an option — it's Bitcoin-only by design. The Trezor Safe 7 supports thousands of coins and 70k+ dApps via WalletConnect, with a polished touchscreen UX.</p>
+            <div class="qz-result-actions">
+              <a class="qz-cta-primary" href="/go/trezor-safe-7">Buy Trezor Safe 7 →</a>
+              <a class="qz-cta-secondary qz-restart" href="#">↻ Retake quiz</a>
+            </div>
+          </div>
+
+          <!-- RESULT: ColdCard for cold storage -->
+          <div class="qz-result" data-result="coldcard-cold">
+            <span class="qz-label">Your match</span>
+            <h3>Get the <span class="pick">ColdCard Q</span></h3>
+            <p>Bitcoin-focused holder + long-term cold storage = the ColdCard Q's perfect use case. The replaceable AAA batteries are a real long-term win (no internal battery to fail in 5 years), the air-gap eliminates wireless attack surface, and Bitcoin-only firmware keeps the codebase tight and auditable.</p>
+            <div class="qz-result-actions">
+              <a class="qz-cta-primary" href="/go/coldcard">Buy ColdCard Q →</a>
+              <a class="qz-cta-secondary qz-restart" href="#">↻ Retake quiz</a>
+            </div>
+          </div>
+
+          <!-- RESULT: ColdCard for active use -->
+          <div class="qz-result" data-result="coldcard-active">
+            <span class="qz-label">Your match</span>
+            <h3>Get the <span class="pick">ColdCard Q</span></h3>
+            <p>For Bitcoin-focused active signing, the ColdCard Q is still your pick. The QR code workflow with Sparrow or Specter is fast once you're set up, the Bitcoin-only firmware keeps the attack surface tight, and you get power-user features (Miniscript, PSBT v2, BIP-85, Seed XOR) that Trezor skips.</p>
+            <div class="qz-result-actions">
+              <a class="qz-cta-primary" href="/go/coldcard">Buy ColdCard Q →</a>
+              <a class="qz-cta-secondary qz-restart" href="#">↻ Retake quiz</a>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          (function () {
+            const quiz = document.getElementById('comparisonQuiz');
+            if (!quiz) return;
+            const steps = quiz.querySelectorAll('.qz-step');
+            const results = quiz.querySelectorAll('.qz-result');
+            const progressLabel = document.getElementById('qzProgress');
+            const barFill = document.getElementById('qzBarFill');
+            const totalSteps = steps.length;
+
+            function showFromTarget(target) {
+              steps.forEach(s => s.classList.remove('active'));
+              results.forEach(r => r.classList.remove('active'));
+              if (target.startsWith('result-')) {
+                const result = quiz.querySelector('[data-result="' + target.slice(7) + '"]');
+                if (result) result.classList.add('active');
+                progressLabel.firstChild.textContent = 'Your match ';
+                barFill.style.width = '100%';
+              } else if (target.startsWith('step-')) {
+                const n = target.slice(5);
+                const step = quiz.querySelector('[data-step="' + n + '"]');
+                if (step) step.classList.add('active');
+                progressLabel.firstChild.textContent = 'Question ' + n + ' of ' + totalSteps + ' ';
+                barFill.style.width = (parseInt(n) / totalSteps * 100) + '%';
+              }
+            }
+
+            // Wire option clicks: brief flash, then advance
+            quiz.querySelectorAll('.qz-options button').forEach(btn => {
+              btn.addEventListener('click', () => {
+                btn.classList.add('qz-flash');
+                const next = btn.dataset.next;
+                setTimeout(() => {
+                  btn.classList.remove('qz-flash');
+                  showFromTarget(next);
+                }, 220);
+              });
+            });
+
+            // Wire restart links
+            quiz.querySelectorAll('.qz-restart').forEach(a => {
+              a.addEventListener('click', e => {
+                e.preventDefault();
+                showFromTarget('step-1');
+              });
+            });
+          })();
+        </script>
 
         <h2>Final pick</h2>
         <p><strong>For most readers of this site: the ColdCard Q.</strong></p>
