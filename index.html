@@ -7,7 +7,11 @@
   <meta name="description" content="Discover the top 50 Bitcoin books handpicked for beginners and experts. Your go-to resource for Bitcoin education.">
   <link rel="icon" type="image/png" href="/img/logo.png">
   <link rel="apple-touch-icon" href="/img/logo.png">
-  <style>
+    <meta name="theme-color" content="#0D1117">
+  <meta name="color-scheme" content="dark">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -729,7 +733,7 @@
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <img src="/img/logo.png" alt="Bitcoin Brain Food" class="logo-img">
+        <img src="/img/logo.png" alt="Bitcoin Brain Food" class="logo-img" width="208" height="208" decoding="async">
       </a>
       <div class="header-right">
         <div class="header-tagline">Feed Your Mind. Stack Your Knowledge.</div>
@@ -841,7 +845,7 @@
   </aside>
 
   <!-- MAIN CONTENT -->
-  <div class="main-content">
+  <div class="main-content" role="main">
 
   <!-- HERO -->
   <section class="hero">
@@ -1050,7 +1054,7 @@
           <div class="book-cover">
             <span class="book-rank">#${book.rank}</span>
             <span class="book-category-badge ${catInfo.badge}">${catInfo.label}</span>
-            <img src="${getImageUrl(book.asin)}" alt="${book.title}" loading="lazy"
+            <img src="${getImageUrl(book.asin)}" alt="${book.title}" loading="lazy" width="300" height="450" decoding="async"
               onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\\'padding:40px;text-align:center;color:#8B949E;font-size:14px;\\'><div style=\\'font-size:48px;margin-bottom:12px;\\'>&#128214;</div>${book.title.replace(/'/g, "\\'")}</div>';">
             ${editorsChoiceBadge}
           </div>
