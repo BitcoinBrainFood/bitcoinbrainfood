@@ -980,7 +980,9 @@
     }
 
     function getAffiliateUrl(asin) {
-      return `https://www.amazon.com/dp/${asin}?tag=${TAG}`;
+      // Routed through /go/amazon so clicks are tracked in CF Web Analytics.
+      // The /go/amazon page reconstructs the full Amazon URL with our tag.
+      return `/go/amazon?asin=${asin}`;
     }
 
     function renderBooks() {

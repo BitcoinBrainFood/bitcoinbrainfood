@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Redirecting to Scarce.city…</title>
+<link rel="icon" type="image/png" href="/img/logo.png">
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  body { background: #0D1117; color: #E6EDF3; margin: 0; min-height: 100vh;
+         display: flex; align-items: center; justify-content: center;
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  .box { text-align: center; padding: 24px; }
+  .spinner { width: 36px; height: 36px; border: 3px solid #21262D;
+             border-top-color: #F7931A; border-radius: 50%;
+             animation: spin .8s linear infinite; margin: 0 auto; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  h1 { font-size: 18px; font-weight: 600; margin: 18px 0 6px; letter-spacing: -.2px; }
+  p  { font-size: 13px; color: #8B949E; margin: 0; }
+  a  { color: #F7931A; text-decoration: none; font-weight: 600; }
+  .brand { margin-top: 28px; font-size: 11px; color: #6B7280; letter-spacing: 1.2px; text-transform: uppercase; }
+  .brand a { color: #F7931A; }
+</style>
+<!-- Cloudflare Web Analytics: this is what logs the click -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token":"6bed19571a144ec699ef127a7e6e8aaa"}'></script>
+</head>
+<body>
+<main class="box">
+  <div class="spinner" aria-hidden="true"></div>
+  <h1>Redirecting to Scarce.city…</h1>
+  <p>If you aren't redirected, <a id="manual" href="https://scarce.city" rel="noopener">click here</a>.</p>
+  <p class="brand"><a href="/">BitcoinBrainFood.com</a></p>
+</main>
+<script>
+  // Wait long enough for the CF Web Analytics beacon to fire, then go.
+  setTimeout(function () { window.location.replace("https://scarce.city"); }, 350);
+</script>
+</body>
+</html>

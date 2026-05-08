@@ -855,7 +855,7 @@
 
     // ===== RECOMMENDATION ENGINE =====
     const AMAZON_TAG = 'jalinn.v.-20';
-    const amzn = (asin) => `https://www.amazon.com/dp/${asin}?tag=${AMAZON_TAG}`;
+    const amzn = (asin) => `/go/amazon?asin=${asin}`;
 
     // Recommendation building blocks
     const R = {
@@ -875,11 +875,11 @@
       wallets: { icon: '🔐', tag: 'Self-custody', title: 'Bitcoin Wallets', by: 'Secure your stack', desc: 'From beginner-friendly mobile wallets to hardware cold storage — find the right wallet for you.', cta: 'Browse Wallets', href: 'wallets.html' },
       giftCards: { icon: '🎁', tag: 'Spend your sats', title: 'Gift Cards with Bitcoin', by: 'Via Bitrefill', desc: 'Amazon, Uber, Airbnb, and hundreds more — spend your Bitcoin anywhere.', cta: 'Browse Gift Cards', href: 'gift-cards.html' },
       esims: { icon: '📱', tag: 'Travel smart', title: 'eSIMs with Bitcoin', by: 'Global data', desc: 'Buy mobile data for 190+ countries with Bitcoin. Perfect for travelers.', cta: 'Browse eSIMs', href: 'esims.html' },
-      nexo: { icon: '💰', tag: 'Earn yield', title: 'Nexo', by: 'Earn on your BTC', desc: 'One of the largest crypto yield platforms. Earn daily interest on your Bitcoin holdings with a trusted name.', cta: 'Open Nexo', href: 'https://nexo.com/ref/rpsk6dhdki?src=android-link', external: true },
-      xapo: { icon: '🏦', tag: 'Bitcoin bank', title: 'Xapo Bank', by: 'Licensed Bitcoin banking', desc: 'A fully licensed bank built for Bitcoiners. Earn interest on BTC with institutional-grade custody.', cta: 'Apply for an Account', href: 'https://application.xapo.com/membership-application?ref=UJG-REQ-TN', external: true },
-      stackerSpread: { icon: '🧮', tag: 'DIY carry trade', title: 'Stacker Spread Calculator', by: 'Our own tool', desc: "Compare BTC-backed borrowing rates against lending yields — build DIY carry-trade strategies without custodial risk.", cta: 'Open Calculator', href: 'https://stackerspread.bitcoinbrainfood.com/', external: true },
+      nexo: { icon: '💰', tag: 'Earn yield', title: 'Nexo', by: 'Earn on your BTC', desc: 'One of the largest crypto yield platforms. Earn daily interest on your Bitcoin holdings with a trusted name.', cta: 'Open Nexo', href: '/go/nexo', external: true },
+      xapo: { icon: '🏦', tag: 'Bitcoin bank', title: 'Xapo Bank', by: 'Licensed Bitcoin banking', desc: 'A fully licensed bank built for Bitcoiners. Earn interest on BTC with institutional-grade custody.', cta: 'Apply for an Account', href: '/go/xapo', external: true },
+      stackerSpread: { icon: '🧮', tag: 'DIY carry trade', title: 'Stacker Spread Calculator', by: 'Our own tool', desc: "Compare BTC-backed borrowing rates against lending yields — build DIY carry-trade strategies without custodial risk.", cta: 'Open Calculator', href: '/go/stackerspread', external: true },
       exchangesTrade: { icon: '📊', tag: 'Active trading', title: 'Bitcoin Trading Platforms', by: 'Binance, Kraken & more', desc: 'Compare platforms with deep liquidity, spot and derivatives, and low fees for active Bitcoin trading.', cta: 'See Platforms', href: 'exchanges.html' },
-      kast: { icon: '💳', tag: 'Spend your sats', title: 'Kast Debit Card', by: 'Spend BTC anywhere Visa works', desc: 'Load sats onto a card and spend them anywhere Visa is accepted — in-store, online, or at an ATM.', cta: 'Get Kast', href: 'https://go.kast.xyz/VqVO/9UPJ9S0N', external: true },
+      kast: { icon: '💳', tag: 'Spend your sats', title: 'Kast Debit Card', by: 'Spend BTC anywhere Visa works', desc: 'Load sats onto a card and spend them anywhere Visa is accepted — in-store, online, or at an ATM.', cta: 'Get Kast', href: '/go/kast', external: true },
       gifts: { icon: '🎁', tag: 'Merch & gear', title: 'Bitcoin Gifts & Home Miners', by: 'BitcoinMerch, lottery miners, merch', desc: 'Bitcoin-themed apparel, lottery miners, and collectibles — perfect for gifting or your own setup.', cta: 'Browse Gifts', href: 'gifts.html' },
       earnBitcoin: { icon: '💼', tag: 'Earn sats', title: 'Earn Bitcoin Online', by: 'Work, content & rewards', desc: 'Freelance gigs, content platforms, and shopping rewards — earn your first sats without buying them.', cta: 'See Platforms', href: 'earn-bitcoin.html' },
       acceptBitcoin: { icon: '🏪', tag: 'For business', title: 'Accept Bitcoin Payments', by: 'Payment processors', desc: 'Set up your business to take Bitcoin via BTCPay, OpenNode, or CoinGate.', cta: 'See Processors', href: 'accept-bitcoin.html' },
