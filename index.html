@@ -1007,7 +1007,11 @@
     }
 
     function getImageUrl(asin) {
-      return `https://images-na.ssl-images-amazon.com/images/P/${asin}.01._SX300_.jpg`;
+      // Amazon's "LZZZZZZZ" suffix on m.media-amazon.com returns the
+      // largest-available cover (~25 KB / ~500px wide for most books).
+      // The legacy images-na.ssl-images-amazon.com host with _SX300_ /
+      // _SX500_ ignored the size hint and always returned a 108x160 thumb.
+      return `https://m.media-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
     }
 
     function getAffiliateUrl(asin) {
@@ -1062,7 +1066,7 @@
           <div class="book-cover">
             <span class="book-rank">#${book.rank}</span>
             <span class="book-category-badge ${catInfo.badge}">${catInfo.label}</span>
-            <img src="${getImageUrl(book.asin)}" alt="${book.title}" loading="lazy" width="300" height="450" decoding="async"
+            <img src="${getImageUrl(book.asin)}" alt="${book.title}" loading="lazy" decoding="async"
               onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\\'padding:40px;text-align:center;color:#8B949E;font-size:14px;\\'><div style=\\'font-size:48px;margin-bottom:12px;\\'>&#128214;</div>${book.title.replace(/'/g, "\\'")}</div>';">
             ${editorsChoiceBadge}
           </div>
