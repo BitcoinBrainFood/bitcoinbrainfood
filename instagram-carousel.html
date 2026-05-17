@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BitcoinBrainFood — Instagram Carousel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    padding: 60px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .instructions {
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.7;
+    border: 1px dashed #444;
+    padding: 20px 30px;
+    border-radius: 12px;
+  }
+  .instructions strong { color: #F7931A; }
+
+  .slide-label {
+    color: #666;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: -40px;
+  }
+
+  /* ===== SLIDE FRAME ===== */
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* ===== SHARED ELEMENTS ===== */
+  .slide-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .slide-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 72px 80px 64px;
+  }
+
+  /* Logo bar */
+  .logo-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: auto;
+  }
+
+  .logo-icon {
+    width: 52px;
+    height: 52px;
+    background: #F7931A;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Anybody', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(247, 147, 26, 0.4);
+  }
+
+  .logo-text {
+    font-family: 'Anybody', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+
+  .logo-text span { color: #F7931A; }
+
+  /* Center block */
+  .center-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(247, 147, 26, 0.12);
+    border: 1.5px solid rgba(247, 147, 26, 0.3);
+    color: #F7931A;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+
+  .main-icon {
+    font-size: 160px;
+    line-height: 1;
+    margin: 10px 0 20px;
+    filter: drop-shadow(0 12px 40px rgba(0,0,0,0.5));
+  }
+
+  .headline {
+    font-family: 'Anybody', sans-serif;
+    font-weight: 900;
+    font-size: 82px;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    max-width: 800px;
+  }
+
+  .headline .accent { color: #F7931A; }
+
+  .subtitle {
+    font-size: 26px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 500;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Bottom bar */
+  .bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .cta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 14px 28px;
+    border-radius: 100px;
+    color: rgba(255,255,255,0.7);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    backdrop-filter: blur(10px);
+  }
+
+  .cta .link-icon {
+    width: 20px;
+    height: 20px;
+    background: #F7931A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #fff;
+  }
+
+  .swipe {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.4);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .swipe-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.5);
+    font-size: 20px;
+  }
+
+  .dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+  .dot.active {
+    width: 32px;
+    border-radius: 6px;
+    background: #F7931A;
+  }
+
+  /* ===== NOISE OVERLAY ===== */
+  .noise {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 256px;
+    pointer-events: none;
+  }
+
+  /* ===== DECORATIVE CIRCLES ===== */
+  .deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* ===== SLIDE 1 — BOOKS ===== */
+  .slide-1 .slide-bg {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 110%, rgba(247,147,26,0.20) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 10% 20%, rgba(247,147,26,0.08) 0%, transparent 50%),
+      linear-gradient(170deg, #0a0c10 0%, #0d1117 40%, #131820 100%);
+  }
+  .slide-1 .deco-1 {
+    width: 600px; height: 600px;
+    bottom: -200px; right: -150px;
+    border: 1.5px solid rgba(247,147,26,0.08);
+  }
+  .slide-1 .deco-2 {
+    width: 400px; height: 400px;
+    bottom: -100px; right: -50px;
+    border: 1.5px solid rgba(247,147,26,0.05);
+  }
+
+  /* ===== SLIDE 2 — WALLETS ===== */
+  .slide-2 .slide-bg {
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(247,147,26,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(59,130,246,0.06) 0%, transparent 50%),
+      linear-gradient(200deg, #0d1117 0%, #0a0e14 50%, #111820 100%);
+  }
+  .slide-2 .deco-1 {
+    width: 500px; height: 500px;
+    top: -100px; right: -100px;
+    border: 1.5px solid rgba(247,147,26,0.07);
+  }
+  .slide-2 .deco-2 {
+    width: 300px; height: 300px;
+    top: 0px; right: 0px;
+    border: 1.5px solid rgba(247,147,26,0.04);
+  }
+
+  /* ===== SLIDE 3 — PODCASTS ===== */
+  .slide-3 .slide-bg {
+    background:
+      radial-gradient(ellipse 50% 60% at 50% 50%, rgba(247,147,26,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 90% 90%, rgba(247,100,0,0.08) 0%, transparent 40%),
+      linear-gradient(150deg, #0d1117 0%, #0f1419 50%, #0a0c10 100%);
+  }
+  .slide-3 .deco-1 {
+    width: 700px; height: 700px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1.5px solid rgba(247,147,26,0.06);
+  }
+  .slide-3 .deco-2 {
+    width: 500px; height: 500px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1.5px solid rgba(247,147,26,0.04);
+  }
+
+  /* ===== SLIDE 4 — EXCHANGES ===== */
+  .slide-4 .slide-bg {
+    background:
+      radial-gradient(ellipse 50% 50% at 20% 30%, rgba(247,147,26,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 40% at 80% 70%, rgba(34,197,94,0.05) 0%, transparent 40%),
+      linear-gradient(135deg, #0d1117 0%, #111820 60%, #0a0c10 100%);
+  }
+  .slide-4 .deco-1 {
+    width: 450px; height: 450px;
+    top: -80px; left: -80px;
+    border: 1.5px solid rgba(247,147,26,0.07);
+  }
+  .slide-4 .deco-2 {
+    width: 280px; height: 280px;
+    top: 0; left: 0;
+    border: 1.5px solid rgba(247,147,26,0.04);
+  }
+
+  /* ===== SLIDE 5 — MERCH ===== */
+  .slide-5 .slide-bg {
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(247,147,26,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 30% at 10% 80%, rgba(247,100,26,0.06) 0%, transparent 40%),
+      linear-gradient(180deg, #131820 0%, #0d1117 40%, #0a0c10 100%);
+  }
+  .slide-5 .deco-1 {
+    width: 550px; height: 550px;
+    top: -180px; left: 50%;
+    transform: translateX(-50%);
+    border: 1.5px solid rgba(247,147,26,0.08);
+  }
+  .slide-5 .deco-2 {
+    width: 350px; height: 350px;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    border: 1.5px solid rgba(247,147,26,0.05);
+  }
+
+  /* ===== GLOW LINE ===== */
+  .glow-line {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .slide-1 .glow-line {
+    bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, #F7931A, transparent);
+    opacity: 0.5;
+  }
+  .slide-2 .glow-line {
+    top: 0; right: 0; bottom: 0; width: 3px;
+    background: linear-gradient(180deg, transparent, #F7931A, transparent);
+    opacity: 0.4;
+  }
+  .slide-3 .glow-line {
+    bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, #F7931A, transparent);
+    opacity: 0.4;
+  }
+  .slide-4 .glow-line {
+    top: 0; left: 0; bottom: 0; width: 3px;
+    background: linear-gradient(180deg, transparent, #F7931A, transparent);
+    opacity: 0.4;
+  }
+  .slide-5 .glow-line {
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, #F7931A, transparent);
+    opacity: 0.6;
+  }
+
+  /* Number watermark */
+  .slide-number {
+    position: absolute;
+    z-index: 1;
+    font-family: 'Anybody', sans-serif;
+    font-weight: 900;
+    font-size: 420px;
+    color: rgba(255,255,255,0.015);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .slide-1 .slide-number { bottom: -80px; right: -30px; }
+  .slide-2 .slide-number { bottom: -80px; left: -30px; }
+  .slide-3 .slide-number { top: -80px; right: -30px; }
+  .slide-4 .slide-number { bottom: -80px; right: -30px; }
+  .slide-5 .slide-number { top: -80px; left: -30px; }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <strong>How to save these slides:</strong><br>
+  Right-click each slide → <strong>"Save image as"</strong> won't work on HTML.<br>
+  Instead, use your browser's screenshot tool or <strong>Windows Snipping Tool</strong> (Win+Shift+S).<br>
+  Crop each 1080×1080 square individually. Post all 5 as an Instagram carousel.
+</div>
+
+<!-- ===== SLIDE 1: BOOKS ===== -->
+<p class="slide-label">Slide 1 of 5</p>
+<div class="slide slide-1">
+  <div class="slide-bg"></div>
+  <div class="noise"></div>
+  <div class="glow-line"></div>
+  <div class="deco-circle deco-1"></div>
+  <div class="deco-circle deco-2"></div>
+  <div class="slide-number">01</div>
+  <div class="slide-content">
+    <div class="logo-bar">
+      <div class="logo-icon">₿</div>
+      <div class="logo-text">Bitcoin<span>BrainFood</span></div>
+    </div>
+
+    <div class="center-block">
+      <div class="category-badge">01 — Books</div>
+      <div class="main-icon">📚</div>
+      <div class="headline">Feed Your <span class="accent">Mind</span></div>
+      <div class="subtitle">50+ Hand-Picked Bitcoin Books</div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="cta">
+        <span class="link-icon">🔗</span>
+        bitcoinbrainfood.com
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe">
+        Swipe
+        <span class="swipe-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 2: WALLETS ===== -->
+<p class="slide-label">Slide 2 of 5</p>
+<div class="slide slide-2">
+  <div class="slide-bg"></div>
+  <div class="noise"></div>
+  <div class="glow-line"></div>
+  <div class="deco-circle deco-1"></div>
+  <div class="deco-circle deco-2"></div>
+  <div class="slide-number">02</div>
+  <div class="slide-content">
+    <div class="logo-bar">
+      <div class="logo-icon">₿</div>
+      <div class="logo-text">Bitcoin<span>BrainFood</span></div>
+    </div>
+
+    <div class="center-block">
+      <div class="category-badge">02 — Wallets</div>
+      <div class="main-icon">🛡️</div>
+      <div class="headline">Secure Your <span class="accent">Stack</span></div>
+      <div class="subtitle">The Most Trusted Bitcoin Wallets</div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="cta">
+        <span class="link-icon">🔗</span>
+        bitcoinbrainfood.com
+      </div>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe">
+        Swipe
+        <span class="swipe-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 3: PODCASTS ===== -->
+<p class="slide-label">Slide 3 of 5</p>
+<div class="slide slide-3">
+  <div class="slide-bg"></div>
+  <div class="noise"></div>
+  <div class="glow-line"></div>
+  <div class="deco-circle deco-1"></div>
+  <div class="deco-circle deco-2"></div>
+  <div class="slide-number">03</div>
+  <div class="slide-content">
+    <div class="logo-bar">
+      <div class="logo-icon">₿</div>
+      <div class="logo-text">Bitcoin<span>BrainFood</span></div>
+    </div>
+
+    <div class="center-block">
+      <div class="category-badge">03 — Podcasts</div>
+      <div class="main-icon">🎙️</div>
+      <div class="headline">Listen <span class="accent">&</span> Learn</div>
+      <div class="subtitle">Top 10 Bitcoin Podcasts</div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="cta">
+        <span class="link-icon">🔗</span>
+        bitcoinbrainfood.com
+      </div>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe">
+        Swipe
+        <span class="swipe-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 4: EXCHANGES ===== -->
+<p class="slide-label">Slide 4 of 5</p>
+<div class="slide slide-4">
+  <div class="slide-bg"></div>
+  <div class="noise"></div>
+  <div class="glow-line"></div>
+  <div class="deco-circle deco-1"></div>
+  <div class="deco-circle deco-2"></div>
+  <div class="slide-number">04</div>
+  <div class="slide-content">
+    <div class="logo-bar">
+      <div class="logo-icon">₿</div>
+      <div class="logo-text">Bitcoin<span>BrainFood</span></div>
+    </div>
+
+    <div class="center-block">
+      <div class="category-badge">04 — Exchanges</div>
+      <div class="main-icon">⚡</div>
+      <div class="headline">Start <span class="accent">Stacking</span></div>
+      <div class="subtitle">Trusted Platforms to Buy Bitcoin</div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="cta">
+        <span class="link-icon">🔗</span>
+        bitcoinbrainfood.com
+      </div>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe">
+        Swipe
+        <span class="swipe-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 5: MERCH & GIFTS ===== -->
+<p class="slide-label">Slide 5 of 5</p>
+<div class="slide slide-5">
+  <div class="slide-bg"></div>
+  <div class="noise"></div>
+  <div class="glow-line"></div>
+  <div class="deco-circle deco-1"></div>
+  <div class="deco-circle deco-2"></div>
+  <div class="slide-number">05</div>
+  <div class="slide-content">
+    <div class="logo-bar">
+      <div class="logo-icon">₿</div>
+      <div class="logo-text">Bitcoin<span>BrainFood</span></div>
+    </div>
+
+    <div class="center-block">
+      <div class="category-badge">05 — Merch & Gifts</div>
+      <div class="main-icon">🎁</div>
+      <div class="headline">Rep the <span class="accent">Movement</span></div>
+      <div class="subtitle">Bitcoin Gear, Miners & Gift Cards</div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="cta">
+        <span class="link-icon">🔗</span>
+        bitcoinbrainfood.com
+      </div>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+      </div>
+      <div class="swipe" style="visibility:hidden;">
+        Swipe
+        <span class="swipe-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

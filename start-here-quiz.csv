@@ -1,0 +1,84 @@
+SECTION 1 — QUIZ QUESTIONS (edit the question text below)
+Question Number,Field ID,Question Text,Subtitle
+1,experience,How much Bitcoin experience do you have?,Be honest — there's no wrong answer.
+2,learn,How do you like to learn?,Everyone's different. We'll match resources to your style.
+3,interest,What's calling to you right now?,Pick what excites you most — we'll point you there next.
+
+SECTION 2 — ANSWER OPTIONS (edit titles / descriptions / icons)
+Question,Option ID,Option Title,Option Description,Icon
+1,curious,Bitcoin curious,I've heard about it but don't really get it yet.,🌱
+1,some,I've dabbled,"Bought a little, maybe have a wallet. Ready to go deeper.",📈
+1,seasoned,Seasoned HODLer,I know the basics. Show me the advanced stuff.,🔥
+2,reading,Reading,Give me a great book I can dive into.,📖
+2,listening,Listening,"Podcasts while I drive, walk, or work.",🎧
+2,watching,Watching,Videos and courses I can follow along with.,🎥
+3,basics,Understand why Bitcoin matters,"The big picture — sound money, inflation, freedom.",💡
+3,buying,Start stacking sats,I want to buy my first Bitcoin safely.,💱
+3,storing,Store it safely,"Wallets, self-custody, keeping my sats secure.",🔐
+3,earning,Earn yield on my Bitcoin,"Staking, interest accounts, putting my BTC to work.",💰
+3,spending,Spend my Bitcoin,"Gift cards, eSIMs, real-world use.",🛒
+
+SECTION 3 — ALL 45 COMBINATIONS (edit the Recommendation columns — leave blank to skip)
+Experience,Learning Style,Interest,Profile Tag (shown to user),Recommendation 1 (Primary / START HERE),Recommendation 2,Recommendation 3,Recommendation 4
+curious,reading,basics,Bitcoin Curious · wants the big picture,The Bitcoin Standard,Inventing Bitcoin,,
+curious,reading,buying,Bitcoin Curious · ready to stack,The Bitcoin Standard,Inventing Bitcoin,Browse Exchanges,
+curious,reading,storing,Bitcoin Curious · focused on security,The Bitcoin Standard,Inventing Bitcoin,Browse Wallets,
+curious,reading,earning,Bitcoin Curious · chasing yield,The Bitcoin Standard,Inventing Bitcoin,Earn Yield (Nexo / Exchanges),
+curious,reading,spending,Bitcoin Curious · ready to spend sats,The Bitcoin Standard,Inventing Bitcoin,Gift Cards (Bitrefill),eSIMs (Bitrefill)
+curious,listening,basics,Bitcoin Curious · wants the big picture,Browse Bitcoin Podcasts,Inventing Bitcoin,,
+curious,listening,buying,Bitcoin Curious · ready to stack,Browse Bitcoin Podcasts,Inventing Bitcoin,Browse Exchanges,
+curious,listening,storing,Bitcoin Curious · focused on security,Browse Bitcoin Podcasts,Inventing Bitcoin,Browse Wallets,
+curious,listening,earning,Bitcoin Curious · chasing yield,Browse Bitcoin Podcasts,Inventing Bitcoin,Earn Yield (Nexo / Exchanges),
+curious,listening,spending,Bitcoin Curious · ready to spend sats,Browse Bitcoin Podcasts,Inventing Bitcoin,Gift Cards (Bitrefill),eSIMs (Bitrefill)
+curious,watching,basics,Bitcoin Curious · wants the big picture,Browse Bitcoin Courses,The Bitcoin Standard,,
+curious,watching,buying,Bitcoin Curious · ready to stack,Browse Bitcoin Courses,The Bitcoin Standard,Browse Exchanges,
+curious,watching,storing,Bitcoin Curious · focused on security,Browse Bitcoin Courses,The Bitcoin Standard,Browse Wallets,
+curious,watching,earning,Bitcoin Curious · chasing yield,Browse Bitcoin Courses,The Bitcoin Standard,Earn Yield (Nexo / Exchanges),
+curious,watching,spending,Bitcoin Curious · ready to spend sats,Browse Bitcoin Courses,The Bitcoin Standard,Gift Cards (Bitrefill),eSIMs (Bitrefill)
+some,reading,basics,Dabbling Stacker · wants the big picture,Broken Money,The Bullish Case for Bitcoin,,
+some,reading,buying,Dabbling Stacker · ready to stack,Broken Money,The Bullish Case for Bitcoin,Browse Exchanges,
+some,reading,storing,Dabbling Stacker · focused on security,Broken Money,The Bullish Case for Bitcoin,Browse Wallets,
+some,reading,earning,Dabbling Stacker · chasing yield,Broken Money,The Bullish Case for Bitcoin,Earn Yield (Nexo / Exchanges),
+some,reading,spending,Dabbling Stacker · ready to spend sats,Broken Money,The Bullish Case for Bitcoin,Gift Cards (Bitrefill),eSIMs (Bitrefill)
+some,listening,basics,Dabbling Stacker · wants the big picture,Browse Bitcoin Podcasts,Broken Money,,
+some,listening,buying,Dabbling Stacker · ready to stack,Browse Bitcoin Podcasts,Broken Money,Browse Exchanges,
+some,listening,storing,Dabbling Stacker · focused on security,Browse Bitcoin Podcasts,Broken Money,Browse Wallets,
+some,listening,earning,Dabbling Stacker · chasing yield,Browse Bitcoin Podcasts,Broken Money,Earn Yield (Nexo / Exchanges),
+some,listening,spending,Dabbling Stacker · ready to spend sats,Browse Bitcoin Podcasts,Broken Money,Gift Cards (Bitrefill),eSIMs (Bitrefill)
+some,watching,basics,Dabbling Stacker · wants the big picture,Browse Bitcoin Courses,Broken Money,,
+some,watching,buying,Dabbling Stacker · ready to stack,Browse Bitcoin Courses,Broken Money,Browse Exchanges,
+some,watching,storing,Dabbling Stacker · focused on security,Browse Bitcoin Courses,Broken Money,Browse Wallets,
+some,watching,earning,Dabbling Stacker · chasing yield,Browse Bitcoin Courses,Broken Money,Earn Yield (Nexo / Exchanges),
+some,watching,spending,Dabbling Stacker · ready to spend sats,Browse Bitcoin Courses,Broken Money,Gift Cards (Bitrefill),eSIMs (Bitrefill)
+seasoned,reading,basics,Seasoned HODLer · wants the big picture,Mastering Bitcoin,Broken Money,,
+seasoned,reading,buying,Seasoned HODLer · ready to stack,Mastering Bitcoin,Broken Money,Browse Exchanges,
+seasoned,reading,storing,Seasoned HODLer · focused on security,Mastering Bitcoin,Broken Money,Browse Wallets,
+seasoned,reading,earning,Seasoned HODLer · chasing yield,Mastering Bitcoin,Broken Money,Earn Yield (Nexo / Exchanges),
+seasoned,reading,spending,Seasoned HODLer · ready to spend sats,Mastering Bitcoin,Broken Money,Gift Cards (Bitrefill),eSIMs (Bitrefill)
+seasoned,listening,basics,Seasoned HODLer · wants the big picture,Browse Bitcoin Podcasts,Mastering Bitcoin,,
+seasoned,listening,buying,Seasoned HODLer · ready to stack,Browse Bitcoin Podcasts,Mastering Bitcoin,Browse Exchanges,
+seasoned,listening,storing,Seasoned HODLer · focused on security,Browse Bitcoin Podcasts,Mastering Bitcoin,Browse Wallets,
+seasoned,listening,earning,Seasoned HODLer · chasing yield,Browse Bitcoin Podcasts,Mastering Bitcoin,Earn Yield (Nexo / Exchanges),
+seasoned,listening,spending,Seasoned HODLer · ready to spend sats,Browse Bitcoin Podcasts,Mastering Bitcoin,Gift Cards (Bitrefill),eSIMs (Bitrefill)
+seasoned,watching,basics,Seasoned HODLer · wants the big picture,Browse Bitcoin Courses,Programming Bitcoin,,
+seasoned,watching,buying,Seasoned HODLer · ready to stack,Browse Bitcoin Courses,Programming Bitcoin,Browse Exchanges,
+seasoned,watching,storing,Seasoned HODLer · focused on security,Browse Bitcoin Courses,Programming Bitcoin,Browse Wallets,
+seasoned,watching,earning,Seasoned HODLer · chasing yield,Browse Bitcoin Courses,Programming Bitcoin,Earn Yield (Nexo / Exchanges),
+seasoned,watching,spending,Seasoned HODLer · ready to spend sats,Browse Bitcoin Courses,Programming Bitcoin,Gift Cards (Bitrefill),eSIMs (Bitrefill)
+
+SECTION 4 — RECOMMENDATION POOL (current items the quiz can recommend — add new ones below for me to wire up)
+Item Name (use exact name in Section 3),Type,Link / Destination,Notes
+The Bitcoin Standard,Book,Amazon (asin: 1119473861),by Saifedean Ammous
+Broken Money,Book,Amazon (asin: B0CG8985FR),by Lyn Alden
+Inventing Bitcoin,Book,Amazon (asin: 1794326316),by Yan Pritzker — short primer under 100 pages
+The Little Bitcoin Book,Book,Amazon (asin: 1641990503),by Bitcoin Collective — accessible beginner book
+Mastering Bitcoin,Book,Amazon (asin: 1098150090),by Andreas Antonopoulos — technical bible
+Programming Bitcoin,Book,Amazon (asin: 1492031496),by Jimmy Song — for builders/developers
+The Bullish Case for Bitcoin,Book,Amazon (asin: 1737204118),by Vijay Boyapati — quick & clear
+Browse Bitcoin Podcasts,Internal Page,podcasts.html,Links to your podcasts page
+Browse Bitcoin Courses,Internal Page,courses.html,Links to your courses page
+Browse Exchanges,Internal Page,exchanges.html,Links to your exchanges page
+Browse Wallets,Internal Page,wallets.html,Links to your wallets page
+Earn Yield (Nexo / Exchanges),Internal Page,exchanges.html,Anchored to Nexo on exchanges page
+Gift Cards (Bitrefill),Internal Page,gift-cards.html,Links to your gift cards page
+eSIMs (Bitrefill),Internal Page,esims.html,Links to your eSIMs page
