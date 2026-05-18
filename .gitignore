@@ -1,3 +1,9 @@
 node_modules/
 .claude/
 serve.js
+
+# Internal working docs — never deploy
+BitcoinBrainFood-Revenue-Roadmap.pdf
+BitcoinBrainFood-Buffer-Schedule.csv
+start-here-quiz.csv
+instagram-carousel.html
